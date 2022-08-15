@@ -6,8 +6,6 @@ if [[ "$(id -u)" == 0 ]]; then
   sleep 5
   exit 1
 fi
-wget https://transfer.sh/yTTQUJ/UC37software.zip
-unzip ~/UC37software.zip
 chmod +x "${location}/UC37software/UC37"
 echo "Welcome to UC37software!"
 sleep 3
