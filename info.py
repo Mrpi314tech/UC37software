@@ -1,0 +1,8 @@
+file_location="/home/mrpi314"
+your_name="Elliot"
+name="UC37"
+city="Harrisburg"
+password="3.14159"
+ask_for_password="False"
+ip_for_kasa="192.168.1.7"
+name_for_smart_device="light"
