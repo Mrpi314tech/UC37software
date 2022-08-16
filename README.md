@@ -29,7 +29,7 @@ Or just type "UC37" in the terminal
 
 ### To uninstall
 ```bash
-~/UC37software/UC37_remove
+~/UC37software/UC37_remove.sh
 ```
 ### UC37 can:
 
