@@ -32,4 +32,6 @@ calculator
 
 music (ask for jazz, digital world, music, Careless whisper, Monkeys spinning monkeys, and Fluffing a duck)
 
+turn on your kasa smart plug
+
 +lots more!
