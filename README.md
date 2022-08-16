@@ -13,7 +13,7 @@ git clone https://github.com/Mrpi314tech/UC37software && chmod +x ~/UC37software
 Step 2:
 Go to the main menu and open the path called "Other" then click the application called UC37. UC37 will wake up!
 
-
+![](https://github.com/Mrpi314tech/UC37software/blob/main/UC37_run.gif)
 
 UC37 can:
 
