@@ -25,6 +25,8 @@ Go to the main menu and open the path called "Other" then click the application 
 
 ![](https://github.com/Mrpi314tech/UC37software/blob/main/UC37_run.gif)
 
+Or just type "UC37" in the terminal
+
 ### To uninstall
 ```bash
 ~/UC37software/UC37_remove
