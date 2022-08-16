@@ -30,11 +30,14 @@ while true; do
 		echo "retaking survey"
 		python3 ~/UC37software/Welcome/Survey.py
 	else
+		echo "#!/bin/bash
+		~/UC37software/UC37"' "$@"' | sudo tee /usr/local/bin/UC37 mkdir -p /usr/local/bin
+		sudo chmod +x /usr/local/bin/UC37
 		mkdir -p ~/.local/share/applications
 		echo "[Desktop Entry]
 		Name=UC37
 		Comment=UC37 the AI
-		Exec=${location}/UC37software/UC37
+		Exec=UC37
 		Icon=${location}/UC37software/images/UC37.png
 		Terminal=true
 		Type=Application
