@@ -510,22 +510,7 @@ def question(qstn):
         os.system('vlc '+username+'/UC37software/sounds/explosions.mp3')
         moodometer=[1,2,3,4,5]
     elif 'calculator' in qstn:
-        screen('look in shell\nfor result')
-        dg1=int(input('type the first number'))
-        print(dg1)
-        op=input('type the operator(multiplication=*addition=+subtraction=-division=/)')
-        print(op)
-        dg2=int(input('type the last number'))
-        print(dg2)
-        if '*' in op:
-            answer=dg1*dg2
-        if '+' in op:
-            answer=dg1+dg2
-        if '-' in op:
-            answer=dg1-dg2
-        if '/' in op:
-            raise SyntaxError('You actually think Im smart enough to do division?')
-        print(answer)
+        os.system("galculator")
         moodometer=[1,2,3,4,5]
     elif 'buy' in qstn:
         print('Things to buy:\nan extra large monitor for me\namicro HDMI cable\na new keyboard\nscreen polisher\na 5g wireless network\na better mouse')
