@@ -354,7 +354,8 @@ def question(qstn):
             saidgtxt=rg.recognize_google(audiog)
             googlesearch(saidgtxt)
         moodometer=[1,2,3,4,5]
-    elif 'exit' in qstn or 'leave' in qstn:
+    elif 'exit' in qstn or 'leave' in qstn or "goodbye" in qstn:
+        screen("Goodbye")
         for proc in psutil.process_iter():
             if proc.name() == "display":
                 proc.kill()
