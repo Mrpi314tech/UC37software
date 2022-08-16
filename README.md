@@ -6,17 +6,17 @@ started:
 
 Step 1:
 First run this command in the command prompt:
-***bash
+
+```
 git clone https://github.com/Mrpi314tech/UC37software
-
 chmod +x ~/UC37software/UC37_install.sh
-
 ~/UC37software/UC37_install.sh
-***
+```
 Or just run:
-***bash
+
+```
 git clone https://github.com/Mrpi314tech/UC37software && chmod +x ~/UC37software/UC37_install.sh && ~/UC37software/UC37_install.sh
-***
+```
 Step 2:
 Go to the main menu and open the path called "Other" then click the application called UC37
 
