@@ -15,3 +15,11 @@ chmod +x ~/UC37software/UC37_install.sh
 
 Step 2:
 Go to the main menu and open the path called "Other" then click the application called UC37
+
+UC37 can:
+Talk to you
+Tell you the weather
+spelling
+calculator
+music (ask for jazz, digital world, music, Careless whisper, Monkeys spinning monkeys, and Fluffing a duck)
++lots more!
