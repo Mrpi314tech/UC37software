@@ -176,7 +176,7 @@ def question(qstn):
     elif crsponce[0] == 'what are you doing today?' and 'talking to you' in qstn:
         screen('other then that')
         moodometer=[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
-    elif crsponce[0] == 'what are you doing today?' and 'doing' in qstn or 'going' and crsponce[0] == 'what are you doing today?' or 'am' in qstn and crsponce[0] == 'what are you doing today?':
+    elif crsponce[0] == 'what are you doing today?' and 'doing' in qstn or 'going' in qstn and crsponce[0] == 'what are you doing today?' or 'am' in qstn and crsponce[0] == 'what are you doing today?':
         screen('oh.')
         gtdt()
         moodometer=[1,2,3,4,5]
