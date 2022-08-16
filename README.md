@@ -4,6 +4,14 @@ UC37 is an artificial intellagence program that acts like a human. When you talk
 him you will find that it is much like talking to a real person. Here is how you get
 started:
 
+Parts you need:
+
+raspberry pi
+
+usb microphone
+
+speaker for 3.5 mm jack (hdmi doesn't work well)
+
 Step 1:
 First run this command in the command prompt:
 
