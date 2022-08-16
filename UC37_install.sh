@@ -1,4 +1,5 @@
 #!/bin/bash
+chmod +x ~/UC37software/UC37_install
 location="$HOME"
 cd $HOME
 if [[ "$(id -u)" == 0 ]]; then
