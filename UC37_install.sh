@@ -18,6 +18,7 @@ sudo apt-get install flac
 pip3 install pyautogui
 sudo apt install espeak
 sudo pip install pyaudio
+pip install pyttsx3
 sudo apt install fswebcam
 echo "Now you will take a survey to help UC37 get to know you"
 sleep 3
