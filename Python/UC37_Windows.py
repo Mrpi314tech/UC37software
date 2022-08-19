@@ -15,7 +15,6 @@ import pyttsx3
 import requests
 import json
 import sys
-from kasa import smartplug as ks
 import asyncio
 chatlist=['next time, the Lions will win', 'Is Detroit good at any sport?', 'if you want to play a game, just ask me!', "in case you haven't figured it out, I'm a Lions fan.", 'what is your favorite color?', "what are you doing today?", 'what is your favorite food?', 'Tell me about yourself.']  
 data=[]
