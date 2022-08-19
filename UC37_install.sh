@@ -19,7 +19,6 @@ pip3 install pyautogui
 sudo apt install espeak
 sudo pip install pyaudio
 sudo apt install fswebcam
-sudo pip install python-kasa
 echo "Now you will take a survey to help UC37 get to know you"
 sleep 3
 python3 ~/UC37software/Welcome/Survey.py
