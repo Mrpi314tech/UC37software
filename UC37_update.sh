@@ -1,3 +1,7 @@
 #!/bin/bash
-rm ~/UC37software/Python/UC37_Windows.py
-wget -P ~/UC37software/Python https://raw.githubusercontent.com/Mrpi314tech/UC37software/main/Python/UC37_Windows.py
+mv ~/UC37software/Python/new_words.py ~
+mv ~/UC37software/Welcome/info.py ~
+rm -r ~/UC37software
+git clone https://github.com/Mrpi314tech/UC37software
+mv ~/new_words.py ~/UC37software/Python
+mv ~/info.py ~/UC37software/Welcome
