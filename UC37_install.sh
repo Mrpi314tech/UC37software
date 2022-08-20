@@ -34,7 +34,7 @@ while true; do
 		python3 ~/UC37software/Welcome/Survey.py
 	else
 		echo "#!/bin/bash
-		~/UC37software/UC37"' "$@"' | sudo tee /usr/local/bin/UC37 mkdir -p /usr/local/bin
+		~/UC37software/UC37"' "$@"' | sudo tee /usr/local/bin/UC37 -p /usr/local/bin
 		sudo chmod +x /usr/local/bin/UC37
 		mkdir -p ~/.local/share/applications
 		echo "[Desktop Entry]
