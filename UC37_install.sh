@@ -9,6 +9,7 @@ if [[ "$(id -u)" == 0 ]]; then
 fi
 chmod +x "${location}/UC37software/UC37"
 chmod +x "${location}/UC37software/UC37_remove.sh"
+chmod +x "${location}/UC37software/UC37_update.sh"
 echo "Welcome to UC37software!"
 sleep 3
 echo "this will download some packages"
