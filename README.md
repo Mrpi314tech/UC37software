@@ -29,7 +29,7 @@ Or just type "UC37" in the terminal
 
 ### To Update
 ```bash
-~/UC37software/UC37_update.sh
+~/UC37_update.sh
 ```
 ### To uninstall
 ```bash
