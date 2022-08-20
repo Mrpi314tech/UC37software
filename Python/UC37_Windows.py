@@ -15,12 +15,21 @@ import pyttsx3
 import requests
 import json
 import sys
+from kasa import smartplug as ks
 import asyncio
+try:
+    import new_words as aword
+except:
+    import Python.new_words as aword
+nwordl=aword.word
+ndefl=aword.defi
+file_location=os.path.expanduser('~')
 chatlist=['next time, the Lions will win', 'Is Detroit good at any sport?', 'if you want to play a game, just ask me!', "in case you haven't figured it out, I'm a Lions fan.", 'what is your favorite color?', "what are you doing today?", 'what is your favorite food?', 'Tell me about yourself.']  
 data=[]
 jsaid=[]
 mood=1
 sys.path.append('../')
+from Python import new_words
 try:
     from Welcome import info
 except:
@@ -37,6 +46,8 @@ if info.ask_for_password == True:
             print('Wrong password!')
 else:
     pass
+verb="act	answer	approve	arrange break	build	buy	color	cough	create	complete cry	dance	describe	Draw Drink	Eat	Edit	Enter Exit	Imitate	Invent	Jump Laugh	Lie	Listen	Paint Plan	Play	Read	Replace Run	Scream	See	Shop Shout	Sing	Skip	Sleep Sneeze	Solve	Study	Teach Touch	Turn	Walk	Win Write	Whistle	Yank	Zip Concern	Decide	Dislike Doubt	Feel	Forget Hate	Hear	Hope Impress	Know	Learn Like	Look	Love Mind	Notice	Own Perceive	Realize	Recognize Remember	See	Smell Surprise	Please	Prefer Promise	Think	Understand Am	Appear	Are Be	Become	Been Being	Feel	Grow Is	Look	Remain Seem	Smell	Sound Stay	Taste	Turn Was	Were	Can	Could	May Might	Must	Ought to Shall	Should	Will Would	"
+notnoun="for and nor but or yet so a an the and do I he him her tell we they it who what where when why how me she you"+verb.lower()
 location=info.file_location
 kasaip=info.ip_for_kasa
 kasa_name=info.name_for_smart_device
@@ -137,6 +148,9 @@ def question(qstn):
     print('\n\n')
     global data
     global crsponce
+    global ndef
+    global nword
+    global file_location
     if 'spell' in qstn:
         try:
             htspl=qstn.split('spell ')
@@ -208,6 +222,14 @@ def question(qstn):
         moodometer=[5,5,5]
     elif 'weather' in qstn or 'temp' in qstn:
         news()
+        moodometer=[1,2,3,4]
+    elif "full" in qstn and 'access' in qstn and "file" in qstn:
+        screen("access granted")
+        os.system("sudo pcmanfm")
+        moodometer=[1,2,3,4]
+    elif "full" in qstn and "access" in qstn:
+        screen("access granted")
+        os.system("sudo lxterminal")
         moodometer=[1,2,3,4]
     elif kasa_name in qstn and 'on' in qstn:
         kasaon()
@@ -384,7 +406,7 @@ def question(qstn):
     elif 'story' in qstn or 'book' in qstn:
         book()
         moodometer=[1,2,3,4,4,4]
-    elif 'sad' in qstn or 'bad' in qstn or 'angry' in qstn or 'depressed' in qstn or 'mean' in qstn:
+    elif 'sad' in qstn or 'bad' in qstn or 'angry' in qstn or 'depressed' in qstn or "sick" in qstn:
         screen('I hope you\nfeel better soon')
         moodometer=[1,2,3,4,4,4,4,4,4,5]
     elif 'attack' in qstn or 'Attack' in qstn:
@@ -631,6 +653,9 @@ def question(qstn):
         print('disconnecing wifi')
         wifi()
         moodometer=[1,2,3,4,5]
+    elif "correct" in qstn:
+        screen("I know")
+        moodometer=[1,2,3,4]
     elif 'connect' in qstn:
         print('connecting to Y-PHI')
         cwifi()
@@ -638,7 +663,7 @@ def question(qstn):
     elif 'want' in qstn:
         screen('you want it,\nbut do you need it?')
         moodometer=[1,2,3,4,5,5]
-    elif 'no' in qstn:
+    elif 'no' in qstn and not "now" in qstn:
         screen('ok')
         moodometer=[1,2,3,4,5,5,5]
     elif 'Bible' in qstn or 'verse' in qstn:
@@ -662,7 +687,42 @@ def question(qstn):
         screen('ok')
         moodometer=[1,2,3,4,5]
     else:
-        moodometer=[2]
+        global notnoun
+        global nwordl
+        global ndefl
+        wverb=qstn.split(" ")
+        snfv=0
+        aantt=0
+        while True:
+            try:
+                if nwordl[aantt] in qstn:
+                    screen(ndefl[aantt])
+                    break
+                else:
+                    aantt+=1
+            except IndexError:
+                try:
+                    if wverb[snfv] not in notnoun:
+                        screen("I do not know what "+wverb[snfv]+" means\n")
+                        nword=wverb[snfv]
+                        with sr.Microphone() as source:
+                            screen("what is it?")
+                            r.adjust_for_ambient_noise(source)
+                            audio=r.listen(source)
+                            ndef=r.recognize_google(audio)
+                        nwordl.append(nword)
+                        ndefl.append(ndef)
+                        file1 = open(file_location+"/UC37software/Python/new_words.py", "w")
+                        vn=dt.datetime.now().strftime("%M%S")
+                        print(vn)
+                        file1.write("word="+str(nwordl)+"\ndefi="+str(ndefl))
+                        file1.close()
+                        break
+                    else:
+                        snfv+=1
+                except:
+                    break
+        moodometer=[1,2,3,4]
     global mood
     if moodometer == [1,2,3,4,5]:
         moodometer.remove(5)
@@ -697,6 +757,8 @@ def question(qstn):
     print('\n\n')
 psaid=[]
 wign=[]
+ndef=" "
+nword="wusgfyfhhsugf "
 def mquestion(qstn):
     print('\n\n')
     if 'hello' in qstn or 'hi' in qstn:
