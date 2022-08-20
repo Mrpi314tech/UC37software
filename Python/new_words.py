@@ -1,0 +1,2 @@
+word=['candle', 'mouse', 'Kindle', 'SpongeBob', 'correct']
+defi=['is the source of light using in fire', 'squeaky animal', 'it is a device to read books', 'it is a yellow sponge who lives in a pineapple under the sea', 'it means that you are right']
