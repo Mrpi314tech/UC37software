@@ -27,6 +27,10 @@ Go to the main menu and open the path called "Other" then click the application 
 
 Or just type "UC37" in the terminal
 
+### To Update
+```bash
+~/UC37software/UC37_update.sh
+```
 ### To uninstall
 ```bash
 ~/UC37software/UC37_remove.sh
