@@ -1,6 +1,6 @@
 # UC37software
 Welcome to UC37 software!
-UC37 is an artificial intellagence program that acts like a human. When you talk to
+UC37 is an artificial intelligence program that acts like a human. When you talk to
 him you will find that it is much like talking to a real person. Here is how you get
 started:
 
