@@ -15,7 +15,7 @@ import pyttsx3
 import requests
 import json
 import sys
-from kasa import smartplug as ks
+#from kasa import smartplug as ks
 import asyncio
 try:
     import new_words as aword
