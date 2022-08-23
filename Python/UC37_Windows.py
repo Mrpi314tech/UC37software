@@ -48,13 +48,19 @@ else:
     pass
 verb="act	answer	approve	arrange break	build	buy	color	cough	create	complete cry	dance	describe	Draw Drink	Eat	Edit	Enter Exit	Imitate	Invent	Jump Laugh	Lie	Listen	Paint Plan	Play	Read	Replace Run	Scream	See	Shop Shout	Sing	Skip	Sleep Sneeze	Solve	Study	Teach Touch	Turn	Walk	Win Write	Whistle	Yank	Zip Concern	Decide	Dislike Doubt	Feel	Forget Hate	Hear	Hope Impress	Know	Learn Like	Look	Love Mind	Notice	Own Perceive	Realize	Recognize Remember	See	Smell Surprise	Please	Prefer Promise	Think	Understand Am	Appear	Are Be	Become	Been Being	Feel	Grow Is	Look	Remain Seem	Smell	Sound Stay	Taste	Turn Was	Were	Can	Could	May Might	Must	Ought to Shall	Should	Will Would	"
 notnoun="for and nor but or yet so a an the and do I he him her tell we they it who what where when why how me she you"+verb.lower()
-location=info.file_location
-kasaip=info.ip_for_kasa
-kasa_name=info.name_for_smart_device
-your_name = info.your_name
-name=info.name
-city=info.city
-username=location
+try:
+    location=info.file_location
+    kasaip=info.ip_for_kasa
+    kasa_name=info.name_for_smart_device
+    your_name = info.your_name
+    name=info.name
+    city=info.city
+    apikey=info.api
+    username=location
+except:
+    print("Could not get your info. Try retaking the survey")
+    time.sleep(1)
+    exit()
 engine=pyttsx3.init()
 engine.setProperty('voice', 'english-us')
 voice=True
@@ -102,7 +108,7 @@ def book():
     snl('the future\nSM won again!')
     print('One day Sausage Man was walking by Mcdonalds to check out the new breakfast combo when lightning struck. Out of the dust came Mini Potato, the fiendish villan who could see the future! "Im going to get you!" said Sausage Man. Sausage Man chased Mini Potato around, but Mini Potato knew when he was going to attack, so Sausage Man couldnt get him. Then Sausage Man had an idea. "If I shoot him with something fast, will he be able, to move?" Sausage man whipped out his trusty syrup launcher and blasted Mini Potato to the ground. Mini Potato was stuck! "No!" Mini Potato groaned as Sausage man stabbed his eyes out with a fork. Withought his eyes, Mini Potato couldnt see the future. Another victory for Sausage Man!') 
 def news():
-    weather = requests.get("http://api.weatherapi.com/v1/forecast.json?key=47fd44846a1248db90e200817221707&q="+city+"&days=1&aqi=no&alerts=no")
+    weather = requests.get("http://api.weatherapi.com/v1/forecast.json?key="+apikey+"&q="+city+"&days=1&aqi=no&alerts=no")
     temp=str(weather.json()['current']['temp_f'])
     hum=str(weather.json()['current']['humidity'])
     ftemp=str(weather.json()['current']['feelslike_f'])
