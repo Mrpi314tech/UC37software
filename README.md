@@ -14,12 +14,16 @@ speaker for 3.5 mm jack (hdmi doesn't work well)
 
 ### Step 1:
 
+Make a free weather account at http://api.weatherapi.com
+
+### Step 2:
+
 First run this command in the command prompt:
 
 ```bash
 git clone https://github.com/Mrpi314tech/UC37software && chmod +x ~/UC37software/UC37_install.sh && ~/UC37software/UC37_install.sh
 ```
-### Step 2:
+### Step 3:
 
 Go to the main menu and open the path called "Other" then click the application called UC37. UC37 will wake up!
 
