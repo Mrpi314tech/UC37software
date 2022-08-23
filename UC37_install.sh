@@ -28,7 +28,7 @@ python3 ~/UC37software/Welcome/Survey.py
 echo "the survey is over."
 read -p "is the information correctly answered? (y/n)" gsy
 while true; do
-	if [[ $qsy == *"no"* ]]
+	if [[ $qsy == *"n"* ]]
 	then
 		echo "retaking survey"
 		python3 ~/UC37software/Welcome/Survey.py
