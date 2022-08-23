@@ -14,7 +14,7 @@ speaker for 3.5 mm jack (hdmi doesn't work well)
 
 ### Step 1:
 
-Make a free weather account at http://api.weatherapi.com
+Make a free weather account at http://weatherapi.com
 
 Use the API key it gives you when the survey asks for your api key
 
