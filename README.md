@@ -16,6 +16,8 @@ speaker for 3.5 mm jack (hdmi doesn't work well)
 
 Make a free weather account at http://api.weatherapi.com
 
+Use the API key it gives you when the survey asks for your api key
+
 ### Step 2:
 
 First run this command in the command prompt:
