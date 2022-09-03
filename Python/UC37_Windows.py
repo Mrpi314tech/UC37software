@@ -229,6 +229,9 @@ def question(qstn):
     elif 'weather' in qstn or 'temp' in qstn:
         news()
         moodometer=[1,2,3,4]
+    elif 'spotify' in qstn or 'Spotify' in qstn:
+        os.system('/usr/bin/chromium-browser --profile-directory=Default --app-id=pjibgclleladliembfgfagdaldikeohf')
+        moodometer=[1,2,3,4]
     elif "full" in qstn and 'access' in qstn and "file" in qstn:
         screen("access granted")
         os.system("sudo pcmanfm")
