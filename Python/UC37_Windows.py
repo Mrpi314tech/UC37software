@@ -15,15 +15,52 @@ import pyttsx3
 import requests
 import json
 import sys
+file_location=os.path.expanduser('~')
 #from kasa import smartplug as ks
 import asyncio
 try:
     import new_words as aword
 except:
     import Python.new_words as aword
+import pygame
+pygame.init()
+white = (255, 255, 255)
+green = (0, 255, 0)
+blue = (0, 0, 128)
+X = 600
+Y = 400
+display_surface = pygame.display.set_mode((X, Y))
+pygame.display.set_caption('UC37software')
+font = pygame.font.Font('freesansbold.ttf', 32)
+header = font.render('UC37software', True, white, blue)
+textRect = header.get_rect()
+textRect.center = (180, 20)
+display_surface.fill(blue)
+display_surface.blit(header, textRect)
+pygame.draw.line(display_surface, white,
+                 [300, 300],
+                 [300, 0], 10)
+imp = pygame.image.load(file_location+"/UC37software/images/UC37.png").convert()
+img= pygame.transform.scale(imp, (75, 75))
+display_surface.blit(img, (265, 330))
+pygame.display.flip()
+pygame.display.update()
+def print(bpg):
+    global font
+    global X
+    global white
+    global blue
+    if not bpg == "\n" or not bpg == "\n\n":
+        tdply=bpg+"                                                                    "
+        bpg1 = font.render(tdply, True, white, blue)
+        thi = bpg1.get_rect()
+        display_surface.blit(bpg1, (20, 300))
+        pygame.display.update()
+    else:
+        pass
+print('hello')
 nwordl=aword.word
 ndefl=aword.defi
-file_location=os.path.expanduser('~')
 chatlist=['next time, the Lions will win', 'Is Detroit good at any sport?', 'if you want to play a game, just ask me!', "in case you haven't figured it out, I'm a Lions fan.", 'what is your favorite color?', "what are you doing today?", 'what is your favorite food?', 'Tell me about yourself.']  
 data=[]
 jsaid=[]
@@ -48,6 +85,7 @@ else:
     pass
 verb="act	answer	approve	arrange break	build	buy	color	cough	create	complete cry	dance	describe	Draw Drink	Eat	Edit	Enter Exit	Imitate	Invent	Jump Laugh	Lie	Listen	Paint Plan	Play	Read	Replace Run	Scream	See	Shop Shout	Sing	Skip	Sleep Sneeze	Solve	Study	Teach Touch	Turn	Walk	Win Write	Whistle	Yank	Zip Concern	Decide	Dislike Doubt	Feel	Forget Hate	Hear	Hope Impress	Know	Learn Like	Look	Love Mind	Notice	Own Perceive	Realize	Recognize Remember	See	Smell Surprise	Please	Prefer Promise	Think	Understand Am	Appear	Are Be	Become	Been Being	Feel	Grow Is	Look	Remain Seem	Smell	Sound Stay	Taste	Turn Was	Were	Can	Could	May Might	Must	Ought to Shall	Should	Will Would	"
 notnoun="for and nor but or yet so a an the and do I he him her tell we they it who what where when why how me she you"+verb.lower()
+
 try:
     location=info.file_location
     kasaip=info.ip_for_kasa
@@ -64,8 +102,6 @@ except:
 engine=pyttsx3.init()
 engine.setProperty('voice', 'english-us')
 voice=True
-img = Image.open(username+'/UC37software/images/UC37.png') 
-img.show()
 r=sr.Recognizer()
 def speak(say):
     engine.say(say)
@@ -151,7 +187,6 @@ def googlesearch(txt):
     pr.write(txt)
     key('enter')
 def question(qstn):
-    print('\n\n')
     global data
     global crsponce
     global ndef
@@ -763,7 +798,6 @@ def question(qstn):
         else:
             snl('I am really mad')
         mood = 5    
-    print('\n\n')
 psaid=[]
 wign=[]
 ndef=" "
@@ -798,7 +832,6 @@ def mquestion(qstn):
     if gooh == 3:
         global mood
         mood=1
-    print('\n\n')
 def rockpaper():
     screen('Rock paper scissors!')
     time.sleep(1)
@@ -982,10 +1015,8 @@ def sleep():
 def good():
     os.system(username+'/UC37software/images/AI-succeed-gif')
 def clear_shell():
-    for i in range(0,25):
-        print('\n')
+    pass
 clear_shell()
-print('====================UC37====================')
 st=0
 greet='hello, %s' % your_name
 speak(greet)
@@ -994,56 +1025,66 @@ lasts=' '
 print('Process completed')
 notned=0
 while True:
-    if voice == True:
-        while True:
-            with sr.Microphone() as source:
-                r.adjust_for_ambient_noise(source)
-                if st == 0:
-                    clear_shell()
-                    st=1
-                    print('====================UC37====================')
-                    past=['z','z','z','z']
-                print('...')
-                audio=r.listen(source)
-                try:
-                    saidtxt=r.recognize_google(audio)
-                    notned=0
-                except:
-                    notned+=1
-                    break
-            if saidtxt == 'what' or 'pardon' in saidtxt:
-                speak("I")
-                if mood == 5:
-                    mquestion(saidtxt)
+    display_surface = pygame.display.set_mode((X, Y))
+    display_surface.fill(blue)
+    display_surface.blit(header, textRect)
+    pygame.draw.line(display_surface, white,
+                     [300, 300],
+                     [300, 0], 10)
+    imp = pygame.image.load(file_location+"/UC37software/images/UC37.png").convert()
+    img= pygame.transform.scale(imp, (75, 75))
+    display_surface.blit(img, (265, 330))
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            sys.exit()
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            x, y = pygame.mouse.get_pos()
+            if x >=265 and x<= 340 and y >= 340:
+                with sr.Microphone() as source:
+                    r.adjust_for_ambient_noise(source)
+                    if st == 0:
+                        clear_shell()
+                        st=1
+                        past=['z','z','z','z']
+                    print('Speak...')
+                    audio=r.listen(source)
+                    try:
+                        saidtxt=r.recognize_google(audio)
+                        notned=0
+                    except:
+                        notned+=1
+                        break
+                if saidtxt == 'what' or 'pardon' in saidtxt:
+                    speak("I")
+                    if mood == 5:
+                        mquestion(saidtxt)
+                    else:
+                        question(saidtxt)
                 else:
-                    question(saidtxt)
-            else:
-                speak("I")
-                if mood == 5:
-                    mquestion(saidtxt)
-                else:
-                    question(saidtxt)
-                lasts=saidtxt
-                data.insert(0, int(mood))
-                if len(data) >= 5:
-                    data.pop(3)
-                #print(data)
-                jsaid.insert(0, saidtxt)
-                #print(jsaid)
-                #print(rsponce)
-                #print(crsponce)
-                #print(psaid)
-                ml=most_frequent(data)
-        if notned==1:
-            speak('I')
-            screen('La dee dum')
-        elif notned==2:
-            speak('I')
-            screen('Im bored')
-        elif notned==3:
-            speak('I')
-            os.system('vlc '+username+'/UC37software/sounds/Monkeys-Spinning-Monkeys.mp3')
-            notned=0
-    else:
-        saidtxt=input('..:')
-        question(saidtxt)
+                    speak("I")
+                    if mood == 5:
+                        mquestion(saidtxt)
+                    else:
+                        question(saidtxt)
+                    lasts=saidtxt
+                    data.insert(0, int(mood))
+                    if len(data) >= 5:
+                        data.pop(3)
+                    #print(data)
+                    jsaid.insert(0, saidtxt)
+                    #print(jsaid)
+                    #print(rsponce)
+                    #print(crsponce)
+                    #print(psaid)
+                    ml=most_frequent(data)
+            if notned==1:
+                speak('I')
+                screen('La dee dum')
+            elif notned==2:
+                speak('I')
+                screen('Im bored')
+            elif notned==3:
+                speak('I')
+                os.system('vlc '+username+'/UC37software/sounds/Monkeys-Spinning-Monkeys.mp3')
+                notned=0
+    pygame.display.update()
