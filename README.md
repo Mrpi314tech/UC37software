@@ -33,6 +33,8 @@ Go to the main menu and open the path called "Other" then click the application 
 
 Or just type "UC37" in the terminal
 
+Press the picture of him to talk
+
 ### To Update
 ```bash
 ~/UC37_update.sh
