@@ -42,7 +42,7 @@ while true; do
 		Comment=UC37 the AI
 		Exec=UC37
 		Icon=${location}/UC37software/images/UC37.png
-		Terminal=true
+		Terminal=false
 		Type=Application
 		Categories=Programming;
 		StartupNotify=true" > ~/.local/share/applications/UC37.desktop
