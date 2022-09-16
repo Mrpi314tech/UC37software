@@ -15,19 +15,27 @@ import pyttsx3
 import requests
 import json
 import sys
+def prints(txttp):
+    sys.stdout.write(txttp)
 file_location=os.path.expanduser('~')
 #from kasa import smartplug as ks
 import asyncio
 try:
     import new_words as aword
-except:
+except ModuleNotFoundError:
     import Python.new_words as aword
+try:
+    import new_com as acom
+except ModuleNotFoundError:
+    import Python.new_com as acom
+nwcoml=acom.word
+nrunl=acom.com    
 import pygame
 pygame.init()
 white = (255, 255, 255)
 green = (0, 255, 0)
 blue = (0, 0, 128)
-X = 600
+X = 800
 Y = 400
 display_surface = pygame.display.set_mode((X, Y))
 pygame.display.set_caption('UC37software')
@@ -192,6 +200,8 @@ def question(qstn):
     global ndef
     global nword
     global file_location
+    global nwcoml
+    global nrunl
     if 'spell' in qstn:
         try:
             htspl=qstn.split('spell ')
@@ -739,33 +749,25 @@ def question(qstn):
         aantt=0
         while True:
             try:
-                if nwordl[aantt] in qstn:
+                if nwordl[aantt] in qstn.lower():
                     screen(ndefl[aantt])
                     break
                 else:
                     aantt+=1
             except IndexError:
-                try:
-                    if wverb[snfv] not in notnoun:
-                        screen("I do not know what "+wverb[snfv]+" means\n")
-                        nword=wverb[snfv]
-                        with sr.Microphone() as source:
-                            screen("what is it?")
-                            r.adjust_for_ambient_noise(source)
-                            audio=r.listen(source)
-                            ndef=r.recognize_google(audio)
-                        nwordl.append(nword)
-                        ndefl.append(ndef)
-                        file1 = open(file_location+"/UC37software/Python/new_words.py", "w")
-                        vn=dt.datetime.now().strftime("%M%S")
-                        print(vn)
-                        file1.write("word="+str(nwordl)+"\ndefi="+str(ndefl))
-                        file1.close()
+                aantt=0
+                while True:
+                    try:
+                        if nwcoml[aantt] in qstn.lower():
+                            prints("command... ")
+                            os.system(nrunl[aantt])
+                            break
+                        else:
+                            aantt+=1
+                    except IndexError:
+                        screen('I do not know what '+qstn+' means. You can press edit to tell me what it means.')
                         break
-                    else:
-                        snfv+=1
-                except:
-                    break
+                break
         moodometer=[1,2,3,4]
     global mood
     if moodometer == [1,2,3,4,5]:
