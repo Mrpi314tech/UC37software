@@ -44,6 +44,8 @@ header = font.render('UC37software', True, white, blue)
 textRect = header.get_rect()
 textRect.center = (180, 20)
 display_surface.fill(blue)
+display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("edit", True, blue, white), (400, 40))
+display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("exit", True, blue, white), (400, 150))
 display_surface.blit(header, textRect)
 pygame.draw.line(display_surface, white,
                  [300, 300],
@@ -1029,6 +1031,8 @@ notned=0
 while True:
     display_surface = pygame.display.set_mode((X, Y))
     display_surface.fill(blue)
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("edit", True, blue, white), (400, 40))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("exit", True, blue, white), (400, 150))
     display_surface.blit(header, textRect)
     pygame.draw.line(display_surface, white,
                      [300, 300],
@@ -1041,6 +1045,10 @@ while True:
             sys.exit()
         if event.type == pygame.MOUSEBUTTONDOWN:
             x, y = pygame.mouse.get_pos()
+            if x >=400 and x<= 505 and y >= 150 and y <= 210:
+                exit()
+            if x >=400 and x<= 505 and y >= 40 and y <= 100:
+                os.system('lxterminal -e python3 '+file_location+'/UC37software/Python/UC37edit.py')
             if x >=265 and x<= 340 and y >= 340:
                 with sr.Microphone() as source:
                     r.adjust_for_ambient_noise(source)
