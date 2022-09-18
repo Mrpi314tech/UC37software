@@ -34,9 +34,12 @@ import pygame
 hur=int(dt.now().strftime("%H"))
 minits=int(dt.now().strftime("%M"))
 if hur >= 12:
-    currentTime = str(hur-12)+":"+str(minits)+" PM"
+    if minits <= 9:
+        currentTime = str(hur-12)+":0"+str(minits)+" PM"
+    else:
+        currentTime = str(hur-12)+":"+str(minits)+" PM"
 else:
-    currentTime = str(hur)+":"+str(minits)+" AM"
+    currentTime = dt.now().strftime("%H:%M AM")
 if hur >= 0 and hur <= 11:
     tofdy="morning"
 elif hur >= 12 and hur <= 16:
@@ -942,9 +945,12 @@ while True:
     hur=int(dt.now().strftime("%H"))
     minits=int(dt.now().strftime("%M"))
     if hur >= 12:
-        currentTime = str(hur-12)+":"+str(minits)+" PM"
+        if minits <= 9:
+            currentTime = str(hur-12)+":0"+str(minits)+" PM"
+        else:
+            currentTime = str(hur-12)+":"+str(minits)+" PM"
     else:
-        currentTime = str(hur)+":"+str(minits)+" AM"
+        currentTime = dt.now().strftime("%H:%M AM")
     if hur >= 0 and hur <= 11:
         tofdy="morning"
     elif hur >= 12 and hur <= 16:
@@ -988,7 +994,7 @@ while True:
                 except ModuleNotFoundError:
                     import Python.new_com as acom
                 nwcoml=acom.word
-                nrunl=acom.com   
+                nrunl=acom.com
             if x >=265 and x<= 340 and y >= 340:
                 with sr.Microphone() as source:
                     r.adjust_for_ambient_noise(source)
