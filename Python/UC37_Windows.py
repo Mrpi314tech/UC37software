@@ -39,7 +39,10 @@ if hur >= 12:
     else:
         currentTime = str(hur-12)+":"+str(minits)+" PM"
 else:
-    currentTime = dt.now().strftime("%H:%M AM")
+    if minits <= 9:
+        currentTime = str(hur)+":0"+str(minits)+" AM"
+    else:
+        currentTime = str(hur)+":"+str(minits)+" AM"
 if hur >= 0 and hur <= 11:
     tofdy="morning"
 elif hur >= 12 and hur <= 16:
@@ -62,8 +65,8 @@ display_surface.fill(blue)
 display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("edit", True, blue, white), (400, 40))
 display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Github", True, blue, white), (700, 0))
 display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("History", True, blue, white), (400, 150))
-display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, white, blue), (610, 150))
-display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render("Good "+tofdy, True, white, blue), (610, 200))
+display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, white, blue), (585, 150))
+display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render("Good "+tofdy, True, white, blue), (590, 200))
 display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("Info", True, blue, white), (590, 40))
 display_surface.blit(header, textRect)
 pygame.draw.line(display_surface, white,
@@ -950,7 +953,10 @@ while True:
         else:
             currentTime = str(hur-12)+":"+str(minits)+" PM"
     else:
-        currentTime = dt.now().strftime("%H:%M AM")
+        if minits <= 9:
+            currentTime = str(hur)+":0"+str(minits)+" AM"
+        else:
+            currentTime = str(hur)+":"+str(minits)+" AM"
     if hur >= 0 and hur <= 11:
         tofdy="morning"
     elif hur >= 12 and hur <= 16:
@@ -962,8 +968,8 @@ while True:
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("edit", True, blue, white), (400, 40))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Github", True, blue, white), (700, 0))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("History", True, blue, white), (400, 150))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, white, blue), (610, 150))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render("Good "+tofdy, True, white, blue), (610, 200))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, white, blue), (585, 150))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render("Good "+tofdy, True, white, blue), (590, 200))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("Info", True, blue, white), (590, 40))
     display_surface.blit(header, textRect)
     pygame.draw.line(display_surface, white,
