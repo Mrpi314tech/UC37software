@@ -10,7 +10,7 @@ from subprocess import call
 from PIL import Image
 import psutil
 import smbus
-import datetime as dt
+from datetime import datetime as dt
 import pyttsx3
 import requests
 import json
@@ -31,6 +31,18 @@ except ModuleNotFoundError:
 nwcoml=acom.word
 nrunl=acom.com    
 import pygame
+hur=int(dt.now().strftime("%H"))
+minits=int(dt.now().strftime("%M"))
+if hur >= 12:
+    currentTime = str(hur-12)+":"+str(minits)+" PM"
+else:
+    currentTime = str(hur)+":"+str(minits)+" AM"
+if hur >= 0 and hur <= 11:
+    tofdy="morning"
+elif hur >= 12 and hur <= 16:
+    tofdy="afternoon"
+elif hur >= 5:
+    tofdy="evening"
 pygame.init()
 white = (255, 255, 255)
 green = (0, 255, 0)
@@ -45,7 +57,11 @@ textRect = header.get_rect()
 textRect.center = (180, 20)
 display_surface.fill(blue)
 display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("edit", True, blue, white), (400, 40))
-display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("exit", True, blue, white), (400, 150))
+display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Github", True, blue, white), (700, 0))
+display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("History", True, blue, white), (400, 150))
+display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, white, blue), (610, 150))
+display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render("Good "+tofdy, True, white, blue), (610, 200))
+display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("Info", True, blue, white), (590, 40))
 display_surface.blit(header, textRect)
 pygame.draw.line(display_surface, white,
                  [300, 300],
@@ -133,7 +149,7 @@ def cavern():
     key('space')
 button='book'
 rfid = False
-print('Im taking a picture of you')
+print('Picture stored at UC37software/images')
 os.system("fswebcam -r 1280x720 --no-banner "+username+"/Pictures/secure.jpg")
 def stinky():
     screen('stealth farts')
@@ -154,14 +170,14 @@ def book():
     snl('the future\nSM won again!')
     print('One day Sausage Man was walking by Mcdonalds to check out the new breakfast combo when lightning struck. Out of the dust came Mini Potato, the fiendish villan who could see the future! "Im going to get you!" said Sausage Man. Sausage Man chased Mini Potato around, but Mini Potato knew when he was going to attack, so Sausage Man couldnt get him. Then Sausage Man had an idea. "If I shoot him with something fast, will he be able, to move?" Sausage man whipped out his trusty syrup launcher and blasted Mini Potato to the ground. Mini Potato was stuck! "No!" Mini Potato groaned as Sausage man stabbed his eyes out with a fork. Withought his eyes, Mini Potato couldnt see the future. Another victory for Sausage Man!') 
 def news():
-    weather = requests.get("http://api.weatherapi.com/v1/forecast.json?key="+apikey+"&q="+city+"&days=1&aqi=no&alerts=no")
-    temp=str(weather.json()['current']['temp_f'])
+    global weather
+    global temp
+    global sky
     hum=str(weather.json()['current']['humidity'])
     ftemp=str(weather.json()['current']['feelslike_f'])
     winds=str(weather.json()['current']['wind_mph'])
     windd=str(weather.json()['current']['wind_dir'])
     windg=str(weather.json()['current']['gust_mph'])
-    sky=str(weather.json()['current']['condition']['text'])
     htemp=str(weather.json()['forecast']['forecastday'][0]['day']['maxtemp_f'])
     ltemp=str(weather.json()['forecast']['forecastday'][0]['day']['mintemp_f'])
     crain=str(weather.json()['forecast']['forecastday'][0]['day']['daily_chance_of_rain'])
@@ -465,59 +481,6 @@ def question(qstn):
     elif 'sad' in qstn or 'bad' in qstn or 'angry' in qstn or 'depressed' in qstn or "sick" in qstn:
         screen('I hope you\nfeel better soon')
         moodometer=[1,2,3,4,4,4,4,4,4,5]
-    elif 'attack' in qstn or 'Attack' in qstn:
-        kilw=input('who are you attacking?')
-        mis=range(50,70)
-        far=range(30,47)
-        dl=range(20,60)
-        damage=0
-        atk=range(10,90)
-        slfd=100
-        while True:
-            if 'DH64' in kilw:
-                hkil=input('how would you like to attack: missle, fart, or duel')
-                if 'missle' in hkil:
-                    missle()
-                    misd=random.choice(mis)
-                    damage+=misd
-                    print('damage done:')
-                    print(misd)
-                elif 'fart' in hkil:
-                    stinky()
-                    fard=random.choice(far)
-                    damage+=fard
-                    print('damage done:')
-                    print(fard)
-                elif 'duel' in hkil:
-                    rockpaper()
-                    dld=random.choice(dl)
-                    damage+=dld
-                    print('damage done:')
-                    print(dld)
-                else:
-                    print('miss type! lose turn')
-                if damage >= 100:
-                    print('you beat DH64!')
-                    break
-                else:
-                    print('damage to go:')
-                    print(100-damage)
-                time.sleep(2)
-                print('\nDH64 attack!')
-                time.sleep(1)
-                atkk=random.choice(atk)
-                slfd=slfd-atkk
-                print('you have')
-                print(slfd)
-                print('health remaining\n')
-                time.sleep(2)
-                if slfd <= 0:
-                    print('you were destroyed by DH64')
-                    raise SyntaxError('DH64 has destroyed you')
-            else:
-                missle()
-                break
-        moodometer=[1,2,3,4,4,4,4,5]
     elif 'happy' in qstn or 'well' in qstn or 'fine' in qstn or 'good' in qstn or 'wonderful' in qstn:
         screen('that is\nvery good')
         moodometer=[1,2,3,4,4,4,4,4,4,5]
@@ -600,34 +563,6 @@ def question(qstn):
             if y_value < 400:
                 break
         moodometer=[1,2,3,4,4,4,5]
-    elif 'camera' in qstn or 'Camera' in qstn:
-        import numpy as np
-        import cv2
-        faceCascade = cv2.CascadeClassifier('/home/'+username+'/Documents/Face_recognition/Cascades/haarcascade_frontalface_default.xml')
-        cap = cv2.VideoCapture(0)
-        cap.set(3,1280) # set Width
-        cap.set(4,960) # set Height
-        while True:
-            ret, img = cap.read()
-            gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-            faces = faceCascade.detectMultiScale(
-                gray,
-                scaleFactor=1.2,
-                minNeighbors=5
-                ,     
-                minSize=(20, 20)
-            )
-            for (x,y,w,h) in faces:
-                cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
-                roi_gray = gray[y:y+h, x:x+w]
-                roi_color = img[y:y+h, x:x+w]
-            cv2.imshow('IM WATCHING YOU!',img)
-            k = cv2.waitKey(30) & 0xff
-            if k == 27: # press 'ESC' to quit
-                break
-        cap.release()
-        cv2.destroyAllWindows()
-        moodometer=[1,2,3,4,5]
     elif 'dance' in qstn:
         dance()
         moodometer=[1,2,3,4,4,4,4,4,4,4,4,4,5]
@@ -655,8 +590,7 @@ def question(qstn):
         screen('you mean the smelly things on the ends of human legs?')
         moodometer=[1,2,3,4,4,4,5]
     elif 'command line' in qstn:
-        piatras=input('what would you like to run?: ')
-        cmdl(piatras)
+        os.system("lxterminal")
         moodometer=[1,2,3,4,4,4,4,5]
     elif 'time' in qstn:
         ntime()
@@ -683,18 +617,6 @@ def question(qstn):
     elif 'movie' in qstn or 'I watch' in qstn:
         print('anything with Wall-e or the Jetsons')
         screen('look in shell\nfor result')
-        moodometer=[1,2,3,4,5]
-    elif 'sports' in qstn:
-        screen('look in shell\nfor result')
-        team = input('what team')
-        url=team+'+score&oq=lions+score&aqs=chrome..69i57.4272j0j7&sourceid=chrome&ie=UTF-8'
-        print('https://www.google.com/search?q='+url)
-        moodometer=[1,2,3,4,5]
-    elif 'LED' in qstn:
-        if 'off' in qstn:
-            LEDoff()
-        elif 'on' in qstn:
-            LEDon()
         moodometer=[1,2,3,4,5]
     elif 'feet' in qstn:
         screen('you mean the smelly things on the ends of human legs?')
@@ -725,14 +647,6 @@ def question(qstn):
     elif 'Bible' in qstn or 'verse' in qstn:
         bible()
         moodometer=[1,2,3,4,5]
-    elif 'build' in qstn:
-        screen('look in shell\nfor result')
-        task=input('do I have arms?')
-        if 'no' in task or 'No' in task:
-            print('then why would I be able to build something?')
-        else:
-            print('the correct answer is no.\ntherefore, I can not build something.')
-        moodometer=[1,2,3,4,5,5,5,5]
     elif 'are you' in qstn or 'your name' in qstn:
         screen('I am '+name)
         moodometer=[1,2,3,4,4,5]
@@ -991,8 +905,6 @@ def dance():
             time.sleep(0.5)
 AIg = 0
 done = 1
-def cmdl(text):
-    os.system(text)
 def bible():
     screen('what verse?')
     with sr.Microphone() as source:
@@ -1016,8 +928,6 @@ def sleep():
     screen('I am asleep')
     awake=input(' ')
     screen('I am awake')
-def good():
-    os.system(username+'/UC37software/images/AI-succeed-gif')
 def clear_shell():
     pass
 clear_shell()
@@ -1029,10 +939,26 @@ lasts=' '
 print('Process completed')
 notned=0
 while True:
+    hur=int(dt.now().strftime("%H"))
+    minits=int(dt.now().strftime("%M"))
+    if hur >= 12:
+        currentTime = str(hur-12)+":"+str(minits)+" PM"
+    else:
+        currentTime = str(hur)+":"+str(minits)+" AM"
+    if hur >= 0 and hur <= 11:
+        tofdy="morning"
+    elif hur >= 12 and hur <= 16:
+        tofdy="afternoon"
+    elif hur >= 5:
+        tofdy="evening"
     display_surface = pygame.display.set_mode((X, Y))
     display_surface.fill(blue)
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("edit", True, blue, white), (400, 40))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("exit", True, blue, white), (400, 150))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Github", True, blue, white), (700, 0))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("History", True, blue, white), (400, 150))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, white, blue), (610, 150))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render("Good "+tofdy, True, white, blue), (610, 200))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("Info", True, blue, white), (590, 40))
     display_surface.blit(header, textRect)
     pygame.draw.line(display_surface, white,
                      [300, 300],
@@ -1045,10 +971,24 @@ while True:
             sys.exit()
         if event.type == pygame.MOUSEBUTTONDOWN:
             x, y = pygame.mouse.get_pos()
-            if x >=400 and x<= 505 and y >= 150 and y <= 210:
-                exit()
+            if x >=700 and y <= 35:
+                os.system('chromium-browser https://github.com/Mrpi314tech/UC37software')
             if x >=400 and x<= 505 and y >= 40 and y <= 100:
                 os.system('lxterminal -e python3 '+file_location+'/UC37software/Python/UC37edit.py')
+            if x >=590 and x<= 685 and y >= 40 and y <= 90:
+                os.system("gpicview "+file_location+"/UC37software/images/HowTo.jpg")
+            if x >=400 and x<= 570 and y >= 150 and y <= 200:
+                os.system('geany '+file_location+'/UC37software/Python/history.txt')
+                try:
+                    import new_words as aword
+                except ModuleNotFoundError:
+                    import Python.new_words as aword
+                try:
+                    import new_com as acom
+                except ModuleNotFoundError:
+                    import Python.new_com as acom
+                nwcoml=acom.word
+                nrunl=acom.com   
             if x >=265 and x<= 340 and y >= 340:
                 with sr.Microphone() as source:
                     r.adjust_for_ambient_noise(source)
@@ -1086,15 +1026,8 @@ while True:
                     #print(rsponce)
                     #print(crsponce)
                     #print(psaid)
+                    history = open(file_location+"/UC37software/Python/history.txt", "w")
+                    history.write(str(jsaid)+"\n"+str(rsponce)+"\n"+str(crsponce))
+                    history.close()
                     ml=most_frequent(data)
-            if notned==1:
-                speak('I')
-                screen('La dee dum')
-            elif notned==2:
-                speak('I')
-                screen('Im bored')
-            elif notned==3:
-                speak('I')
-                os.system('vlc '+username+'/UC37software/sounds/Monkeys-Spinning-Monkeys.mp3')
-                notned=0
     pygame.display.update()
