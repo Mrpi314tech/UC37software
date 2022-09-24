@@ -33,7 +33,7 @@ nrunl=acom.com
 import pygame
 hur=int(dt.now().strftime("%H"))
 minits=int(dt.now().strftime("%M"))
-if hur >= 12:
+if hur >= 13:
     if minits <= 9:
         currentTime = str(hur-12)+":0"+str(minits)+" PM"
     else:
@@ -158,7 +158,7 @@ rfid = False
 print('Picture stored at UC37software/images')
 os.system("fswebcam -r 1280x720 --no-banner "+username+"/Pictures/secure.jpg")
 def stinky():
-    screen('stealth farts')
+    os.system('vlc '+username+'/UC37software/sounds/fart.mp3')
 def book():
     screen('One day Sausage\nMan was just')
     snl('walking by\nwhen a flash')
@@ -335,10 +335,6 @@ def question(qstn):
     elif 'you' in qstn and 'suck' in qstn or 'stink' in qstn or 'smell' in qstn or 'bad' in qstn or 'stupid' in qstn or 'weird' in qstn:
         screen("no, "+qstn)
         moodometer=[5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5]
-    elif 'romantic' in qstn or 'romance' in qstn or 'love' in qstn or 'careless whisper' in qstn:
-        screen('Ooh Lah Lah')
-        os.system('vlc /home/mrpi314/UC37software/sounds/Careless_whisper.mp3')
-        moodometer=[1,2,3,4]
     elif 'missile' in qstn:
         screen('pew pew you dead')
         moodometer=[1,2,3,4,5]
@@ -348,24 +344,12 @@ def question(qstn):
     elif 'was' in qstn and 'talking' in qstn:
         screen('oh sorry')
         moodometer=[1,2,3,4]
-    elif 'pause' in qstn or 'elevator' in qstn:
-        os.system('vlc '+username+'/UC37software/sounds/wait.mp3')
-        moodometer=[1,2,3,4,5]
-    elif 'monkey' in qstn:
-        os.system('vlc '+username+'/UC37software/sounds/Monkeys-Spinning-Monkeys.mp3')
-        moodometer=[1,2,3,4,5]
     elif 'because' in qstn and 'answer' in qstn or 'terrible' in qstn and 'answer' in qstn:
         screen('yes it is')
         moodometer=[1,2,3,4,5,5]
-    elif 'birthday' in qstn or 'Birthday' in qstn:
-        os.system('vlc /usr/share/code/project/Happy_birthday/1.mp3')
-        moodometer=[1,2,3,4]
     elif 'look good' in qstn or 'look nice' in qstn:
         screen('thanks!')
         moodometer=[2,4,4,4,4]
-    elif 'jazz' in qstn:
-        os.system('vlc '+username+'/UC37software/sounds/jazz.mp3')
-        moodometer=[1,2,3,4,5] 
     elif 'great day' in qstn or 'awesome day' in qstn or 'cool day' in qstn:
         if 'have' in qstn:
             screen('you too')
@@ -384,12 +368,6 @@ def question(qstn):
     elif 'cheeseburger' in qstn:
         screen('yes indeed')
         moodometer=[1,2,3,4,4,4,5]
-    elif 'fluffing a duck' in qstn:
-        os.system('vlc '+username+'/UC37software/sounds/Fluffing-a-Duck.mp3')
-        moodometer=[1,2,3,4,5]
-    elif 'digital world' in qstn:
-        os.system('vlc '+username+'/UC37software/sounds/digital-world.mp3')
-        moodometer=[1,2,3,4,5]
     elif 'oh' in qstn:
         screen('yep')
         moodometer=[1,2,3,4,5]
@@ -520,9 +498,6 @@ def question(qstn):
     elif 'have' in qstn and 'but' in qstn:
         screen('yes')
         moodometer=[1,2,3,4,4,5]
-    elif 'music' in qstn:
-        os.system('vlc '+username+'/UC37software/sounds/music.mp3')
-        moodometer=[1,2,3,4,4,4,5]
     elif 'missle' in qstn:
         missle()
         moodometer=[1,2,3,4,5]
@@ -556,6 +531,9 @@ def question(qstn):
     elif 'bomb' in qstn:
         os.system('vlc '+username+'/UC37software/sounds/explosions.mp3')
         moodometer=[1,2,3,4,5]
+    elif 'roar' in qstn.lower:
+        os.system('vlc '+username+'/UC37software/sounds/Lion.mp3')
+        moodometer=[1,2,3,4]
     elif 'calculator' in qstn:
         os.system("galculator")
         moodometer=[1,2,3,4,5]
@@ -854,11 +832,6 @@ def uno():
     imgz.show()
 def drone():
     screen('Im flying')
-def party():
-    screen('party!')
-    LEDon()
-    os.system('vlc '+username+'/UC37software/sounds/music.mp3')
-    LEDoff()
 def beep():
     screen('A')
 rsponce=['']
@@ -947,7 +920,7 @@ notned=0
 while True:
     hur=int(dt.now().strftime("%H"))
     minits=int(dt.now().strftime("%M"))
-    if hur >= 12:
+    if hur >= 13:
         if minits <= 9:
             currentTime = str(hur-12)+":0"+str(minits)+" PM"
         else:
