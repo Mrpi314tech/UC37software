@@ -531,7 +531,7 @@ def question(qstn):
     elif 'bomb' in qstn:
         os.system('vlc '+username+'/UC37software/sounds/explosions.mp3')
         moodometer=[1,2,3,4,5]
-    elif 'roar' in qstn.lower:
+    elif 'roar' in qstn:
         os.system('vlc '+username+'/UC37software/sounds/Lion.mp3')
         moodometer=[1,2,3,4]
     elif 'calculator' in qstn:
