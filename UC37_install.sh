@@ -22,6 +22,8 @@ sudo apt install espeak
 sudo pip install pyaudio
 pip install pyttsx3
 sudo apt install fswebcam
+echo 'type "y" for the next 2 questions: '
+rmdir "${location}/UC37software/.git"
 echo "Now you will take a survey to help UC37 get to know you"
 sleep 3
 python3 ~/UC37software/Welcome/Survey.py
