@@ -10,7 +10,8 @@ rm ~/UC37software/Welcome/info.py
 mv ~/new_words.py ~/UC37software/Python
 mv ~/info.py ~/UC37software/Welcome
 mv ~/new_com.py ~/UC37software/Python
-rm ~/UC37software/UC37_update.sh
+mv ~/UC37_update.sh ~/delete_this_file(UC37)
+mv ~/UC37software/UC37_update.sh ~
 chmod +x ~/UC37software/UC37
 chmod +x ~/UC37software/UC37_remove.sh
 chmod +x ~/UC37software/UC37_install.sh
