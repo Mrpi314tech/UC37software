@@ -55,6 +55,6 @@ calculator
 
 music (ask for jazz, digital world, music, Careless whisper, Monkeys spinning monkeys, and Fluffing a duck)
 
-new editor function! add your own commands
+new editor function! add your own commands, words, and downloaded music!
 
 +lots more!
