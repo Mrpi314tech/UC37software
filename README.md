@@ -47,7 +47,7 @@ Press the picture of him to talk
 
 Talk to you
 
-Tell you the weather
+Tell you the weather*
 
 spelling
 
@@ -56,3 +56,5 @@ calculator
 new editor function! add your own commands, words, and downloaded music!
 
 +lots more!
+
+*currently doesn't work
