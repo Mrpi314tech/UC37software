@@ -918,6 +918,7 @@ lasts=' '
 print('Process completed')
 notned=0
 while True:
+    keyi=pygame.key.get_pressed()
     hur=int(dt.now().strftime("%H"))
     minits=int(dt.now().strftime("%M"))
     if hur >= 13:
@@ -954,15 +955,15 @@ while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
-        if event.type == pygame.MOUSEBUTTONDOWN:
+        if event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
             x, y = pygame.mouse.get_pos()
-            if x >=700 and y <= 35:
+            if pygame.key.get_pressed()[pygame.K_g] or x >=700 and y <= 35:
                 os.system('chromium-browser https://github.com/Mrpi314tech/UC37software')
-            if x >=400 and x<= 505 and y >= 40 and y <= 100:
+            if pygame.key.get_pressed()[pygame.K_e] or x >=400 and x<= 505 and y >= 40 and y <= 100:
                 os.system('lxterminal -e python3 '+file_location+'/UC37software/Python/UC37edit.py')
-            if x >=590 and x<= 685 and y >= 40 and y <= 90:
+            if pygame.key.get_pressed()[pygame.K_i] or x >=590 and x<= 685 and y >= 40 and y <= 90:
                 os.system("gpicview "+file_location+"/UC37software/images/HowTo.jpg")
-            if x >=400 and x<= 570 and y >= 150 and y <= 200:
+            if pygame.key.get_pressed()[pygame.K_h] or x >=400 and x<= 570 and y >= 150 and y <= 200:
                 os.system('geany '+file_location+'/UC37software/Python/history.txt')
                 try:
                     import new_words as aword
@@ -974,7 +975,7 @@ while True:
                     import Python.new_com as acom
                 nwcoml=acom.word
                 nrunl=acom.com
-            if x >=265 and x<= 340 and y >= 340:
+            if pygame.key.get_pressed()[pygame.K_s] or x >=265 and x<= 340 and y >= 340:
                 with sr.Microphone() as source:
                     r.adjust_for_ambient_noise(source)
                     if st == 0:
