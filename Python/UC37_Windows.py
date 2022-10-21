@@ -97,15 +97,24 @@ chatlist=['next time, the Lions will win', 'Is Detroit good at any sport?', 'if 
 data=[]
 jsaid=[]
 mood=1
-sys.path.append('../')
-from Python import new_words
 try:
-    from Welcome import info
+    import new_words as aword
+except ModuleNotFoundError:
+    import Python.new_words as aword
+try:
+    import new_com as acom
+except ModuleNotFoundError:
+       import Python.new_com as acom
+nwcoml=acom.word
+nrunl=acom.com
+sys.path.append('../')
+try:
+    from Welcome import info as info
 except:
     try:
-        import version.Python.Windows.info
+        import Welcome.info as info
     except:
-        import UC37software.version.Python.Windows.info
+        import UC37software.Welcome.info as info
 if info.ask_for_password == True:
     while True:
         nope=input('what is the password? ')
@@ -961,10 +970,6 @@ while True:
                 os.system('chromium-browser https://github.com/Mrpi314tech/UC37software')
             if pygame.key.get_pressed()[pygame.K_e] or x >=400 and x<= 505 and y >= 40 and y <= 100:
                 os.system('lxterminal -e python3 '+file_location+'/UC37software/Python/UC37edit.py')
-            if pygame.key.get_pressed()[pygame.K_i] or x >=590 and x<= 685 and y >= 40 and y <= 90:
-                os.system("gpicview "+file_location+"/UC37software/images/HowTo.jpg")
-            if pygame.key.get_pressed()[pygame.K_h] or x >=400 and x<= 570 and y >= 150 and y <= 200:
-                os.system('geany '+file_location+'/UC37software/Python/history.txt')
                 try:
                     import new_words as aword
                 except ModuleNotFoundError:
@@ -975,6 +980,10 @@ while True:
                     import Python.new_com as acom
                 nwcoml=acom.word
                 nrunl=acom.com
+            if pygame.key.get_pressed()[pygame.K_i] or x >=590 and x<= 685 and y >= 40 and y <= 90:
+                os.system("gpicview "+file_location+"/UC37software/images/HowTo.jpg")
+            if pygame.key.get_pressed()[pygame.K_h] or x >=400 and x<= 570 and y >= 150 and y <= 200:
+                os.system('geany '+file_location+'/UC37software/Python/history.txt')
             if pygame.key.get_pressed()[pygame.K_s] or x >=265 and x<= 340 and y >= 340:
                 with sr.Microphone() as source:
                     r.adjust_for_ambient_noise(source)
