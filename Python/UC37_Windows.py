@@ -55,8 +55,10 @@ green = (0, 255, 0)
 blue = (0, 0, 128)
 X = 800
 Y = 400
+window_icon=pygame.image.load(file_location+'/UC37software/images/UC37.png')
 display_surface = pygame.display.set_mode((X, Y))
 pygame.display.set_caption('UC37software')
+pygame.display.set_icon(window_icon)
 font = pygame.font.Font('freesansbold.ttf', 32)
 header = font.render('UC37software', True, white, blue)
 textRect = header.get_rect()
@@ -328,17 +330,6 @@ def question(qstn):
         screen('first, tell me: whats wrong with YOU?')
         moodometer=[1,3,5,5]
     elif 'calibrate' in qstn or 'restart' in qstn:
-        GPIO.output(fart, GPIO.LOW)
-        GPIO.output(fart2, GPIO.LOW)
-        GPIO.output(story1, GPIO.LOW)
-        GPIO.output(story2, GPIO.LOW)
-        GPIO.output(story3, GPIO.LOW)
-        GPIO.output(loud2, GPIO.LOW)
-        GPIO.output(loud1, GPIO.LOW)
-        lcd.clear()
-        lcd.set_backlight(1)
-        segment.clear()      
-        segment.write_display()
         print('calibrated')
         exit()
     elif 'you' in qstn and 'suck' in qstn or 'stink' in qstn or 'smell' in qstn or 'bad' in qstn or 'stupid' in qstn or 'weird' in qstn:
@@ -779,10 +770,6 @@ def rockpaper():
     time.sleep(1)
 def most_frequent(List):
     return max(set(List), key = List.count)
-def kasaon():
-    asyncio.run(ks.SmartPlug(kasaip).turn_on())
-def kasaoff():
-    asyncio.run(ks.SmartPlug(kasaip).turn_off())
 def joke():
     jokey=random.choice([1,2,3,4,5,6,7,8,9,10])
     if jokey == 1:
