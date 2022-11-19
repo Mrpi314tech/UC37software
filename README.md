@@ -14,9 +14,7 @@ speaker for 3.5 mm jack (hdmi doesn't work well)
 
 ### Step 1:
 
-Make a weather account at http://weatherapi.com  Trying to find a new, free weather api. This one costs money. If you know any, please tell  me!
-
-Use the API key it gives you when the survey asks for your api key. If you don't buy an api key, just skip it.
+Make a weather account at http://weatherapi.com  working on making a new api that is free.
 
 ### Step 2:
 
