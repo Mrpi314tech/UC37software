@@ -2,7 +2,7 @@
 mv ~/UC37software/Python/new_words.py ~
 mv ~/UC37software/Welcome/info.py ~
 mv ~/UC37software/Python/new_com.py ~
-echo 'type "y" for the next 2 questions: '
+echo 'type "y" for the next 5 questions: '
 rm -r ~/UC37software
 git clone https://github.com/Mrpi314tech/UC37software
 rm ~/UC37software/Python/new_words.py
