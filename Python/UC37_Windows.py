@@ -987,13 +987,11 @@ while True:
                         notned+=1
                         break
                 if saidtxt == 'what' or 'pardon' in saidtxt:
-                    speak("I")
                     if mood == 5:
                         mquestion(saidtxt)
                     else:
                         question(saidtxt)
                 else:
-                    speak("I")
                     if mood == 5:
                         mquestion(saidtxt)
                     else:
