@@ -14,7 +14,7 @@ speaker for 3.5 mm jack (hdmi doesn't work well)
 
 ### Step 1:
 
-Make a weather account at http://weatherapi.com  working on making a new api that is free.
+Make a weather account at http://weatherapi.com  still working on making a new api that is free.
 
 ### Step 2:
 
