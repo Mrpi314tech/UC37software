@@ -237,6 +237,7 @@ def question(qstn):
     global file_location
     global nwcoml
     global nrunl
+    qstn=qstn.lower()
     if 'spell' in qstn:
         try:
             htspl=qstn.split('spell ')
@@ -332,8 +333,8 @@ def question(qstn):
     elif 'calibrate' in qstn or 'restart' in qstn:
         print('calibrated')
         exit()
-    elif 'you' in qstn and 'suck' in qstn or 'stink' in qstn or 'smell' in qstn or 'bad' in qstn or 'stupid' in qstn or 'weird' in qstn:
-        screen("no, "+qstn)
+    elif 'you' in qstn and 'suck' in qstn or 'you' in qstn and'stink' in qstn or 'you' in qstn and 'smell' in qstn or 'you' in qstn and 'bad' in qstn or 'you' in qstn and 'stupid' in qstn or 'you' in qstn and 'weird' in qstn:
+        screen("no, you are.")
         moodometer=[5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5]
     elif 'missile' in qstn:
         screen('pew pew you dead')
@@ -363,7 +364,7 @@ def question(qstn):
         screen('Thats not nice')
         moodometer=[5,5,5,5,5,5,5,5,5]
     elif 'cake' in qstn or 'cookie' in qstn or 'ice cream' in qstn or 'sugar' in qstn or 'pie' in qstn:
-        screen('absolutely not\nits bad for you')
+        screen('absolutely not its bad for you')
         moodometer=[1,2,3,4,4]
     elif 'cheeseburger' in qstn:
         screen('yes indeed')
@@ -371,19 +372,9 @@ def question(qstn):
     elif 'oh' in qstn:
         screen('yep')
         moodometer=[1,2,3,4,5]
-    elif 'elf' in qstn:
-        screen('the tiny one\nis near')
-        moodometer=[1,2,3,4,4,4,5]
-    elif 'guard' in qstn:
-        guard()
-        screen('got you')
-        moodometer=[1,2,3,4,5]
     elif 'Detroit' in qstn:
         screen('best teams')
         moodometer=[1,2,2,2,2,2,2,2]
-    elif 'car' in qstn:
-        screen('cheese')
-        moodometer=[1,2,3,4,4,4,5]
     elif 'my name' in qstn:
         screen(your_name)
         moodometer=[1,2,3,4,5]
@@ -396,13 +387,9 @@ def question(qstn):
     elif 'cookie' in qstn and 'eat' in qstn:
         screen('absolutely not')
         moodometer=[1,2,3,4,4,5]
-    elif 'logo' in qstn:
-        os.system('gpicview '+username+'/Pictures/Mrpi314.gif')
-        moodometer=[1,2,3,4,5]
-    elif 'fire' in qstn:
-        print('1. unplug me\n2. pack me up\n3. carefully take me out of the house\n4. go back in and save my keyboard')
-        screen('look in shell\nfor result')
-        moodometer=[1,2,3,5]
+    elif "you're" in qstn or "you are" in qstn:
+        screen("No I'm not")
+        moodometer=[1,2,3]
     elif 'fan' in qstn:
         screen('Im blowing')
         moodometer=[1,2,3,4,5]
@@ -462,12 +449,16 @@ def question(qstn):
     elif 'story' in qstn or 'book' in qstn:
         book()
         moodometer=[1,2,3,4,4,4]
-    elif 'sad' in qstn or 'bad' in qstn or 'angry' in qstn or 'depressed' in qstn or "sick" in qstn:
-        screen('I hope you\nfeel better soon')
-        moodometer=[1,2,3,4,4,4,4,4,4,5]
-    elif 'happy' in qstn or 'well' in qstn or 'fine' in qstn or 'good' in qstn or 'wonderful' in qstn:
-        screen('that is\nvery good')
-        moodometer=[1,2,3,4,4,4,4,4,4,5]
+    elif 'i feel' in qstn:
+        if 'sad' in qstn or 'bad' in qstn or 'angry' in qstn or 'depressed' in qstn or "sick" in qstn:
+            screen('I hope you feel better soon')
+            moodometer=[1,2,3,4,4,4,4,4,4,5]
+        elif 'happy' in qstn or 'well' in qstn or 'fine' in qstn or 'good' in qstn or 'wonderful' in qstn:
+            screen('that is\nvery good')
+            moodometer=[1,2,3,4,4,4,4,4,4,5]
+        else:
+            screen('ok')
+            moodometer=[1,2,3,4]
     elif 'born' in qstn or 'old' in qstn:
         screen('I was born\n in 2021')
         moodometer=[1,2,3,4,5]
@@ -521,7 +512,7 @@ def question(qstn):
         moodometer=[1,2,3,4,4,4,4,4,4,4,4]
     elif 'eat' in qstn or 'hungry' in qstn:
         screen('You should eat an apple')
-        moodometer=[1,2,3,5]
+        moodometer=[1,2,3]
     elif 'welcome' in qstn:
         screen('thanks')
         moodometer=[1,2,3,4,4,4]
@@ -565,17 +556,15 @@ def question(qstn):
     elif 'scared' in qstn or 'frightened' in qstn:
         print('dont worry, youll probably be fine')
         moodometer=[1,2,3,4,4,4,5]
-    elif 'systems.die' in qstn:
-        raise SystemError('code expelled: failed to procced')
     elif 'ok' in qstn:
         screen('ok')
         moodometer=[1,2,3,4,5]
     elif 'foot' in qstn:
         screen('you mean the smelly things on the ends of human legs?')
-        moodometer=[1,2,3,4,4,4,5]
+        moodometer=[1,2,3,4,4,4]
     elif 'command line' in qstn:
         os.system("lxterminal")
-        moodometer=[1,2,3,4,4,4,4,5]
+        moodometer=[1,2,3,4,4,4,4]
     elif 'time' in qstn:
         ntime()
         moodometer=[1,2,3,4,5]
@@ -585,12 +574,12 @@ def question(qstn):
         moodometer=[1,2,3,4,4,4,4]
     elif 'cold' in qstn:
         screen('thats not good')
-        moodometer=[1,2,3,4,4,5]
-    elif 'cavern' in qstn or 'Cavern' in qstn:
-        cavern()
-        moodometer=[1,2,3,4,5]
-    elif 'Lions' in qstn and 'stink' in qstn or 'suck' in qstn or 'bad' in qstn:
-        screen('Thay may be bad, but if I switched teams, that would make me a bandwagon')
+        moodometer=[1,2,3,4,4]
+    elif 'lions' in qstn and 'stink' in qstn or 'suck' in qstn or 'bad' in qstn:
+        screen("Well I'm a Lions fan")
+        screen("and if you have a problem")
+        screen("with that, you might as well")
+        screen("delete me.")
         moodometer=[1,2,3,4]
     elif 'my favorite color' in qstn or 'red' in qstn or 'green' in qstn or 'blue' in qstn or 'yellow' in qstn or 'orange' in qstn or 'purple' in qstn or 'pink' in qstn:
         screen('Oh, My favorite is Amaranth')
@@ -722,7 +711,7 @@ def mquestion(qstn):
         screen('because')
         madometer=[1,2]
     elif 'you' in qstn and 'suck' in qstn or 'stink' in qstn or 'smell' in qstn or 'bad' in qstn or 'stupid' in qstn or 'weird' in qstn:
-        screen("no, "+qstn)
+        screen("no, you are bad")
         madometer=[1,2]    
     elif 'forgive' in qstn:
         screen('fine')
@@ -897,8 +886,6 @@ def cwifi():
     cmdl("rfkill unblock wifi")
 def wifi():
     cmdl('rfkill block wifi')
-def guard():
-    screen('I found no one')
 def sleep():
     screen('I am asleep')
     awake=input(' ')
