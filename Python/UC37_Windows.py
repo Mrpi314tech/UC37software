@@ -333,9 +333,12 @@ def question(qstn):
     elif 'calibrate' in qstn or 'restart' in qstn:
         print('calibrated')
         exit()
-    elif 'you' in qstn and 'suck' in qstn or 'you' in qstn and'stink' in qstn or 'you' in qstn and 'smell' in qstn or 'you' in qstn and 'bad' in qstn or 'you' in qstn and 'stupid' in qstn or 'you' in qstn and 'weird' in qstn:
-        screen("no, you are.")
+    elif 'you' in qstn and 'suck' in qstn or 'you' in qstn and'stink' in qstn or 'you' in qstn and 'smell' in qstn:
+        screen("no, you do.")
         moodometer=[5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5,5]
+    elif 'you' in qstn and 'bad' in qstn or 'you' in qstn and 'stupid' in qstn or 'you' in qstn and 'weird' in qstn:
+        screen("no, you are.")
+        moodometer=[5,5,5,5,5,5,5]
     elif 'missile' in qstn:
         screen('pew pew you dead')
         moodometer=[1,2,3,4,5]
@@ -582,7 +585,7 @@ def question(qstn):
         screen("delete me.")
         moodometer=[1,2,3,4]
     elif 'my favorite color' in qstn or 'red' in qstn or 'green' in qstn or 'blue' in qstn or 'yellow' in qstn or 'orange' in qstn or 'purple' in qstn or 'pink' in qstn:
-        screen('Oh, My favorite is Amaranth')
+        screen('My favorite color is Amaranth')
         moodometer=[1,2,3,4]
     elif 'favorite color' in qstn:
         screen('Amaranth')
