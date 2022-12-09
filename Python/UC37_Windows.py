@@ -6,7 +6,7 @@ import random
 import speech_recognition as sr
 import numpy as np
 import pyautogui as pr
-from subprocess import call
+import subprocess
 from PIL import Image
 import psutil
 import smbus
@@ -903,6 +903,8 @@ fill=0
 lasts=' '
 print('Process completed')
 notned=0
+user_text=''
+resthre=0
 while True:
     keyi=pygame.key.get_pressed()
     hur=int(dt.now().strftime("%H"))
@@ -938,10 +940,42 @@ while True:
     imp = pygame.image.load(file_location+"/UC37software/images/UC37.png").convert()
     img= pygame.transform.scale(imp, (75, 75))
     display_surface.blit(img, (265, 330))
+    brk =0
     for event in pygame.event.get():
+        if event.type == pygame.KEYDOWN:
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_BACKSPACE:
+                    user_text = user_text[:-1]
+                    if user_text == '':
+                        brk =1
+                elif event.key == pygame.K_RETURN:
+                    brk=1
+                    os.system(user_text)
+                    user_text=''
+                else:
+                    user_text += event.unicode
+                display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(user_text+'              ', True, white, blue), (50, 300))
+                pygame.display.update()
+            while True:
+                for event in pygame.event.get():
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_BACKSPACE:
+                            user_text = user_text[:-1]
+                            if user_text == '':
+                                brk =1
+                        elif event.key == pygame.K_RETURN:
+                            brk=1
+                            os.system(user_text)
+                            user_text=''
+                        else:
+                            user_text += event.unicode
+                        display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(user_text+'              ', True, white, blue), (50, 300))
+                        pygame.display.update()
+                if brk == 1:
+                    break
         if event.type == pygame.QUIT:
             sys.exit()
-        if event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.KEYDOWN:
+        if event.type == pygame.MOUSEBUTTONDOWN:
             x, y = pygame.mouse.get_pos()
             if pygame.key.get_pressed()[pygame.K_g] or x >=700 and y <= 35:
                 os.system('chromium-browser https://github.com/Mrpi314tech/UC37software')
@@ -957,11 +991,11 @@ while True:
                     import Python.new_com as acom
                 nwcoml=acom.word
                 nrunl=acom.com
-            if pygame.key.get_pressed()[pygame.K_i] or x >=590 and x<= 685 and y >= 40 and y <= 90:
+            if x >=590 and x<= 685 and y >= 40 and y <= 90:
                 os.system("gpicview "+file_location+"/UC37software/images/HowTo.jpg")
-            if pygame.key.get_pressed()[pygame.K_h] or x >=400 and x<= 570 and y >= 150 and y <= 200:
+            if x >=400 and x<= 570 and y >= 150 and y <= 200:
                 os.system('geany '+file_location+'/UC37software/Python/history.txt')
-            if pygame.key.get_pressed()[pygame.K_s] or x >=265 and x<= 340 and y >= 340:
+            if x >=265 and x<= 340 and y >= 340:
                 with sr.Microphone() as source:
                     r.adjust_for_ambient_noise(source)
                     if st == 0:
