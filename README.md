@@ -1,8 +1,8 @@
 <body style="background-color:lightblue;">
-# UC37software
+<h1>UC37software</h1>
 Welcome to UC37 software!
 UC37 is an artificial intelligence program that acts like a human. He can help out by doing
-things like turn on smartpplugs and play music.
+things like turn on smart plugs and play music.
 
 ### Parts you need:
 
