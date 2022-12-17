@@ -1,3 +1,4 @@
+<body style="background-color:lightblue;">
 # UC37software
 Welcome to UC37 software!
 UC37 is an artificial intelligence program that acts like a human. He can help out by doing
