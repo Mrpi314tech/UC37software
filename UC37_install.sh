@@ -19,6 +19,7 @@ pip3 install SpeechRecognition
 sudo apt-get install flac
 pip3 install pyautogui
 sudo apt install espeak
+sudo apt-get install portaudio19-dev
 sudo pip install pyaudio
 pip install pyttsx3
 sudo apt install fswebcam
