@@ -502,7 +502,7 @@ def question(qstn):
         screen('your welcome')
         moodometer=[1,2,3,4,4,4,4,4,5]
     elif 'you' in qstn and 'food' in qstn:
-        screen('My favorite food\nis fresh electrons')
+        screen('My favorite food is Jellied Moose Nose')
         moodometer=[1,2,3,4,5]
     elif 'it did' in qstn:
         screen('thanks!')
