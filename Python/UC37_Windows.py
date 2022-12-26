@@ -495,7 +495,7 @@ def question(qstn):
     elif 'missle' in qstn:
         missle()
         moodometer=[1,2,3,4,5]
-    elif 'rock' in qstn and 'paper' in qstn or 'game' in qstn:
+    elif 'rock' in qstn and 'paper' in qstn:
         rockpaper()
         moodometer=[1,2,3,4,4,5]
     elif 'thanks' in qstn:
@@ -609,6 +609,9 @@ def question(qstn):
         moodometer=[1,2,3,4,5]
     elif "correct" in qstn:
         screen("I know")
+        moodometer=[1,2,3,4]
+    elif 'what' in qstn and 'you' in qstn:
+        screen("I'm not sure I have one")
         moodometer=[1,2,3,4]
     elif 'connect' in qstn:
         print('connecting to Y-PHI')
