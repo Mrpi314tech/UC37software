@@ -230,6 +230,33 @@ def question(qstn):
     global nwcoml
     global nrunl
     qstn=qstn.lower()
+    global notnoun
+    global nwordl
+    global ndefl
+    wverb=qstn.split(" ")
+    snfv=0
+    aantt=0
+    while True:
+        try:
+            if nwordl[aantt] in qstn.lower():
+                screen(ndefl[aantt])
+                break
+            else:
+                aantt+=1
+        except IndexError:
+            aantt=0
+            while True:
+                try:
+                    if nwcoml[aantt] in qstn.lower():
+                        prints("command... ")
+                        os.system(nrunl[aantt])
+                        break
+                    else:
+                        aantt+=1
+                except IndexError:
+                    break
+            break
+        moodometer=[1,2,3,4]
     if 'spell' in qstn:
         try:
             htspl=qstn.split('spell ')
@@ -628,33 +655,7 @@ def question(qstn):
         screen('ok')
         moodometer=[1,2,3,4,5]
     else:
-        global notnoun
-        global nwordl
-        global ndefl
-        wverb=qstn.split(" ")
-        snfv=0
-        aantt=0
-        while True:
-            try:
-                if nwordl[aantt] in qstn.lower():
-                    screen(ndefl[aantt])
-                    break
-                else:
-                    aantt+=1
-            except IndexError:
-                aantt=0
-                while True:
-                    try:
-                        if nwcoml[aantt] in qstn.lower():
-                            prints("command... ")
-                            os.system(nrunl[aantt])
-                            break
-                        else:
-                            aantt+=1
-                    except IndexError:
-                        screen('I do not know what '+qstn+' means. You can press edit to tell me what it means.')
-                        break
-                break
+        screen('I do not know what '+qstn+' means. You can press edit to tell me what it means.')
         moodometer=[1,2,3,4]
     global mood
     if moodometer == [1,2,3,4,5]:
