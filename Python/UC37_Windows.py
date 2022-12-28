@@ -85,7 +85,7 @@ def print(bpg):
     global white
     global blue
     if not bpg == "\n" or not bpg == "\n\n":
-        tdply=bpg+"                                                                    "
+        tdply=bpg+"                                                                                                                             "
         bpg1 = font.render(tdply, True, white, blue)
         thi = bpg1.get_rect()
         display_surface.blit(bpg1, (20, 300))
@@ -209,18 +209,10 @@ def news():
     screen('the low tempurature is '+ltemp+' degrees')
     screen('there is a '+crain+'% chance it will rain today')
 def gtdt():
-    weather = requests.get("http://api.weatherapi.com/v1/forecast.json?key=47fd44846a1248db90e200817221707&q="+city+"&days=1&aqi=no&alerts=no")
-    sky=str(weather.json()['current']['condition']['text'])
-    temp=weather.json()['current']['temp_f']
-    if 'rain' in sky or 'Rain' in sky:
-        screen('it is raining so I guess I will just be watching TV')
-    else:
-        if temp >= 80:
-            screen('It is pretty hot so I will be at the pool')
-        elif temp >= 40:
-            screen('it is a good day for sports so thats what I will do')
-        else:
-            screen('it is to cold for me so I will stay inside')
+    screen('normally, I would tell you what I am doing')
+    screen('based off of the weather. Unfortunately,')
+    screen('our api is not working right now')
+    screen('so I guess I will stay inside today')
 def googlesearch(txt):
     pr.moveTo(76,13)
     click()
@@ -610,7 +602,7 @@ def question(qstn):
     elif "correct" in qstn:
         screen("I know")
         moodometer=[1,2,3,4]
-    elif 'what' in qstn and 'you' in qstn:
+    elif 'what' in qstn and 'your' in qstn:
         screen("I'm not sure I have one")
         moodometer=[1,2,3,4]
     elif 'connect' in qstn:
@@ -967,9 +959,26 @@ while True:
                             if user_text == '':
                                 brk =1
                         elif event.key == pygame.K_RETURN:
-                            brk=1
-                            os.system("lxterminal -e "+user_text)
-                            user_text=''
+                            usertextls=user_text.split(' ')
+                            if usertextls[0] == "@":
+                                if mood == 5:
+                                    mquestion(user_text)
+                                else:
+                                    question(user_text)
+                                lasts=user_text
+                                data.insert(0, int(mood))
+                                if len(data) >= 5:
+                                    data.pop(3)
+                                jsaid.insert(0, user_text)
+                                history = open(file_location+"/UC37software/Python/history.txt", "w")
+                                history.write(str(jsaid)+"\n"+str(rsponce)+"\n"+str(crsponce))
+                                history.close()
+                                brk=1
+                                user_text=''
+                            else:
+                                brk=1
+                                os.system("lxterminal -e "+user_text)
+                                user_text=''
                         else:
                             user_text += event.unicode
                         display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(user_text+'              ', True, white, blue), (50, 300))
