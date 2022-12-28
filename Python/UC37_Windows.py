@@ -295,7 +295,7 @@ def question(qstn):
     elif crsponce[0] == 'what are you doing today?' and 'talking to you' in qstn:
         screen('other then that')
         moodometer=[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
-    elif crsponce[0] == 'what are you doing today?' and 'doing' in qstn or 'going' in qstn and crsponce[0] == 'what are you doing today?' or 'am' in qstn and crsponce[0] == 'what are you doing today?':
+    elif crsponce[0] == 'what are you doing today?' and 'doing' in qstn or 'going' in qstn and crsponce[0] == 'what are you doing today?' or 'am' in qstn and crsponce[0] == 'what are you doing today?' or 'will be' in qstn and crsponce[0] == 'what are you doing today?':
         screen('oh.')
         gtdt()
         moodometer=[1,2,3,4,5]
@@ -385,7 +385,7 @@ def question(qstn):
     elif 'look bad' in qstn or 'look terrible' in qstn:
         screen('Thats not nice')
         moodometer=[5,5,5,5,5,5,5,5,5]
-    elif 'cake' in qstn or 'cookie' in qstn or 'ice cream' in qstn or 'sugar' in qstn or 'pie' in qstn:
+    elif 'cake' in qstn or 'cookie' in qstn or 'ice cream' in qstn or 'sugar' in qstn or 'pie' in qstn and "eat" in qstn:
         screen('absolutely not its bad for you')
         moodometer=[1,2,3,4,4]
     elif 'cheeseburger' in qstn:
@@ -398,7 +398,7 @@ def question(qstn):
         screen('best teams')
         moodometer=[1,2,2,2,2,2,2,2]
     elif 'my name' in qstn:
-        screen(your_name)
+        screen("My name is UC37")
         moodometer=[1,2,3,4,5]
     elif 'ice cream' in qstn and 'eat' in qstn:
         screen('absolutely not')
@@ -655,7 +655,8 @@ def question(qstn):
         screen('ok')
         moodometer=[1,2,3,4,5]
     else:
-        screen('I do not know what '+qstn+' means. You can press edit to tell me what it means.')
+        screen(qstn)
+        prints('UC37 did not understand that. Press edit to tell him what it means')
         moodometer=[1,2,3,4]
     global mood
     if moodometer == [1,2,3,4,5]:
