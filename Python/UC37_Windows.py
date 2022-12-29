@@ -302,15 +302,16 @@ def question(qstn):
     elif crsponce[0] == 'and how are you?' and 'great' in qstn or crsponce[0] == 'and how are you?' and 'good' in qstn or crsponce[0] == 'and how are you?' and 'fine' in qstn:
         screen('that is very good')
         moodometer=[1,2,3]
-    elif crsponce[0] == "What's your favorite type of music?":
+    elif crsponce[0] == "What's your favorite type of music?" and 'music' in qstn:
         if 'jazz' in qstn:
             screen("That's mine too!")
         else:
             screen('My favorite music is Jazz')
-    elif crsponce[0] == "Have you traveled anywhere recently? Where did you go?":
+        moodometer=[1,2,3,4]
+    elif crsponce[0] == "Have you traveled anywhere recently? Where did you go?" and 'went' in qstn:
         screen('I recentely went to Canada to eat Jellied Moose nose')
         moodometer=[1,2,3]
-    elif crsponce[0] == "What's your favorite thing to do in your free time?":
+    elif crsponce[0] == "What's your favorite thing to do in your free time?" and 'my' in qstn and 'favorite' in qstn or crsponce[0] == "What's your favorite thing to do in your free time?" and 'i ' in qstn and 'like' in qstn:
         screen('My favorite thing to do is sit here and compute your input')
         moodometer=[1,2,3]
     elif crsponce[0] == 'if you want to play a game, just ask me!' and 'ok' in qstn:
