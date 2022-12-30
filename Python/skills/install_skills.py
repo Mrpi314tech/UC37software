@@ -8,7 +8,7 @@ file_location=os.path.expanduser('~')
 qstn=input('what skill are you adding?')
 if 'kasa' in qstn:
     print('You will need to install the python-kasa library with pip')
-    os.system('bla bla bla')
+    os.system('wget https://raw.githubusercontent.com/Mrpi314tech/UC37skills/main/kasa_skills.py ~/UC37software/Python/skills')
     alias=input('what is the name of the device? ')
     file = open(file_location+"/UC37software/Python/skills/skill_data.py", "w")
     file.write('\nalias="'+alias+'"')
