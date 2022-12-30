@@ -230,6 +230,7 @@ def question(qstn):
     global nwcoml
     global nrunl
     qstn=qstn.lower()
+    qstn=qstn.replace('@ ', '')
     global notnoun
     global nwordl
     global ndefl
@@ -319,6 +320,7 @@ def question(qstn):
         moodometer=[1,2]
     elif 'i like to' in qstn:
         screen('oh, I like to sleep.')
+        moodometer=[1,2,3,4]
     elif 'you' in qstn and 'said' in qstn:
         screen("no I didn't")
         moodometer=[1,2,3,4]
@@ -550,6 +552,9 @@ def question(qstn):
         moodometer=[1,2,3,4,4,4,5]
     elif 'bye' in qstn:
         moodometer=[3,3,3,3,3,3,3,3,3,3,3,5]
+    elif qstn == 'nice':
+        screen('Thank you')
+        moodometer=[1,2,3,4]
     elif 'I say' in qstn:
         moodometer=[1,2,3,4,5]
         screen('just say anything')
@@ -635,6 +640,9 @@ def question(qstn):
     elif 'are you' in qstn or 'your name' in qstn:
         screen('I am '+name)
         moodometer=[1,2,3,4,4,5]
+    elif 'i like' in qstn:
+        screen('oh')
+        moodometer=[1,2,3,4]
     elif 'you' in qstn and 'cool' in qstn:
         screen('Thanks!')
         moodometer=[1,2,3,4]
@@ -642,7 +650,6 @@ def question(qstn):
         screen('ok')
         moodometer=[1,2,3,4,5]
     else:
-        screen(qstn)
         prints('UC37 did not understand that. Press edit to tell him what it means')
         moodometer=[1,2,3,4]
     global mood
