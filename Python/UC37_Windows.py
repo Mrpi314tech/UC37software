@@ -17,6 +17,7 @@ import json
 import sys
 def prints(txttp):
     sys.stdout.write(txttp)
+    print('\n')
 file_location=os.path.expanduser('~')
 #from kasa import smartplug as ks
 import asyncio
@@ -43,12 +44,14 @@ else:
         currentTime = str(hur)+":0"+str(minits)+" AM"
     else:
         currentTime = str(hur)+":"+str(minits)+" AM"
-if hur >= 0 and hur <= 11:
-    tofdy="morning"
+if hur >= 5 and hur <= 11:
+    tofdy="Good morning"
 elif hur >= 12 and hur <= 16:
-    tofdy="afternoon"
-elif hur >= 5:
-    tofdy="evening"
+    tofdy="Good afternoon"
+elif hur >= 17 and hur <= 22:
+    tofdy="Good evening"
+else:
+    tofdy="Go to bed"
 pygame.init()
 white = (255, 255, 255)
 green = (0, 255, 0)
@@ -68,7 +71,7 @@ display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("edit", Tru
 display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Github", True, blue, white), (700, 0))
 display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("History", True, blue, white), (400, 150))
 display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, white, blue), (585, 150))
-display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render("Good "+tofdy, True, white, blue), (590, 200))
+display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render(tofdy, True, white, blue), (590, 200))
 display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("Info", True, blue, white), (590, 40))
 display_surface.blit(header, textRect)
 pygame.draw.line(display_surface, white,
@@ -99,14 +102,6 @@ chatlist=['I can do many things to help out. Just ask me!','Press edit to custom
 data=[]
 jsaid=[]
 mood=1
-try:
-    import new_words as aword
-except ModuleNotFoundError:
-    import Python.new_words as aword
-try:
-    import new_com as acom
-except ModuleNotFoundError:
-       import Python.new_com as acom
 nwcoml=acom.word
 nrunl=acom.com
 sys.path.append('../')
@@ -126,9 +121,8 @@ if info.ask_for_password == True:
             print('Wrong password!')
 else:
     pass
-verb="act	answer	approve	arrange break	build	buy	color	cough	create	complete cry	dance	describe	Draw Drink	Eat	Edit	Enter Exit	Imitate	Invent	Jump Laugh	Lie	Listen	Paint Plan	Play	Read	Replace Run	Scream	See	Shop Shout	Sing	Skip	Sleep Sneeze	Solve	Study	Teach Touch	Turn	Walk	Win Write	Whistle	Yank	Zip Concern	Decide	Dislike Doubt	Feel	Forget Hate	Hear	Hope Impress	Know	Learn Like	Look	Love Mind	Notice	Own Perceive	Realize	Recognize Remember	See	Smell Surprise	Please	Prefer Promise	Think	Understand Am	Appear	Are Be	Become	Been Being	Feel	Grow Is	Look	Remain Seem	Smell	Sound Stay	Taste	Turn Was	Were	Can	Could	May Might	Must	Ought to Shall	Should	Will Would	"
+verb="act answer approve arrange break build buy color cough create complete cry dance describe draw drink eat edit enter exit imitate invent jump laugh lie listen paint plan play read replace run scream see shop shout sing skip sleep sneeze solve study teach touch turn walk win write whistle yank zip concern decide dislike doubt feel forget hate hear hope impress know learn like look love mind notice own perceive realize recognize remember see smell surprise please prefer promise think understand am appear are be become been being feel grow is look remain seem smell sound stay taste turn was were can could may might must ought to shall should will would"
 notnoun="for and nor but or yet so a an the and do I he him her tell we they it who what where when why how me she you"+verb.lower()
-
 try:
     location=info.file_location
     kasaip=info.ip_for_kasa
@@ -155,15 +149,6 @@ def click():
 def key(kwi):
     pr.keyDown(kwi)
     pr.keyUp(kwi)
-def cavern():
-    pr.moveTo(21,0)
-    click()
-    pr.moveTo(53,394)
-    click()
-    pr.moveTo(427,502)
-    click()
-    time.sleep(2)
-    key('space')
 button='book'
 rfid = False
 print('Picture stored at UC37software/images')
@@ -650,7 +635,6 @@ def question(qstn):
         screen('ok')
         moodometer=[1,2,3,4,5]
     else:
-        prints('UC37 did not understand that. Press edit to tell him what it means')
         moodometer=[1,2,3,4]
     global mood
     if moodometer == [1,2,3,4,5]:
@@ -911,19 +895,21 @@ while True:
             currentTime = str(hur)+":0"+str(minits)+" AM"
         else:
             currentTime = str(hur)+":"+str(minits)+" AM"
-    if hur >= 0 and hur <= 11:
-        tofdy="morning"
+    if hur >= 5 and hur <= 11:
+        tofdy="Good morning"
     elif hur >= 12 and hur <= 16:
-        tofdy="afternoon"
-    elif hur >= 5:
-        tofdy="evening"
+        tofdy="Good afternoon"
+    elif hur >= 17 and hur <= 22:
+        tofdy="Good evening"
+    else:
+        tofdy="Go to bed"
     display_surface = pygame.display.set_mode((X, Y))
     display_surface.fill(blue)
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("edit", True, blue, white), (400, 40))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Github", True, blue, white), (700, 0))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("History", True, blue, white), (400, 150))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, white, blue), (585, 150))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render("Good "+tofdy, True, white, blue), (590, 200))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render(tofdy, True, white, blue), (590, 200))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("Info", True, blue, white), (590, 40))
     display_surface.blit(header, textRect)
     pygame.draw.line(display_surface, white,
@@ -957,6 +943,10 @@ while True:
                         elif event.key == pygame.K_RETURN:
                             usertextls=user_text.split(' ')
                             if usertextls[0] == "@":
+                                jsaid.insert(0, user_text)
+                                history = open(file_location+"/UC37software/Python/history.py", "w")
+                                history.write('jsaid='+str(jsaid))
+                                history.close()
                                 if mood == 5:
                                     mquestion(user_text)
                                 else:
@@ -965,9 +955,8 @@ while True:
                                 data.insert(0, int(mood))
                                 if len(data) >= 5:
                                     data.pop(3)
-                                jsaid.insert(0, user_text)
-                                history = open(file_location+"/UC37software/Python/history.txt", "w")
-                                history.write(str(jsaid)+"\n"+str(rsponce)+"\n"+str(crsponce))
+                                history = open(file_location+"/UC37software/Python/history.py", "w")
+                                history.write('jsaid='+str(jsaid)+"\n"+'rsponce='+str(rsponce)+"\n"+'crsponce='+str(crsponce))
                                 history.close()
                                 brk=1
                                 user_text=''
@@ -1002,7 +991,7 @@ while True:
             if x >=590 and x<= 685 and y >= 40 and y <= 90 and not spekret == 1:
                 os.system("gpicview "+file_location+"/UC37software/images/HowTo.jpg")
             if x >=400 and x<= 570 and y >= 150 and y <= 200 and not spekret == 1:
-                os.system('geany '+file_location+'/UC37software/Python/history.txt')
+                os.system('geany '+file_location+'/UC37software/Python/history.py')
             if x >=265 and x<= 340 and y >= 340 or spekret==1:
                 spekret=0
                 with sr.Microphone() as source:
@@ -1019,6 +1008,10 @@ while True:
                     except:
                         notned+=1
                         break
+                jsaid.insert(0, saidtxt)
+                history = open(file_location+"/UC37software/Python/history.py", "w")
+                history.write('jsaid='+str(jsaid))
+                history.close()
                 if saidtxt == 'what' or 'pardon' in saidtxt:
                     if mood == 5:
                         mquestion(saidtxt)
@@ -1034,13 +1027,12 @@ while True:
                     if len(data) >= 5:
                         data.pop(3)
                     #print(data)
-                    jsaid.insert(0, saidtxt)
                     #print(jsaid)
                     #print(rsponce)
                     #print(crsponce)
                     #print(psaid)
-                    history = open(file_location+"/UC37software/Python/history.txt", "w")
-                    history.write(str(jsaid)+"\n"+str(rsponce)+"\n"+str(crsponce))
+                    history = open(file_location+"/UC37software/Python/history.py", "w")
+                    history.write('jsaid='+str(jsaid)+"\n"+'rsponce='+str(rsponce)+"\n"+'crsponce='+str(crsponce))
                     history.close()
                     ml=most_frequent(data)
     pygame.display.update()
