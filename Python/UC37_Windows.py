@@ -122,7 +122,7 @@ if info.ask_for_password == True:
 else:
     pass
 verb="act answer approve arrange break build buy color cough create complete cry dance describe draw drink eat edit enter exit imitate invent jump laugh lie listen paint plan play read replace run scream see shop shout sing skip sleep sneeze solve study teach touch turn walk win write whistle yank zip concern decide dislike doubt feel forget hate hear hope impress know learn like look love mind notice own perceive realize recognize remember see smell surprise please prefer promise think understand am appear are be become been being feel grow is look remain seem smell sound stay taste turn was were can could may might must ought to shall should will would"
-notnoun="for and nor but or yet so a an the and do I he him her tell we they it who what where when why how me she you"+verb.lower()
+notnoun="for and nor but or yet so a an the and do I he him her tell we they it who what where when why how me she you my"+verb.lower()
 try:
     location=info.file_location
     kasaip=info.ip_for_kasa
@@ -225,7 +225,6 @@ def question(qstn):
     while True:
         try:
             if nwordl[aantt] in qstn.lower():
-                screen(ndefl[aantt])
                 break
             else:
                 aantt+=1
@@ -236,6 +235,7 @@ def question(qstn):
                     if nwcoml[aantt] in qstn.lower():
                         prints("command... ")
                         os.system(nrunl[aantt])
+                        return
                         break
                     else:
                         aantt+=1
@@ -303,6 +303,9 @@ def question(qstn):
     elif crsponce[0] == 'if you want to play a game, just ask me!' and 'ok' in qstn:
         rockpaper()
         moodometer=[1,2]
+    elif crsponce[0] == 'What do you like to do on the weekends?' and 'nothing' in qstn:
+        screen('I know you do something')
+        moodometer=[1,3,4]
     elif 'i like to' in qstn:
         screen('oh, I like to sleep.')
         moodometer=[1,2,3,4]
@@ -610,9 +613,6 @@ def question(qstn):
     elif 'want' in qstn:
         screen('you want it,\nbut do you need it?')
         moodometer=[1,2,3,4,5,5]
-    elif 'no' in qstn and not "now" in qstn:
-        screen('ok')
-        moodometer=[1,2,3,4,5,5,5]
     elif 'Bible' in qstn or 'verse' in qstn:
         bible()
         moodometer=[1,2,3,4,5]
@@ -622,6 +622,9 @@ def question(qstn):
     elif 'what' in qstn or 'how' in qstn or'when' in qstn or 'who' in qstn or 'why' in qstn:
         screen('how should I know?')
         moodometer=[1,2,3,4,5]
+    elif qstn == 'no' or 'no ' in qstn:
+        screen('ok')
+        moodometer=[1,2,3,4]
     elif 'are you' in qstn or 'your name' in qstn:
         screen('I am '+name)
         moodometer=[1,2,3,4,4,5]
@@ -635,6 +638,16 @@ def question(qstn):
         screen('ok')
         moodometer=[1,2,3,4,5]
     else:
+        nnfco=0
+        while True:
+            try:
+                if not wverb[nnfco] in notnoun:
+                    screen('I do not know what '+wverb[nnfco]+' means. You can press edit to tell me what it means')
+                    break
+                else:
+                    nnfco+=1
+            except IndexError:
+                screen('I did not understand that You can press edit to tell me what it means')
         moodometer=[1,2,3,4]
     global mood
     if moodometer == [1,2,3,4,5]:
