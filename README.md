@@ -4,8 +4,8 @@ Welcome to UC37 software!
 UC37 is an artificial intelligence program that acts like a human. He can help out by doing
 things like turn on smart plugs and play music.
 <br>
- <h2>New function!</h2>
-Welcom to skills, the place where you can download abilities to expand UC37's helpfulness. Currently, there is one skill that allows you to use kasa tp-link devices. If you make your own, share them with me and I will add them to UC37! Here is the link to skills:
+ <h2>Announcement- New function!</h2>
+Welcom to skills, the place where you can download abilities to expand UC37's helpfulness. Currently, there are 2 skills, a timer and a program that allowws you to control your kasa tp-link devices. Here is the link to skills:
 https://github.com/Mrpi314tech/UC37skills
 <h3>Parts you need:</h3>
 raspberry pi
