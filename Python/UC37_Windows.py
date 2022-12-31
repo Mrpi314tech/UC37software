@@ -959,7 +959,7 @@ while True:
                             usertextls=user_text.split(' ')
                             if usertextls[0] == "@":
                                 jsaid.insert(0, user_text)
-                                history = open(file_location+"/UC37software/Python/history.py", "w")
+                                history = open(file_location+"/UC37software/Python/skills/history.py", "w")
                                 history.write('jsaid='+str(jsaid))
                                 history.close()
                                 if mood == 5:
@@ -970,7 +970,7 @@ while True:
                                 data.insert(0, int(mood))
                                 if len(data) >= 5:
                                     data.pop(3)
-                                history = open(file_location+"/UC37software/Python/history.py", "w")
+                                history = open(file_location+"/UC37software/Python/skills/history.py", "w")
                                 history.write('jsaid='+str(jsaid)+"\n"+'rsponce='+str(rsponce)+"\n"+'crsponce='+str(crsponce))
                                 history.close()
                                 brk=1
@@ -1006,7 +1006,7 @@ while True:
             if x >=590 and x<= 685 and y >= 40 and y <= 90 and not spekret == 1:
                 os.system("gpicview "+file_location+"/UC37software/images/HowTo.jpg")
             if x >=400 and x<= 570 and y >= 150 and y <= 200 and not spekret == 1:
-                os.system('geany '+file_location+'/UC37software/Python/history.py')
+                os.system('geany '+file_location+'/UC37software/Python/skills/history.py')
             if x >= 600 and x<=680 and y<=30:
                 os.system('chromium-browser https://github.com/Mrpi314tech/UC37skills')
             if x >=265 and x<= 340 and y >= 340 or spekret==1:
@@ -1026,7 +1026,7 @@ while True:
                         notned+=1
                         break
                 jsaid.insert(0, saidtxt)
-                history = open(file_location+"/UC37software/Python/history.py", "w")
+                history = open(file_location+"/UC37software/Python/skills/history.py", "w")
                 history.write('jsaid='+str(jsaid))
                 history.close()
                 if saidtxt == 'what' or 'pardon' in saidtxt:
@@ -1048,7 +1048,7 @@ while True:
                     #print(rsponce)
                     #print(crsponce)
                     #print(psaid)
-                    history = open(file_location+"/UC37software/Python/history.py", "w")
+                    history = open(file_location+"/UC37software/Python/skills/history.py", "w")
                     history.write('jsaid='+str(jsaid)+"\n"+'rsponce='+str(rsponce)+"\n"+'crsponce='+str(crsponce))
                     history.close()
                     ml=most_frequent(data)
