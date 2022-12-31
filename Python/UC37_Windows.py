@@ -69,6 +69,7 @@ textRect.center = (180, 20)
 display_surface.fill(blue)
 display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("edit", True, blue, white), (400, 40))
 display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Github", True, blue, white), (700, 0))
+display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Skills", True, blue, white), (610, 0))
 display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("History", True, blue, white), (400, 150))
 display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, white, blue), (585, 150))
 display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render(tofdy, True, white, blue), (590, 200))
@@ -920,6 +921,7 @@ while True:
     display_surface.fill(blue)
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("edit", True, blue, white), (400, 40))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Github", True, blue, white), (700, 0))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Skills", True, blue, white), (610, 0))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("History", True, blue, white), (400, 150))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, white, blue), (585, 150))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render(tofdy, True, white, blue), (590, 200))
@@ -1005,6 +1007,8 @@ while True:
                 os.system("gpicview "+file_location+"/UC37software/images/HowTo.jpg")
             if x >=400 and x<= 570 and y >= 150 and y <= 200 and not spekret == 1:
                 os.system('geany '+file_location+'/UC37software/Python/history.py')
+            if x >= 600 and x<=680 and y<=30:
+                os.system('chromium-browser https://github.com/Mrpi314tech/UC37skills')
             if x >=265 and x<= 340 and y >= 340 or spekret==1:
                 spekret=0
                 with sr.Microphone() as source:
