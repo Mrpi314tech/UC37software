@@ -26,6 +26,7 @@ sudo pip install pyaudio
 pip install pygame
 pip install psutil
 pip install smbus
+sudo apt install lxterminal
 pip install pyttsx3
 sudo apt install fswebcam
 echo 'type "y" for the next 2 questions: '
