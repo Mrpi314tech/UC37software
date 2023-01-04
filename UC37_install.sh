@@ -16,11 +16,16 @@ sleep 3
 echo "this will download some packages"
 sleep 3
 pip3 install SpeechRecognition
+pip install numpy
 sudo apt-get install flac
 pip3 install pyautogui
+sudo apt-get install python3-tk python3-dev
 sudo apt install espeak
 sudo apt-get install portaudio19-dev
 sudo pip install pyaudio
+pip install pygame
+pip install psutil
+pip install smbus
 pip install pyttsx3
 sudo apt install fswebcam
 echo 'type "y" for the next 2 questions: '
