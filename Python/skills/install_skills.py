@@ -1,7 +1,10 @@
 import os
 import sys
-sys.path.append('../')
-import new_com as acom
+sys.path.append('.')
+try:
+    import new_com as acom
+except ModuleNotFoundError:
+    import UC37software.Python.new_com as acom
 nwcoml=acom.word
 nrunl=acom.com
 file_location=os.path.expanduser('~')
