@@ -251,16 +251,15 @@ def question(qstn):
         except:
             pass
         moodometer=[1,2,3,4,5]
-    elif 'Spell' in qstn:
-        try:
-            htspl=qstn.split('Spell ')
-            spell(htspl[1])
-        except:
-            pass
-        moodometer=[1,2,3,4,5]
     elif 'you' in qstn and 'doing' in qstn and 'what' in qstn:
         gtdt()
         moodometer=[1,2,3,4,5]
+    elif qstn == 'exit' or 'leave' in qstn or "goodbye" in qstn:
+        screen("Goodbye")
+        for proc in psutil.process_iter():
+            if proc.name() == "display":
+                proc.kill()
+        exit()
     elif 'you' in qstn and 'doing' in qstn and 'how' in qstn:
         screen('I am doing great!')
         moodometer=[1,1,1,2,3,4]
@@ -276,6 +275,9 @@ def question(qstn):
     elif 'no' in qstn and crsponce[0] == 'next time, the Lions will win':
         screen('It could happen.')
         moodometer=[1,2,3,4]
+    elif 'hope' in qstn and crsponce[0] == 'next time, the Lions will win':
+        screen('Me too.')
+        moodometer=[1,2,3,4]
     elif crsponce[0] == 'what are you doing today?' and 'nothing' in qstn:
         screen('I know you are doing something')
         moodometer=[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
@@ -286,7 +288,7 @@ def question(qstn):
         screen('oh.')
         gtdt()
         moodometer=[1,2,3,4,5]
-    elif crsponce[0] == 'and how are you?' and 'great' in qstn or crsponce[0] == 'and how are you?' and 'good' in qstn or crsponce[0] == 'and how are you?' and 'fine' in qstn:
+    elif crsponce[0] == 'and how are you?' and 'great' in qstn or crsponce[0] == 'and how are you?' and ' good' in qstn and crsponce[0] == 'and how are you?' and 'fine' in qstn:
         screen('that is very good')
         moodometer=[1,2,3]
     elif crsponce[0] == "What's your favorite type of music?" and 'music' in qstn:
@@ -414,12 +416,6 @@ def question(qstn):
             saidgtxt=rg.recognize_google(audiog)
             googlesearch(saidgtxt)
         moodometer=[1,2,3,4,5]
-    elif 'exit' in qstn or 'leave' in qstn or "goodbye" in qstn:
-        screen("Goodbye")
-        for proc in psutil.process_iter():
-            if proc.name() == "display":
-                proc.kill()
-        exit()
     elif 'I will' in qstn or 'definately' in qstn:
         screen('that is good')
         moodometer=[1,2,3,4,4,4,4,4,4,5]
@@ -680,7 +676,7 @@ def question(qstn):
             snl('I am done.')
         else:
             snl('I am really mad')
-        mood = 5    
+        mood = 5     
 psaid=[]
 wign=[]
 ndef=" "
