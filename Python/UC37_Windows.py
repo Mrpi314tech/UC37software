@@ -616,7 +616,7 @@ def question(qstn):
     elif 'oh' in qstn:
         screen('yep')
         moodometer=[1,2,3,4,5]
-    elif 'what' in qstn or 'how' in qstn or'when' in qstn or 'who' in qstn or 'why' in qstn:
+    elif 'what' in qstn and not 'whatever' in qstn or 'how' in qstn or'when' in qstn or 'who' in qstn or 'why' in qstn:
         screen('how should I know?')
         moodometer=[1,2,3,4,5]
     elif qstn == 'no' or 'no ' in qstn:
@@ -627,6 +627,9 @@ def question(qstn):
         moodometer=[1,2,3,4,4,5]
     elif 'i like' in qstn:
         screen('oh')
+        moodometer=[1,2,3,4]
+    elif 'sorry' in qstn:
+        screen('for what?')
         moodometer=[1,2,3,4]
     elif 'you' in qstn and 'cool' in qstn:
         screen('Thanks!')
@@ -690,7 +693,7 @@ def mquestion(qstn):
     elif 'good' in qstn and 'look' in qstn or 'smell' in qstn or 'sound' in qstn:
         screen('thanks!')
         madometer=[2,3,3,3]
-    elif 'sorry' in qstn:
+    elif 'sorry' in qstn and not 'not' in qstn:
         screen('ok')
         madometer=[2,3,3,3,3,3,3,3]
     elif 'good' in qstn:
