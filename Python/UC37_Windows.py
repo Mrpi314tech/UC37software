@@ -644,7 +644,8 @@ def question(qstn):
                 else:
                     nnfco+=1
             except IndexError:
-                screen('I did not understand that You can press edit to tell me what it means')
+                screen('I did not understand that. You can press edit to tell me what it means')
+                break
         moodometer=[1,2,3,4]
     global mood
     if moodometer == [1,2,3,4,5]:
