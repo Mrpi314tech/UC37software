@@ -226,7 +226,8 @@ def question(qstn):
     while True:
         try:
             if nwordl[aantt] in qstn.lower():
-                break
+                screen(ndefl[aantt])
+                return
             else:
                 aantt+=1
         except IndexError:
