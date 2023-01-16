@@ -1,3 +1,4 @@
+# Not actually copyrigted
 print("© copyright Mrpi314 programming")
 print('Initiate UC37 mode, please wait')
 # Import modules
