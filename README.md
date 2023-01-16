@@ -18,9 +18,9 @@ speaker for 3.5 mm jack (hdmi doesn't work well)
 Make a weather account at http://weatherapi.com  still working on making a new api that is free.
 <br>
 <h3>Step 2:</h3>
-First run this command in the command prompt. Make sure you have pip installed.
+First run this command in the command prompt. Make sure you have pip installed, and the file is installled in the home directory.
 <br>
-<pre><code>git clone https://github.com/Mrpi314tech/UC37software && chmod +x ~/UC37software/UC37_install.sh && ~/UC37software/UC37_install.sh</code></pre>
+<pre><code>git clone https://github.com/Mrpi314tech/UC37software ~ && chmod +x ~/UC37software/UC37_install.sh && ~/UC37software/UC37_install.sh</code></pre>
 <h3>Step 3:</h3>
 <br>
 Go to the main menu and open the path called "Other" then click the application called UC37. UC37 will wake up!
