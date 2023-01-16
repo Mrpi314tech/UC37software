@@ -1,5 +1,6 @@
 print("© copyright Mrpi314 programming")
 print('Initiate UC37 mode, please wait')
+# Import modules
 import time
 import os
 import random
@@ -15,11 +16,9 @@ import pyttsx3
 import requests
 import json
 import sys
-def prints(txttp):
-    sys.stdout.write(txttp)
-    print('\n')
+# Find username
 file_location=os.path.expanduser('~')
-#from kasa import smartplug as ks
+# Import custom commands
 import asyncio
 try:
     import new_words as aword
@@ -30,8 +29,10 @@ try:
 except ModuleNotFoundError:
     import Python.new_com as acom
 nwcoml=acom.word
-nrunl=acom.com    
-import pygame
+nrunl=acom.com
+nwordl=aword.word
+ndefl=aword.defi
+# Set up clock
 hur=int(dt.now().strftime("%H"))
 minits=int(dt.now().strftime("%M"))
 if hur >= 13:
@@ -52,6 +53,8 @@ elif hur >= 17 and hur <= 22:
     tofdy="Good evening"
 else:
     tofdy="Go to bed"
+# Set up GUI
+import pygame
 pygame.init()
 white = (255, 255, 255)
 green = (0, 255, 0)
@@ -83,6 +86,7 @@ img= pygame.transform.scale(imp, (75, 75))
 display_surface.blit(img, (265, 330))
 pygame.display.flip()
 pygame.display.update()
+# Print to the GUI
 def print(bpg):
     global font
     global X
@@ -96,15 +100,18 @@ def print(bpg):
         pygame.display.update()
     else:
         pass
+# Print in the terminal
+def prints(txttp):
+    sys.stdout.write(txttp+'\n')
+# Test
 print('hello')
-nwordl=aword.word
-ndefl=aword.defi
+# Set up simple phrases
 chatlist=['I can do many things to help out. Just ask me!','Press edit to customize me to your needs','next time, the Lions will win', 'Is Detroit good at any sport?', 'if you want to play a game, just ask me!', "in case you haven't figured it out, I'm a Detroit Lions fan.", 'what is your favorite color?', "what are you doing today?", 'what is your favorite food?', 'Tell me about yourself.',"What's your favorite thing to do in your free time?",    "Have you traveled anywhere recently? Where did you go?",    "What's your favorite type of music?",    "Do you have any hobbies that you enjoy?",    "What do you like to do on the weekends?"]  
+# define variables for determining mood
 data=[]
 jsaid=[]
 mood=1
-nwcoml=acom.word
-nrunl=acom.com
+# Import information from survey
 sys.path.append('../')
 try:
     from Welcome import info as info
@@ -122,8 +129,6 @@ if info.ask_for_password == True:
             print('Wrong password!')
 else:
     pass
-verb="act answer approve arrange break build buy color cough create complete cry dance describe draw drink eat edit enter exit imitate invent jump laugh lie listen paint plan play read replace run scream see shop shout sing skip sleep sneeze solve study teach touch turn walk win write whistle yank zip concern decide dislike doubt feel forget hate hear hope impress know learn like look love mind notice own perceive realize recognize remember see smell surprise please prefer promise think understand am appear are be become been being feel grow is look remain seem smell sound stay taste turn was were can could may might must ought to shall should will would"
-notnoun="for and nor but or yet so a an the and do I he him her tell we they it who what where when why how me she you my"+verb.lower()
 try:
     location=info.file_location
     kasaip=info.ip_for_kasa
@@ -137,6 +142,10 @@ except:
     print("Could not get your info. Try retaking the survey")
     time.sleep(1)
     exit()
+# Simple grammar
+verb="act answer approve arrange break build buy color cough create complete cry dance describe draw drink eat edit enter exit imitate invent jump laugh lie listen paint plan play read replace run scream see shop shout sing skip sleep sneeze solve study teach touch turn walk win write whistle yank zip concern decide dislike doubt feel forget hate hear hope impress know learn like look love mind notice own perceive realize recognize remember see smell surprise please prefer promise think understand am appear are be become been being feel grow is look remain seem smell sound stay taste turn was were can could may might must ought to shall should will would"
+notnoun="for and nor but or yet so a an the and do I he him her tell we they it who what where when why how me she you my"+verb.lower()
+# Set up text-to-speech
 engine=pyttsx3.init()
 engine.setProperty('voice', 'english-us')
 voice=True
@@ -144,34 +153,13 @@ r=sr.Recognizer()
 def speak(say):
     engine.say(say)
     engine.runAndWait()
-def click():
-    pr.mouseDown()
-    pr.mouseUp()
-def key(kwi):
-    pr.keyDown(kwi)
-    pr.keyUp(kwi)
-button='book'
-rfid = False
+# Take picture
 print('Picture stored at UC37software/images')
 os.system("fswebcam -r 1280x720 --no-banner "+username+"/Pictures/secure.jpg")
+# Fart
 def stinky():
     os.system('vlc '+username+'/UC37software/sounds/fart.mp3')
-def book():
-    screen('One day Sausage\nMan was just')
-    snl('walking by\nwhen a flash')
-    snl('appeared. \nIt was Mini')
-    snl('Potato! the\nvillian who')
-    snl('could see the\nfuture! He was')
-    snl('too fast for SM\nto get him. So')
-    snl('SM shot him\nwith his syrup')
-    snl('gun! Min Pot\nwas not fast')
-    snl('enough. When he\nwas stuck SM got')
-    snl('out a fork and\nstabbed all his')
-    snl('eyes out. When\nthere were only')
-    snl('2 left, he was\nnot able to go')
-    snl('fast because\nhe could not see')
-    snl('the future\nSM won again!')
-    print('One day Sausage Man was walking by Mcdonalds to check out the new breakfast combo when lightning struck. Out of the dust came Mini Potato, the fiendish villan who could see the future! "Im going to get you!" said Sausage Man. Sausage Man chased Mini Potato around, but Mini Potato knew when he was going to attack, so Sausage Man couldnt get him. Then Sausage Man had an idea. "If I shoot him with something fast, will he be able, to move?" Sausage man whipped out his trusty syrup launcher and blasted Mini Potato to the ground. Mini Potato was stuck! "No!" Mini Potato groaned as Sausage man stabbed his eyes out with a fork. Withought his eyes, Mini Potato couldnt see the future. Another victory for Sausage Man!') 
+# Find weather
 def news():
     global weather
     global temp
@@ -194,19 +182,13 @@ def news():
     screen('the high tempurature is '+htemp+' degrees')
     screen('the low tempurature is '+ltemp+' degrees')
     screen('there is a '+crain+'% chance it will rain today')
+# What he is doing today
 def gtdt():
     screen('normally, I would tell you what I am doing')
     screen('based off of the weather. Unfortunately,')
     screen('our api is not working right now')
     screen('so I guess I will stay inside today')
-def googlesearch(txt):
-    pr.moveTo(76,13)
-    click()
-    time.sleep(3)
-    pr.moveTo(512,137)
-    click()
-    pr.write(txt)
-    key('enter')
+# Chatbot function.
 def question(qstn):
     global data
     global crsponce
@@ -438,7 +420,7 @@ def question(qstn):
     elif 'hate you' in qstn:
         raise ValueError('You are a bad person so I kicked you out')
     elif 'story' in qstn or 'book' in qstn:
-        book()
+        screen("I don't know any")
         moodometer=[1,2,3,4,4,4]
     elif 'i feel' in qstn:
         if 'sad' in qstn or 'bad' in qstn or 'angry' in qstn or 'depressed' in qstn or "sick" in qstn:
@@ -651,6 +633,7 @@ def question(qstn):
                 screen('I did not understand that. You can press edit to tell me what it means')
                 break
         moodometer=[1,2,3,4]
+    # Determine mood
     global mood
     if moodometer == [1,2,3,4,5]:
         moodometer.remove(5)
@@ -681,11 +664,8 @@ def question(qstn):
             snl('I am done.')
         else:
             snl('I am really mad')
-        mood = 5     
-psaid=[]
-wign=[]
-ndef=" "
-nword="wusgfyfhhsugf "
+        mood = 5
+# Chatbot lists for when he is angry
 def mquestion(qstn):
     print('\n\n')
     if 'hello' in qstn or 'hi' in qstn:
@@ -716,6 +696,16 @@ def mquestion(qstn):
     if gooh == 3:
         global mood
         mood=1
+# Define variables for storing the history
+psaid=[]
+wign=[]
+ndef=" "
+nword="wusgfyfhhsugf "
+rsponce=['']
+crsponce=['']
+AIg = 0
+ne = 1
+# Play rock paper scissors
 def rockpaper():
     screen('Rock paper scissors!')
     time.sleep(1)
@@ -750,8 +740,10 @@ def rockpaper():
     else:
         screen('that is not rock paper or scissors')
     time.sleep(1)
+# Function for helping determine mood
 def most_frequent(List):
     return max(set(List), key = List.count)
+# Tell a joke
 def joke():
     jokey=random.choice([1,2,3,4,5,6,7,8,9,10])
     if jokey == 1:
@@ -794,6 +786,7 @@ def joke():
         screen("why can't you trust an atom?")
         time.sleep(2)
         screen("they make up everything")
+# Useless functions
 def missle():
     screen('pew pew')
 def uno():
@@ -812,8 +805,17 @@ def drone():
     screen('Im flying')
 def beep():
     screen('A')
-rsponce=['']
-crsponce=['']
+def cwifi():
+    cmdl("rfkill unblock wifi")
+def wifi():
+    cmdl('rfkill block wifi')
+def sleep():
+    screen('I am asleep')
+    awake=input(' ')
+    screen('I am awake')
+def clear_shell():
+    pass
+# Set up functions to print to GUI
 def screen(text):
     if not 'look in shell\nfor result' in text:
         print(text)
@@ -826,8 +828,10 @@ def snl(snlt):
     speak(snlt)
     global jsaid
     crsponce.insert(0, snlt)
+# Print number in GUI
 def number(a,b,c,d):
     screen(int(a),+int(b),+int(c),+int(d))
+# Function for spelling
 def spell(spl):
     screen('%s is spelled:'%spl)
     def letters(wordd):
@@ -840,8 +844,8 @@ def spell(spl):
         except:
             break
     screen(spl)
+# Figure out time
 def ntime():
-    speak('I')
     now=dt.datetime.now()
     hour=now.hour
     minute=now.minute
@@ -854,14 +858,14 @@ def ntime():
         second="0"+str(minute)
     print(str(hour)+":"+str(minute)+":"+str(second))
     speak(str(hour)+":"+str(minute))
+# Dance
 def dance():
     print('https://scratch.mit.edu/projects/577558298/fullscreen/')
     for i in range(0,3):
         for i in range(0,8):
             screen('     Dance!')
             time.sleep(0.5)
-AIg = 0
-ne = 1
+# Find any bible verse from an API
 def bible():
     screen('what verse?')
     with sr.Microphone() as source:
@@ -875,16 +879,7 @@ def bible():
         screen(response.json()['text'])
     except KeyError:
         screen('that verse does not exist')
-def cwifi():
-    cmdl("rfkill unblock wifi")
-def wifi():
-    cmdl('rfkill block wifi')
-def sleep():
-    screen('I am asleep')
-    awake=input(' ')
-    screen('I am awake')
-def clear_shell():
-    pass
+# Define variables that will be used for different things
 spekret=0
 clear_shell()
 st=0
@@ -896,8 +891,11 @@ print('Process completed')
 notned=0
 user_text=''
 resthre=0
+# No longer defining things
 while True:
+    # Tell when/what key is pressed
     keyi=pygame.key.get_pressed()
+    # Display time and greeting
     hur=int(dt.now().strftime("%H"))
     minits=int(dt.now().strftime("%M"))
     if hur >= 13:
@@ -918,6 +916,7 @@ while True:
         tofdy="Good evening"
     else:
         tofdy="Go to bed"
+    # Set up GUI
     display_surface = pygame.display.set_mode((X, Y))
     display_surface.fill(blue)
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("edit", True, blue, white), (400, 40))
@@ -934,8 +933,10 @@ while True:
     imp = pygame.image.load(file_location+"/UC37software/images/UC37.png").convert()
     img= pygame.transform.scale(imp, (75, 75))
     display_surface.blit(img, (265, 330))
+    # Set up buttons and inputs
     brk =0
     for event in pygame.event.get():
+        # Set up input box
         if event.type == pygame.KEYDOWN:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_BACKSPACE:
@@ -957,6 +958,7 @@ while True:
                             if user_text == '':
                                 brk =1
                         elif event.key == pygame.K_RETURN:
+                            # Compute input
                             usertextls=user_text.split(' ')
                             if usertextls[0] == "@":
                                 jsaid.insert(0, user_text)
@@ -978,14 +980,18 @@ while True:
                                 user_text=''
                             else:
                                 brk=1
+                                #Run command in terminal
                                 os.system("lxterminal -e "+user_text)
                                 user_text=''
                         else:
                             user_text += event.unicode
+                        # Clear input
                         display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(user_text+'              ', True, white, blue), (50, 300))
                         pygame.display.update()
+                # Break loop
                 if brk == 1:
                     break
+        # Set up buttons
         if event.type == pygame.QUIT:
             sys.exit()
         if event.type == pygame.MOUSEBUTTONDOWN or spekret ==1:
@@ -1011,7 +1017,9 @@ while True:
             if x >= 600 and x<=680 and y<=30:
                 os.system('chromium-browser https://github.com/Mrpi314tech/UC37skills')
             if x >=265 and x<= 340 and y >= 340 or spekret==1:
+                # Button to speak
                 spekret=0
+                # Listen
                 with sr.Microphone() as source:
                     r.adjust_for_ambient_noise(source)
                     if st == 0:
@@ -1026,10 +1034,12 @@ while True:
                     except:
                         notned+=1
                         break
+                # Set up history
                 jsaid.insert(0, saidtxt)
                 history = open(file_location+"/UC37software/Python/skills/history.py", "w")
                 history.write('jsaid='+str(jsaid))
                 history.close()
+                # Compute input
                 if saidtxt == 'what' or 'pardon' in saidtxt:
                     if mood == 5:
                         mquestion(saidtxt)
@@ -1044,13 +1054,10 @@ while True:
                     data.insert(0, int(mood))
                     if len(data) >= 5:
                         data.pop(3)
-                    #print(data)
-                    #print(jsaid)
-                    #print(rsponce)
-                    #print(crsponce)
-                    #print(psaid)
+                    # Add to history
                     history = open(file_location+"/UC37software/Python/skills/history.py", "w")
                     history.write('jsaid='+str(jsaid)+"\n"+'rsponce='+str(rsponce)+"\n"+'crsponce='+str(crsponce))
                     history.close()
                     ml=most_frequent(data)
+    # Update GUI
     pygame.display.update()
