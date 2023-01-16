@@ -1,19 +1,9 @@
 Programming:
-Elliot DeBruin
+Mrpi314tech
 
 Graphics:
-Elliot DeBruin
-
-Music/Sounds:
--Monkeys Spinning Monkeys Kevin MacLeod (incompetech.com)
--Fluffing a Duck Kevin MacLeod (incompetech.com)
--Digital World by MaxKoMusic | https://maxkomusic.com/
-
-Music promoted by https://www.chosic.com/free-music/all/
-Creative Commons Attribution-ShareAlike 3.0 Unported
-https://creativecommons.org/licenses/by-sa/3.0/deed.en_US
-
--Five Spot After Dark Curtis Fuller (jazz.mp3)
+Mrpi314tech
+Canva
 
 Voices:
 pyttsx3 python library
@@ -22,10 +12,14 @@ Camera:
 OpenCV
 
 Cooperatives:
-Isaac Enslen
-Matthew Martin
+10_9code
 
 Websites:
-https://www.chosic.com/ -music
 https://github.com/ -Python libraries
 https://pip.pypa.io/ -Python libraries
+
+Acknowledgements-
+10_9code (testing), 
+ChatGPT (barely), 
+GeeksForGeeks (helping me learn python), 
+Botspot (I copied some of his pi-apps code),
