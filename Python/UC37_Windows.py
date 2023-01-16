@@ -16,10 +16,10 @@ import pyttsx3
 import requests
 import json
 import sys
+import asyncio
 # Find username
 file_location=os.path.expanduser('~')
 # Import custom commands
-import asyncio
 try:
     import new_words as aword
 except ModuleNotFoundError:
