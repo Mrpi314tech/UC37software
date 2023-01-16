@@ -803,16 +803,17 @@ def uno():
     imgz = Image.open(username+'/UC37software/images/UC37.png') 
     imgz.show()
 def drone():
-    screen('Im flying')
+    screen("I'm flying")
 def beep():
     screen('A')
 def cwifi():
     cmdl("rfkill unblock wifi")
 def wifi():
+    screen('Voice recognition does not work without wifi, but you can still use the text')
     cmdl('rfkill block wifi')
 def sleep():
     screen('I am asleep')
-    awake=input(' ')
+    time.sleep(1)
     screen('I am awake')
 def clear_shell():
     pass
