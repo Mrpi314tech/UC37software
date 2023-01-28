@@ -4,8 +4,8 @@ Welcom to skills, the place where you can download abilities to expand UC37's he
 https://github.com/Mrpi314tech/UC37skills
 <h1>UC37software</h1>
 Welcome to UC37 software!
-UC37 is an artificial intelligence program that acts like a human. He can help out by doing
-things like turn on smart plugs and play music.
+UC37 is an artificial intelligence program/task manager that acts like a human. He can help out by doing
+things like turn on smart plugs and play music. He also keeps track of your system statistics.
 <br>
 <h3>Parts you need:</h3>
 raspberry pi
