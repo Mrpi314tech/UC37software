@@ -18,8 +18,10 @@ import requests
 import json
 import sys
 import asyncio
-# Find username
+import socket
+# Find username andd ip
 file_location=os.path.expanduser('~')
+ip_address = socket.gethostbyname(socket.gethostname())
 # Import custom commands
 try:
     import new_words as aword
@@ -895,6 +897,11 @@ user_text=''
 resthre=0
 # No longer defining things
 while True:
+    # Get system information
+    RAM=os.popen('free -h').read()
+    RAM=RAM.split('\n')
+    RAM=RAM[1].split('      ')
+    I1, I2, I3=psutil.getloadavg()
     # Tell when/what key is pressed
     keyi=pygame.key.get_pressed()
     # Display time and greeting
@@ -928,6 +935,9 @@ while True:
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, white, blue), (585, 150))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render(tofdy, True, white, blue), (590, 200))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("Info", True, blue, white), (590, 40))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(ip_address, True, blue, white), (0, 50))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render('RAM: '+RAM[2].replace(' ', '')+' of '+RAM[1].replace(' ', ''), True, blue, white), (0, 100))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("CPU: "+str((I3/os.cpu_count())*100), True, blue, white), (0, 150))
     display_surface.blit(header, textRect)
     pygame.draw.line(display_surface, white,
                      [300, 300],
