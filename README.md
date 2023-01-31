@@ -1,6 +1,6 @@
 <body style="background-color:lightblue;">
 <h1>UC37software</h1>
-http://uc37.mrpi314.com
+<a href='http://uc37.mrpi314.com'>Website</a>
 <br>
 Welcome to UC37 software!
 UC37 is an artificial intelligence program/task manager that acts like a human. He can help out by doing
@@ -17,7 +17,7 @@ usb microphone
 speaker for 3.5 mm jack (hdmi doesn't work well)
 <br>
 <h3>Step 1:</h3>
-Make a weather account at http://weatherapi.com  still working on making a new api that is free.
+Make a weather account at <a href='http://weatherapi.com'>weatherapi.com</a>  still working on making a new api that is free.
 <br>
 <h3>Step 2:</h3>
 First run this command in the command prompt. Make sure you have pip installed, and the file is installled in the home directory.
