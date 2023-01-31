@@ -3,6 +3,8 @@
 Welcom to skills, the place where you can download abilities to expand UC37's helpfulness. Currently, there are 2 skills, a timer and a program that allowws you to control your kasa tp-link devices. Here is the link to skills:
 https://github.com/Mrpi314tech/UC37skills
 <h1>UC37software</h1>
+http://uc37.mrpi314.com
+<br>
 Welcome to UC37 software!
 UC37 is an artificial intelligence program/task manager that acts like a human. He can help out by doing
 things like turn on smart plugs and play music. He also keeps track of your system statistics.
