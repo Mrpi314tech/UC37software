@@ -1,7 +1,4 @@
 <body style="background-color:lightblue;">
- <h2>Announcement- New function!</h2>
-Welcom to skills, the place where you can download abilities to expand UC37's helpfulness. Currently, there are 2 skills, a timer and a program that allowws you to control your kasa tp-link devices. Here is the link to skills:
-https://github.com/Mrpi314tech/UC37skills
 <h1>UC37software</h1>
 http://uc37.mrpi314.com
 <br>
@@ -40,6 +37,9 @@ Press the picture of him to talk
 <pre><code>~/UC37_update.sh</code></pre>
 <h3>To uninstall</h3>
 <pre><code>~/UC37software/UC37_remove.sh</code></pre>
+ <h2>Skills</h2>
+Welcom to skills, the place where you can download abilities to expand UC37's helpfulness. Currently, there are 2 skills, a timer and a program that allowws you to control your kasa tp-link devices. Here is the link to skills:
+https://github.com/Mrpi314tech/UC37skills
 <h3>UC37 can:</h3>
 Talk to you
 <br>
