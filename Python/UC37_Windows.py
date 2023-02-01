@@ -152,10 +152,11 @@ notnoun="for and nor but or yet so a an the and do I he him her tell we they it 
 engine=pyttsx3.init()
 engine.setProperty('voice', 'english-us')
 voice=True
-r=sr.Recognizer()
 def speak(say):
     engine.say(say)
     engine.runAndWait()
+# Set up speech recognition
+r=sr.Recognizer()
 # Take picture
 print('Picture stored at UC37software/images')
 os.system("fswebcam -r 1280x720 --no-banner "+username+"/Pictures/secure.jpg")
