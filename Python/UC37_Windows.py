@@ -1023,9 +1023,9 @@ while True:
         if event.type == pygame.MOUSEBUTTONDOWN or spekret ==1:
             x, y = pygame.mouse.get_pos()
             if x >=700 and y <= 35 and not spekret == 1:
-                os.system('chromium-browser https://github.com/Mrpi314tech/UC37software')
+                os.system('chromium-browser https://github.com/Mrpi314tech/UC37software &')
             if x >=400 and x<= 505 and y >= 40 and y <= 100 and not spekret == 1:
-                os.system('lxterminal -e python3 '+file_location+'/UC37software/Python/UC37edit.py')
+                os.system('lxterminal -e python3 '+file_location+'/UC37software/Python/UC37edit.py &')
                 try:
                     import new_words as aword
                 except ModuleNotFoundError:
@@ -1037,11 +1037,11 @@ while True:
                 nwcoml=acom.word
                 nrunl=acom.com
             if x >=590 and x<= 685 and y >= 40 and y <= 90 and not spekret == 1:
-                os.system("gpicview "+file_location+"/UC37software/images/HowTo.jpg")
+                os.system("gpicview "+file_location+"/UC37software/images/HowTo.jpg &")
             if x >=400 and x<= 570 and y >= 150 and y <= 200 and not spekret == 1:
-                os.system('geany '+file_location+'/UC37software/Python/skills/history.py')
+                os.system('geany '+file_location+'/UC37software/Python/skills/history.py &')
             if x >= 600 and x<=680 and y<=30:
-                os.system('chromium-browser https://github.com/Mrpi314tech/UC37skills')
+                os.system('chromium-browser https://github.com/Mrpi314tech/UC37skills &')
             if x<=45 and y>=200 and y<=230:
                 os.system('lxterminal -e htop &')
             if x >=265 and x<= 340 and y >= 340 or spekret==1:
