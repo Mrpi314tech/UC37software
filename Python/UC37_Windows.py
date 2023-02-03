@@ -884,6 +884,7 @@ def bible():
     except KeyError:
         screen('that verse does not exist')
 # Define variables that will be used for different things
+TM_var="TM"
 spekret=0
 clear_shell()
 st=0
@@ -902,6 +903,11 @@ while True:
     RAM=RAM.split('\n')
     RAM=RAM[1].split('      ')
     I1, I2, I3=psutil.getloadavg()
+    cpu_round=str((I3/os.cpu_count())*100).split('.')[0]
+    if int(cpu_round[1]) >= 0.5:
+        cpu_usage=str(int(cpu_round)+1)
+    else:
+        cpu_usage=cpu_round
     # Tell when/what key is pressed
     keyi=pygame.key.get_pressed()
     # Display time and greeting
@@ -937,7 +943,8 @@ while True:
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("Info", True, blue, white), (590, 40))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(ip_address, True, blue, white), (0, 50))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render('RAM: '+RAM[2].replace(' ', '')+' of '+RAM[1].replace(' ', ''), True, blue, white), (0, 100))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("CPU: "+str((I3/os.cpu_count())*100), True, blue, white), (0, 150))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("CPU: "+cpu_usage, True, blue, white), (0, 150))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(TM_var, True, blue, white), (0, 200))
     display_surface.blit(header, textRect)
     pygame.draw.line(display_surface, white,
                      [300, 300],
@@ -945,6 +952,12 @@ while True:
     imp = pygame.image.load(file_location+"/UC37software/images/UC37.png").convert()
     img= pygame.transform.scale(imp, (75, 75))
     display_surface.blit(img, (265, 330))
+    # Set up Task Manager button
+    x, y =pygame.mouse.get_pos()
+    if x<=45 and y>=200 and y<=230:
+        TM_var="Task Manager"
+    else:
+        TM_var="TM"
     # Set up buttons and inputs
     brk =0
     for event in pygame.event.get():
@@ -1028,6 +1041,8 @@ while True:
                 os.system('geany '+file_location+'/UC37software/Python/skills/history.py')
             if x >= 600 and x<=680 and y<=30:
                 os.system('chromium-browser https://github.com/Mrpi314tech/UC37skills')
+            if x<=45 and y>=200 and y<=230:
+                os.system('lxterminal -e htop &')
             if x >=265 and x<= 340 and y >= 340 or spekret==1:
                 # Button to speak
                 spekret=0
