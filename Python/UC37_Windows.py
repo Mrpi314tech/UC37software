@@ -944,7 +944,7 @@ while True:
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("Info", True, blue, white), (590, 40))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(ip_address, True, blue, white), (0, 50))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render('RAM: '+RAM[2].replace(' ', '')+' of '+RAM[1].replace(' ', ''), True, blue, white), (0, 100))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("CPU: "+cpu_usage, True, blue, white), (0, 150))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("CPU: "+cpu_usage+"%", True, blue, white), (0, 150))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(TM_var, True, blue, white), (0, 200))
     display_surface.blit(header, textRect)
     pygame.draw.line(display_surface, white,
