@@ -29,6 +29,7 @@ pip install smbus
 sudo apt install lxterminal
 pip install pyttsx3
 sudo apt install fswebcam
+sudo apt-get install htop
 echo 'type "y" if it asks you a question: '
 rm -r ~/UC37software/.git
 echo "Now you will take a survey to help UC37 get to know you"
