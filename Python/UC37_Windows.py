@@ -905,9 +905,12 @@ while True:
     RAM=RAM[1].split('      ')
     I1, I2, I3=psutil.getloadavg()
     cpu_round=str((I3/os.cpu_count())*100).split('.')[0]
-    if int(cpu_round[1]) >= 0.5:
-        cpu_usage=str(int(cpu_round)+1)
-    else:
+    try:
+        if int(cpu_round[1]) >= 0.5:
+            cpu_usage=str(int(cpu_round)+1)
+        else:
+            cpu_usage=cpu_round
+    except IndexError:
         cpu_usage=cpu_round
     # Tell when/what key is pressed
     keyi=pygame.key.get_pressed()
