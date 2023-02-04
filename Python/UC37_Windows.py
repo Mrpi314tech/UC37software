@@ -73,7 +73,7 @@ header = font.render('UC37software', True, white, blue)
 textRect = header.get_rect()
 textRect.center = (180, 20)
 display_surface.fill(blue)
-display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("edit", True, blue, white), (400, 40))
+display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("Edit", True, blue, white), (400, 40))
 display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Github", True, blue, white), (700, 0))
 display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Skills", True, blue, white), (610, 0))
 display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("History", True, blue, white), (400, 150))
@@ -938,7 +938,7 @@ while True:
     # Set up GUI
     display_surface = pygame.display.set_mode((X, Y))
     display_surface.fill(blue)
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("edit", True, blue, white), (400, 40))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("Edit", True, blue, white), (400, 40))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Github", True, blue, white), (700, 0))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Skills", True, blue, white), (610, 0))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("History", True, blue, white), (400, 150))
@@ -1027,7 +1027,7 @@ while True:
             x, y = pygame.mouse.get_pos()
             if x >=700 and y <= 35 and not spekret == 1:
                 os.system('chromium-browser https://github.com/Mrpi314tech/UC37software &')
-            if x >=400 and x<= 505 and y >= 40 and y <= 100 and not spekret == 1:
+            if x >=400 and x<= 515 and y >= 40 and y <= 100 and not spekret == 1:
                 os.system('lxterminal -e python3 '+file_location+'/UC37software/Python/UC37edit.py &')
                 try:
                     import new_words as aword
