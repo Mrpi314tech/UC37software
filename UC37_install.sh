@@ -54,11 +54,11 @@ while true; do
 		Icon=${location}/UC37software/images/UC37.png
 		Terminal=false
 		Type=Application
-		Categories=Programming;
+		Categories=System;
 		StartupNotify=true" > ~/.local/share/applications/UC37.desktop
 		echo "done"
 		echo "UC37 is installed!"
-		echo "The UC37 app can be found in Menu>Other>UC37"
+		echo "The UC37 app can be found in Menu>System Tools>UC37"
 		sleep 10
 		exit 1
 	fi
