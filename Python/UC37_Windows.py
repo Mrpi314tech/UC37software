@@ -1,5 +1,4 @@
-# Not actually copyrigted
-print("© copyright Mrpi314 programming")
+print("Made by Mrpi314tech programming")
 print('Initiate UC37 mode, please wait')
 # Import modules
 import time
@@ -19,7 +18,7 @@ import json
 import sys
 import asyncio
 import socket
-# Find username andd ip
+# Find username and ip
 file_location=os.path.expanduser('~')
 ip_address = socket.gethostbyname(socket.gethostname())
 # Import custom commands
@@ -301,6 +300,17 @@ def question(qstn):
         moodometer=[1,2,3,4]
     elif 'you' in qstn and 'said' in qstn:
         screen("no I didn't")
+        moodometer=[1,2,3,4]
+    elif 'kill' in qstn:
+        if '/' in qstn:
+            oqstno=qstn.replace('kill', 'kill ')
+        else:
+            oqstno=qstn
+        try:
+            os.system('killall -9 '+(oqstno.split('kill ')[1]).replace(' ', ''))
+            screen('killing process '+(oqstno.split('kill ')[1]).replace(' ', ''))
+        except IndexError:
+            screen('To kill a process say "Kill" and then the process name/PID')
         moodometer=[1,2,3,4]
     elif rsponce[0] == 'I feel great!' and 'good' in qstn:
         snl('and how are you?')
