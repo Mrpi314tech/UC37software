@@ -301,7 +301,10 @@ def question(qstn):
     elif 'you' in qstn and 'said' in qstn:
         screen("no I didn't")
         moodometer=[1,2,3,4]
-    elif 'kill' in qstn:
+    elif 'kill' in qstn or 'till' in qstn:
+        if 'till' in qstn:
+            screen('assuming you ment "Kill"...')
+            qstn=qstn.replace('till', 'kill')
         if '/' in qstn:
             oqstno=qstn.replace('kill', 'kill ')
         else:
@@ -403,21 +406,24 @@ def question(qstn):
         moodometer=[1,2,3,4,5]
     elif 'fly' in qstn or 'float' in qstn:
         drone()
-        moodometer=[1,2,3,4,4,4,5]
+        moodometer=[1,2,3,4,4,4]
     elif 'Google search' in qstn or 'google search' in qstn:
-        rg=sr.Recognizer()
-        with sr.Microphone() as sourceg:
-            rg.adjust_for_ambient_noise(sourceg)
-            print('search...')
-            audiog=rg.listen(source)
-            saidgtxt=rg.recognize_google(audiog)
-            googlesearch(saidgtxt)
+        print('search...')
+        try:
+            with sr.Microphone() as source:
+                r.adjust_for_ambient_noise(source)
+                audio=r.listen(source)
+                saidgtxt=r.recognize_google(audio)
+        except:
+            pass
+        os.system('chromium-browser https://www.google.com/search?q='+saidgtxt+' &')
         moodometer=[1,2,3,4,5]
     elif 'I will' in qstn or 'definately' in qstn:
         screen('that is good')
         moodometer=[1,2,3,4,4,4,4,4,4,5]
     elif 'me too' in qstn or 'me also' in qstn:
-        screen(':)')
+        print(':)')
+        speak('smiles')
         moodometer=[1,2,3,4,4,4,4,4,4,4,4]
     elif 'chance' in qstn and 'no' in qstn or 'way' in qstn and 'no' in qstn:
         screen('It could\nhappen')
@@ -492,10 +498,12 @@ def question(qstn):
         screen('thanks!')
         moodometer=[1,2,3,4,4,4,4,4,4,4,4,4,4]
     elif 'your welcome' in qstn:
-        screen(':)')
+        print(':)')
+        speak('smiles')
         moodometer=[1,2,3,4,4,4,4,4,4,4,4]
     elif 'your cool' in qstn or 'you too' in qstn:
-        screen(':)')
+        print(':)')
+        speak('smiles')
         moodometer=[1,2,3,4,4,4,4,4,4,4,4]
     elif 'eat' in qstn or 'hungry' in qstn:
         screen('You should eat an apple')
@@ -907,6 +915,7 @@ print('Process completed')
 notned=0
 user_text=''
 resthre=0
+spekretno=0
 # No longer defining things
 while True:
     # Get system information
@@ -984,13 +993,16 @@ while True:
                         brk =1
                 elif event.key == pygame.K_RETURN:
                     spekret=1
-                    brk =1
+                    spekretno=0
                 else:
                     user_text += event.unicode
                 display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(user_text+'              ', True, white, blue), (50, 300))
                 pygame.display.update()
             while True:
+                if spekret == 1:
+                    break
                 for event in pygame.event.get():
+                    prints(user_text)
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_BACKSPACE:
                             user_text = user_text[:-1]
@@ -999,7 +1011,10 @@ while True:
                         elif event.key == pygame.K_RETURN:
                             # Compute input
                             usertextls=user_text.split(' ')
-                            if usertextls[0] == "@":
+                            spekretno=1
+                            if user_text=='':
+                                brk=1
+                            elif usertextls[0] == "@":
                                 jsaid.insert(0, user_text)
                                 history = open(file_location+"/UC37software/Python/skills/history.py", "w")
                                 history.write('jsaid='+str(jsaid))
@@ -1033,7 +1048,7 @@ while True:
         # Set up buttons
         if event.type == pygame.QUIT:
             sys.exit()
-        if event.type == pygame.MOUSEBUTTONDOWN or spekret ==1:
+        if event.type == pygame.MOUSEBUTTONDOWN or spekret ==1 or event.type == pygame.KEYDOWN:
             x, y = pygame.mouse.get_pos()
             if x >=700 and y <= 35 and not spekret == 1:
                 os.system('chromium-browser https://github.com/Mrpi314tech/UC37software &')
@@ -1057,9 +1072,11 @@ while True:
                 os.system('chromium-browser https://github.com/Mrpi314tech/UC37skills &')
             if x<=45 and y>=200 and y<=230:
                 os.system('lxterminal -e htop &')
-            if x >=265 and x<= 340 and y >= 340 or spekret==1:
-                # Button to speak
+            if x >=265 and x<= 340 and y >= 340 or spekret==1 and spekretno ==0 or event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN and spekretno ==0:
+                # Press button/enter to speak
+                # Reset variables
                 spekret=0
+                spekretno=0
                 # Listen
                 with sr.Microphone() as source:
                     r.adjust_for_ambient_noise(source)
@@ -1100,5 +1117,7 @@ while True:
                     history.write('jsaid='+str(jsaid)+"\n"+'rsponce='+str(rsponce)+"\n"+'crsponce='+str(crsponce))
                     history.close()
                     ml=most_frequent(data)
+    # Reset varaible that senses the enter key
+    spekretno=0
     # Update GUI
     pygame.display.update()
