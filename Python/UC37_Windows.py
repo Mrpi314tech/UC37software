@@ -1002,7 +1002,6 @@ while True:
                 if spekret == 1:
                     break
                 for event in pygame.event.get():
-                    prints(user_text)
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_BACKSPACE:
                             user_text = user_text[:-1]
