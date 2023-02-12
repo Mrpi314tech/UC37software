@@ -158,7 +158,7 @@ def speak(say):
 r=sr.Recognizer()
 # Take picture
 print('Picture stored at UC37software/images')
-os.system("fswebcam -r 1280x720 --no-banner "+username+"/Pictures/secure.jpg")
+os.system("fswebcam -r 1280x720 --no-banner "+username+"/UC37software/images.jpg")
 # Fart
 def stinky():
     os.system('vlc '+username+'/UC37software/sounds/fart.mp3')
@@ -1097,25 +1097,21 @@ while True:
                 history.write('jsaid='+str(jsaid))
                 history.close()
                 # Compute input
-                if saidtxt == 'what' or 'pardon' in saidtxt:
-                    if mood == 5:
-                        mquestion(saidtxt)
-                    else:
-                        question(saidtxt)
+                if saidtxt == 'what' or 'pardon' in saidtxt or saidtxt == 'again' or saidtxt == 'repeat':
+                    saidtxt=jsaid[1]
+                if mood == 5:
+                    mquestion(saidtxt)
                 else:
-                    if mood == 5:
-                        mquestion(saidtxt)
-                    else:
-                        question(saidtxt)
-                    lasts=saidtxt
-                    data.insert(0, int(mood))
-                    if len(data) >= 5:
-                        data.pop(3)
-                    # Add to history
-                    history = open(file_location+"/UC37software/Python/skills/history.py", "w")
-                    history.write('jsaid='+str(jsaid)+"\n"+'rsponce='+str(rsponce)+"\n"+'crsponce='+str(crsponce))
-                    history.close()
-                    ml=most_frequent(data)
+                    question(saidtxt)
+                lasts=saidtxt
+                data.insert(0, int(mood))
+                if len(data) >= 5:
+                    data.pop(3)
+                # Add to history
+                history = open(file_location+"/UC37software/Python/skills/history.py", "w")
+                history.write('jsaid='+str(jsaid)+"\n"+'rsponce='+str(rsponce)+"\n"+'crsponce='+str(crsponce))
+                history.close()
+                ml=most_frequent(data)
     # Reset varaible that senses the enter key
     spekretno=0
     # Update GUI
