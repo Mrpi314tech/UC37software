@@ -311,7 +311,9 @@ def question(qstn):
             oqstno=qstn
         try:
             os.system('killall -9 '+(oqstno.split('kill ')[1]).replace(' ', ''))
-            screen('killing process '+(oqstno.split('kill ')[1]).replace(' ', ''))
+            os.system('killall -9 '+(oqstno.split('kill ')[1]).replace(' ', '-'))
+            os.system('killall -9 '+(oqstno.split('kill ')[1]).replace(' ', '/'))
+            screen('killing process '+qstn.replace('kill', ''))
         except IndexError:
             screen('To kill a process say "Kill" and then the process name/PID')
         moodometer=[1,2,3,4]
