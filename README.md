@@ -4,7 +4,7 @@
 <br>
 Welcome to UC37 software!
 UC37 is an artificial intelligence program/task manager that acts like a human. He can help out by doing
-things like turn on smart plugs and play music. He also keeps track of your system statistics.
+things like turn on smart plugs and play music. He also keeps track of your system statistics, and end unwanted processes just with voice.
 <br>
 <br>
 <a href='https://mrpi314.com/UC37software/Python/UC37_Windows.py'><button>Download .py file</button></a>
