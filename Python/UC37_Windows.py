@@ -1153,6 +1153,11 @@ while True:
                 os.system('chromium-browser https://github.com/Mrpi314tech/UC37skills &')
             elif x<=45 and y>=200 and y<=230:
                 os.system('lxterminal -e htop &')
+            elif x>=770 and y>=370:
+                print('Updating UC37software...')
+                os.system('lxterminal -e ~/UC37_update.sh')
+                prints('exiting...')
+                exit()
             elif x >=265 and x<= 340 and y >= 340 or spekret==1 and spekretno ==0 or event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN and spekretno ==0:
                 # Press button/enter to speak
                 # Reset variables
