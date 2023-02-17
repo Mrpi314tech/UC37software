@@ -923,8 +923,12 @@ def refresh():
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Github", True, blue, white), (700, 0))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Skills", True, blue, white), (610, 0))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("History", True, blue, white), (400, 150))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, blue), (585, 150))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render(tofdy, True, blue), (590, 200))
+    if backgn == file_location+"/UC37software/images/background.jpg":
+        display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, white), (585, 150))
+        display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render(tofdy, True, white), (590, 200))
+    else:
+        display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, blue), (585, 150))
+        display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render(tofdy, True, blue), (590, 200))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("Info", True, blue, white), (590, 40))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(ip_address, True, white), (0, 40))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render('RAM: '+RAM[2].replace(' ', '')+' of '+RAM[1].replace(' ', ''), True, white), (0, 80))
@@ -1020,8 +1024,12 @@ while True:
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Github", True, blue, white), (700, 0))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Skills", True, blue, white), (610, 0))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("History", True, blue, white), (400, 150))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, blue), (585, 150))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render(tofdy, True, blue), (590, 200))
+    if backgn == file_location+"/UC37software/images/background.jpg":
+        display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, white), (585, 150))
+        display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render(tofdy, True, white), (590, 200))
+    else:
+        display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, blue), (585, 150))
+        display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render(tofdy, True, blue), (590, 200))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("Info", True, blue, white), (590, 40))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(ip_address, True, white), (0, 40))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render('RAM: '+RAM[2].replace(' ', '')+' of '+RAM[1].replace(' ', ''), True, white), (0, 80))
