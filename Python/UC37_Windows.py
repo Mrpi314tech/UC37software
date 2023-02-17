@@ -55,6 +55,10 @@ elif hur >= 17 and hur <= 22:
     tofdy="Good evening"
 else:
     tofdy="Go to bed"
+if hur >=20 or hur<=6:
+    backgn=file_location+"/UC37software/images/backgroundn.jpg"
+else:
+    backgn=file_location+"/UC37software/images/background.jpg"
 # Set up GUI
 import pygame
 pygame.init()
@@ -68,7 +72,7 @@ display_surface = pygame.display.set_mode((X, Y))
 pygame.display.set_caption('UC37software')
 pygame.display.set_icon(window_icon)
 font = pygame.font.Font('freesansbold.ttf', 32)
-header = font.render('UC37software', True, white, blue)
+header = font.render('UC37software', True, white)
 textRect = header.get_rect()
 textRect.center = (180, 20)
 display_surface.fill(blue)
@@ -90,6 +94,7 @@ pygame.display.flip()
 pygame.display.update()
 # Print to the GUI
 def print(bpg):
+    global refresh
     global font
     global X
     global white
@@ -158,7 +163,7 @@ def speak(say):
 r=sr.Recognizer()
 # Take picture
 print('Picture stored at UC37software/images')
-os.system("fswebcam -r 1280x720 --no-banner "+username+"/UC37software/images.jpg")
+os.system("fswebcam -r 1280x720 --no-banner "+username+"/UC37software/images/secure.jpg")
 # Fart
 def stinky():
     os.system('vlc '+username+'/UC37software/sounds/fart.mp3')
@@ -847,12 +852,14 @@ def screen(text):
     speak(text)
     global jsaid
     rsponce.insert(0, text)
+    refresh()
 def snl(snlt):
     if not 'look in shell\nfor result' in snlt:
         print(snlt)
     speak(snlt)
     global jsaid
     crsponce.insert(0, snlt)
+    refresh()
 # Print number in GUI
 def number(a,b,c,d):
     screen(int(a),+int(b),+int(c),+int(d))
@@ -904,6 +911,46 @@ def bible():
         screen(response.json()['text'])
     except KeyError:
         screen('that verse does not exist')
+# Define refresh function
+def refresh():
+    display_surface = pygame.display.set_mode((X, Y))
+    backg = pygame.image.load(backgn).convert()
+    backg= pygame.transform.scale(backg, (800, 400))
+    display_surface.blit(backg, (0, 0))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("Edit", True, blue, white), (400, 40))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Github", True, blue, white), (700, 0))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Skills", True, blue, white), (610, 0))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("History", True, blue, white), (400, 150))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, blue), (585, 150))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render(tofdy, True, blue), (590, 200))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("Info", True, blue, white), (590, 40))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(ip_address, True, white), (0, 40))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render('RAM: '+RAM[2].replace(' ', '')+' of '+RAM[1].replace(' ', ''), True, white), (0, 80))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("CPU: "+cpu_usage+"%", True, white), (0, 120))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(TM_var, True, blue, white), (0, 200))
+    display_surface.blit(header, textRect)
+    imp = pygame.image.load(file_location+"/UC37software/images/UC37.png").convert()
+    img= pygame.transform.scale(imp, (75, 75))
+    display_surface.blit(img, (265, 330))
+    pygame.display.update()
+# Finished the hard stuff
+print('Process completed')
+# Redefine print to the gui
+def print(bpg):
+    global font
+    global X
+    global white
+    global blue
+    global refresh
+    refresh()
+    if not bpg == "\n" or not bpg == "\n\n":
+        tdply=bpg+"                                                                                                                             "
+        bpg1 = font.render(tdply, True, white)
+        thi = bpg1.get_rect()
+        display_surface.blit(bpg1, (20, 300))
+        pygame.display.update()
+    else:
+        pass
 # Define variables that will be used for different things
 TM_var="TM"
 spekret=0
@@ -913,11 +960,11 @@ greet='hello, %s' % your_name
 speak(greet)
 fill=0
 lasts=' '
-print('Process completed')
 notned=0
 user_text=''
 resthre=0
 spekretno=0
+brkbt=False
 # No longer defining things
 while True:
     # Get system information
@@ -958,22 +1005,21 @@ while True:
         tofdy="Go to bed"
     # Set up GUI
     display_surface = pygame.display.set_mode((X, Y))
-    display_surface.fill(blue)
+    backg = pygame.image.load(backgn).convert()
+    backg= pygame.transform.scale(backg, (800, 400))
+    display_surface.blit(backg, (0, 0))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("Edit", True, blue, white), (400, 40))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Github", True, blue, white), (700, 0))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Skills", True, blue, white), (610, 0))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("History", True, blue, white), (400, 150))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, white, blue), (585, 150))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render(tofdy, True, white, blue), (590, 200))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, blue), (585, 150))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render(tofdy, True, blue), (590, 200))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("Info", True, blue, white), (590, 40))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(ip_address, True, blue, white), (0, 50))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render('RAM: '+RAM[2].replace(' ', '')+' of '+RAM[1].replace(' ', ''), True, blue, white), (0, 100))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("CPU: "+cpu_usage+"%", True, blue, white), (0, 150))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(ip_address, True, white), (0, 40))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render('RAM: '+RAM[2].replace(' ', '')+' of '+RAM[1].replace(' ', ''), True, white), (0, 80))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("CPU: "+cpu_usage+"%", True, white), (0, 120))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(TM_var, True, blue, white), (0, 200))
     display_surface.blit(header, textRect)
-    pygame.draw.line(display_surface, white,
-                     [300, 300],
-                     [300, 0], 10)
     imp = pygame.image.load(file_location+"/UC37software/images/UC37.png").convert()
     img= pygame.transform.scale(imp, (75, 75))
     display_surface.blit(img, (265, 330))
@@ -998,17 +1044,25 @@ while True:
                     spekretno=0
                 else:
                     user_text += event.unicode
-                display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(user_text+'              ', True, white, blue), (50, 300))
+                refresh()
+                display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(user_text+'              ', True, white), (50, 300))
                 pygame.display.update()
             while True:
                 if spekret == 1:
                     break
                 for event in pygame.event.get():
                     if event.type == pygame.KEYDOWN:
+                        brkbt=True
+                        refresh()
+                        display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(user_text+'              ', True, white), (50, 300))
+                        pygame.display.update()
                         if event.key == pygame.K_BACKSPACE:
                             user_text = user_text[:-1]
                             if user_text == '':
                                 brk =1
+                            refresh()
+                            display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(user_text+'              ', True, white), (50, 300))
+                            pygame.display.update()
                         elif event.key == pygame.K_RETURN:
                             # Compute input
                             usertextls=user_text.split(' ')
@@ -1016,6 +1070,7 @@ while True:
                             if user_text=='':
                                 brk=1
                             elif usertextls[0] == "@":
+                                refresh()
                                 jsaid.insert(0, user_text)
                                 history = open(file_location+"/UC37software/Python/skills/history.py", "w")
                                 history.write('jsaid='+str(jsaid))
@@ -1038,10 +1093,11 @@ while True:
                                 #Run command in terminal
                                 os.system("lxterminal -e "+user_text)
                                 user_text=''
+                            refresh()
                         else:
                             user_text += event.unicode
                         # Clear input
-                        display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(user_text+'              ', True, white, blue), (50, 300))
+                        display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(user_text+'              ', True, white), (50, 300))
                         pygame.display.update()
                 # Break loop
                 if brk == 1:
@@ -1051,9 +1107,11 @@ while True:
             sys.exit()
         if event.type == pygame.MOUSEBUTTONDOWN or spekret ==1 or event.type == pygame.KEYDOWN:
             x, y = pygame.mouse.get_pos()
-            if x >=700 and y <= 35 and not spekret == 1:
+            if brkbt==True:
+                brkbt=False
+            elif x >=700 and y <= 35 and not spekret == 1:
                 os.system('chromium-browser https://github.com/Mrpi314tech/UC37software &')
-            if x >=400 and x<= 515 and y >= 40 and y <= 100 and not spekret == 1:
+            elif x >=400 and x<= 515 and y >= 40 and y <= 100 and not spekret == 1:
                 os.system('lxterminal -e python3 '+file_location+'/UC37software/Python/UC37edit.py &')
                 try:
                     import new_words as aword
@@ -1065,15 +1123,15 @@ while True:
                     import Python.new_com as acom
                 nwcoml=acom.word
                 nrunl=acom.com
-            if x >=590 and x<= 685 and y >= 40 and y <= 90 and not spekret == 1:
+            elif x >=590 and x<= 685 and y >= 40 and y <= 90 and not spekret == 1:
                 os.system("gpicview "+file_location+"/UC37software/images/HowTo.jpg &")
-            if x >=400 and x<= 570 and y >= 150 and y <= 200 and not spekret == 1:
+            elif x >=400 and x<= 570 and y >= 150 and y <= 200 and not spekret == 1:
                 os.system('geany '+file_location+'/UC37software/Python/skills/history.py &')
-            if x >= 600 and x<=680 and y<=30:
+            elif x >= 600 and x<=680 and y<=30:
                 os.system('chromium-browser https://github.com/Mrpi314tech/UC37skills &')
-            if x<=45 and y>=200 and y<=230:
+            elif x<=45 and y>=200 and y<=230:
                 os.system('lxterminal -e htop &')
-            if x >=265 and x<= 340 and y >= 340 or spekret==1 and spekretno ==0 or event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN and spekretno ==0:
+            elif x >=265 and x<= 340 and y >= 340 or spekret==1 and spekretno ==0 or event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN and spekretno ==0:
                 # Press button/enter to speak
                 # Reset variables
                 spekret=0
@@ -1087,6 +1145,7 @@ while True:
                         past=['z','z','z','z']
                     print('Speak...')
                     audio=r.listen(source)
+                    refresh()
                     try:
                         saidtxt=r.recognize_google(audio)
                         notned=0
