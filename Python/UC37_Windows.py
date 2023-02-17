@@ -57,6 +57,8 @@ else:
     tofdy="Go to bed"
 if hur >=20 or hur<=6:
     backgn=file_location+"/UC37software/images/backgroundn.jpg"
+elif hur<=11:
+    backgn=file_location+"/UC37software/images/backgroundm.jpg"
 else:
     backgn=file_location+"/UC37software/images/background.jpg"
 # Set up GUI
