@@ -55,7 +55,7 @@ elif hur >= 17 and hur <= 22:
     tofdy="Good evening"
 else:
     tofdy="Go to bed"
-if hur >=20 or hur<=6:
+if hur >=18 or hur<=6:
     backgn=file_location+"/UC37software/images/backgroundn.jpg"
 elif hur<=11:
     backgn=file_location+"/UC37software/images/backgroundm.jpg"
@@ -1005,8 +1005,10 @@ while True:
         tofdy="Good evening"
     else:
         tofdy="Go to bed"
-    if hur >=20 or hur<=6:
+    if hur >=18 or hur<=6:
         backgn=file_location+"/UC37software/images/backgroundn.jpg"
+    elif hur<=11:
+        backgn=file_location+"/UC37software/images/backgroundm.jpg"
     else:
         backgn=file_location+"/UC37software/images/background.jpg"
     # Set up GUI
