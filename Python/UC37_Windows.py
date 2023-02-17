@@ -1003,6 +1003,10 @@ while True:
         tofdy="Good evening"
     else:
         tofdy="Go to bed"
+    if hur >=20 or hur<=6:
+        backgn=file_location+"/UC37software/images/backgroundn.jpg"
+    else:
+        backgn=file_location+"/UC37software/images/background.jpg"
     # Set up GUI
     display_surface = pygame.display.set_mode((X, Y))
     backg = pygame.image.load(backgn).convert()
