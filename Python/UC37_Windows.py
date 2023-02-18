@@ -320,6 +320,7 @@ def question(qstn):
             os.system('killall -9 '+(oqstno.split('kill ')[1]).replace(' ', ''))
             os.system('killall -9 '+(oqstno.split('kill ')[1]).replace(' ', '-'))
             os.system('killall -9 '+(oqstno.split('kill ')[1]).replace(' ', '/'))
+            os.system('killall -9 '+(oqstno.split('kill ')[1]))
             screen('killing process '+qstn.replace('kill', ''))
         except IndexError:
             screen('To kill a process say "Kill" and then the process name/PID')
@@ -474,7 +475,7 @@ def question(qstn):
         screen('Technically, its\nPurple')
         moodometer=[1,2,3,4,4,5]
     elif 'middle' in qstn and 'name' in qstn:
-        screen('3.14159265358979\n3238462643383275')
+        screen('3.141592653589793238462643383275')
         moodometer=[1,2,3,4,5]
     elif 'how are you' in qstn or 'how do you do' in qstn:
         screen('I feel great!')
@@ -820,18 +821,6 @@ def joke():
 # Useless functions
 def missle():
     screen('pew pew')
-def uno():
-    for proc in psutil.process_iter():
-        if proc.name() == "display":
-            proc.kill()
-    unop = Image.open(username+'/UC37software/images/unoreverse.png') 
-    unop.show()
-    time.sleep(3)
-    for proc in psutil.process_iter():
-        if proc.name() == "display":
-            proc.kill()
-    imgz = Image.open(username+'/UC37software/images/UC37.png') 
-    imgz.show()
 def drone():
     screen("I'm flying")
 def beep():
@@ -940,7 +929,7 @@ def refresh():
     display_surface.blit(dowb, (770, 370))
     imp = pygame.image.load(file_location+"/UC37software/images/UC37.png").convert()
     img= pygame.transform.scale(imp, (75, 75))
-    display_surface.blit(img, (265, 330))
+    display_surface.blit(img, (265, gameypos))
     pygame.display.update()
 # Finished the hard stuff
 print('Process completed')
@@ -974,6 +963,7 @@ user_text=''
 resthre=0
 spekretno=0
 brkbt=False
+gameypos=330
 # No longer defining things
 while True:
     # Get system information
@@ -1044,18 +1034,30 @@ while True:
     display_surface.blit(dowb, (770, 370))
     imp = pygame.image.load(file_location+"/UC37software/images/UC37.png").convert()
     img= pygame.transform.scale(imp, (75, 75))
-    display_surface.blit(img, (265, 330))
+    display_surface.blit(img, (265, gameypos))
     # Set up Task Manager button
     x, y =pygame.mouse.get_pos()
     if x<=45 and y>=200 and y<=230:
         TM_var="Task Manager"
     else:
         TM_var="TM"
+    # Easter egg
+    if gameypos <= 329 and not (event.type == pygame.KEYDOWN and event.key == pygame.K_UP):
+        gameypos+=20
+    elif gameypos >= 331:
+        gameypos=330
     # Set up buttons and inputs
     brk =0
     for event in pygame.event.get():
+        # Easter egg
+        if event.type == pygame.KEYDOWN and event.key == pygame.K_UP:
+            gameypos-=50
+            refresh()
+            time.sleep(0.05)
+            gameypos-=50
+            refresh()
         # Set up input box
-        if event.type == pygame.KEYDOWN:
+        elif event.type == pygame.KEYDOWN:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_BACKSPACE:
                     user_text = user_text[:-1]
