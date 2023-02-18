@@ -115,7 +115,7 @@ def prints(txttp):
 # Test
 print('hello')
 # Set up simple phrases
-chatlist=['I can do many things to help out. Just ask me!','Press edit to customize me to your needs','next time, the Lions will win', 'Is Detroit good at any sport?', 'if you want to play a game, just ask me!', "in case you haven't figured it out, I'm a Detroit Lions fan.", 'what is your favorite color?', "what are you doing today?", 'what is your favorite food?', 'Tell me about yourself.',"What's your favorite thing to do in your free time?",    "Have you traveled anywhere recently? Where did you go?",    "What's your favorite type of music?",    "Do you have any hobbies that you enjoy?",    "What do you like to do on the weekends?"]  
+chatlist=['I can do many things to help out. Just ask me!','Press edit to customize me to your needs', 'if you want to play a game, just ask me!','what is your favorite color?', "what are you doing today?", 'what is your favorite food?', 'Tell me about yourself.',"What's your favorite thing to do in your free time?",    "Have you traveled anywhere recently? Where did you go?",    "What's your favorite type of music?",    "Do you have any hobbies that you enjoy?",    "What do you like to do on the weekends?"]  
 # define variables for determining mood
 data=[]
 jsaid=[]
@@ -265,12 +265,6 @@ def question(qstn):
         else:
             screen('Hey, %s' % your_name)
         moodometer=[1,2,2,2,2,2,3]
-    elif 'no' in qstn and crsponce[0] == 'next time, the Lions will win':
-        screen('It could happen.')
-        moodometer=[1,2,3,4]
-    elif 'hope' in qstn and crsponce[0] == 'next time, the Lions will win':
-        screen('Me too.')
-        moodometer=[1,2,3,4]
     elif crsponce[0] == 'what are you doing today?' and 'nothing' in qstn:
         screen('I know you are doing something')
         moodometer=[1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
@@ -334,9 +328,6 @@ def question(qstn):
     elif 'my' in qstn and 'food' in qstn and 'favorite' in qstn and 'is' in qstn and not 'why' in qstn and not 'what' in qstn and not 'how' in qstn:
         screen('oh, my favorite food is Jellied Moose nose')
         moodometer=[1,2,3,4]
-    elif 'no' in qstn and crsponce[0] == 'Is Detroit good at any sport?':
-        screen('I know, right?')
-        moodometer=[1,3,4]
     elif 'yes' in qstn and data[0] == 2:
         screen('Really?')
         moodometer=[1,3,4]
