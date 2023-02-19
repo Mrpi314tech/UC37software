@@ -37,8 +37,13 @@ ndefl=aword.defi
 # Set up clock
 hur=int(dt.now().strftime("%H"))
 minits=int(dt.now().strftime("%M"))
-if hur >= 13:
-    if minits <= 9:
+if hur >= 12:
+    if hur == 12:
+        if minits <= 9:
+            currentTime = str(hur)+":0"+str(minits)+" PM"
+        else:
+            currentTime = str(hur)+":"+str(minits)+" PM"
+    elif minits <= 9:
         currentTime = str(hur-12)+":0"+str(minits)+" PM"
     else:
         currentTime = str(hur-12)+":"+str(minits)+" PM"
@@ -860,7 +865,7 @@ def spell(spl):
     screen(spl)
 # Figure out time
 def ntime():
-    now=dt.datetime.now()
+    now=dt.now()
     hour=now.hour
     minute=now.minute
     second=now.second
@@ -975,8 +980,13 @@ while True:
     # Display time and greeting
     hur=int(dt.now().strftime("%H"))
     minits=int(dt.now().strftime("%M"))
-    if hur >= 13:
-        if minits <= 9:
+    if hur >= 12:
+        if hur == 12:
+            if minits <= 9:
+                currentTime = str(hur)+":0"+str(minits)+" PM"
+            else:
+                currentTime = str(hur)+":"+str(minits)+" PM"
+        elif minits <= 9:
             currentTime = str(hur-12)+":0"+str(minits)+" PM"
         else:
             currentTime = str(hur-12)+":"+str(minits)+" PM"
