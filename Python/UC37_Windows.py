@@ -869,7 +869,7 @@ def ntime():
     hour=now.hour
     minute=now.minute
     second=now.second
-    if hour >= 12:
+    if hour >= 13:
         hour -= 12
     if minute <=9:
         minute="0"+str(minute)
@@ -960,12 +960,19 @@ resthre=0
 spekretno=0
 brkbt=False
 gameypos=330
+ramref=0
+RAM=os.popen('free -h').read()
+RAM=RAM.split('\n')
+RAM=RAM[1].split('      ')
 # No longer defining things
 while True:
     # Get system information
-    RAM=os.popen('free -h').read()
-    RAM=RAM.split('\n')
-    RAM=RAM[1].split('      ')
+    ramref+=1
+    if ramref == 10:
+        RAM=os.popen('free -h').read()
+        RAM=RAM.split('\n')
+        RAM=RAM[1].split('      ')
+        ramref=0
     I1, I2, I3=psutil.getloadavg()
     cpu_round=str((I3/os.cpu_count())*100).split('.')[0]
     try:
@@ -1116,7 +1123,7 @@ while True:
                             else:
                                 brk=1
                                 #Run command in terminal
-                                os.system("lxterminal -e "+user_text)
+                                os.system("lxterminal -e "+user_text+" &")
                                 user_text=''
                             refresh()
                         else:
