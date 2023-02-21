@@ -919,6 +919,7 @@ def refresh():
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render('RAM: '+RAM[2].replace(' ', '')+' of '+RAM[1].replace(' ', ''), True, white), (0, 80))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("CPU: "+cpu_usage+"%", True, white), (0, 120))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(TM_var, True, blue, white), (0, 200))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Schedule", True, blue, white), (400, 250))
     display_surface.blit(header, textRect)
     dowb = pygame.image.load(file_location+"/UC37software/images/downloadbutton.png").convert()
     dowb= pygame.transform.scale(dowb, (30, 30))
@@ -1036,6 +1037,7 @@ while True:
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render('RAM: '+RAM[2].replace(' ', '')+' of '+RAM[1].replace(' ', ''), True, white), (0, 80))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("CPU: "+cpu_usage+"%", True, white), (0, 120))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(TM_var, True, blue, white), (0, 200))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Schedule", True, blue, white), (400, 250))
     display_surface.blit(header, textRect)
     dowb = pygame.image.load(file_location+"/UC37software/images/downloadbutton.png").convert()
     dowb= pygame.transform.scale(dowb, (30, 30))
@@ -1163,6 +1165,8 @@ while True:
                 os.system('chromium-browser https://github.com/Mrpi314tech/UC37skills &')
             elif x<=45 and y>=200 and y<=230:
                 os.system('lxterminal -e htop &')
+            elif x>=400 and y>=250 and y<=280 and x<=535:
+                os.system('lxterminal -e ~/UC37software/Bash/schedule.sh &')
             elif x>=770 and y>=370:
                 print('Updating UC37software...')
                 os.system('lxterminal -e ~/UC37_update.sh')
