@@ -22,6 +22,7 @@ pip3 install pyautogui
 sudo apt-get install python3-tk python3-dev
 sudo apt install espeak
 sudo apt-get install portaudio19-dev
+sudo apt-get install xterm
 sudo pip install pyaudio
 pip install pygame
 pip install psutil

@@ -1125,7 +1125,7 @@ while True:
                             else:
                                 brk=1
                                 #Run command in terminal
-                                os.system("lxterminal -e "+user_text+" &")
+                                os.system("~/UC37software/Bash/UC37terminal "+user_text+" &")
                                 user_text=''
                             refresh()
                         else:
@@ -1146,7 +1146,7 @@ while True:
             elif x >=700 and y <= 35 and not spekret == 1:
                 os.system('chromium-browser https://github.com/Mrpi314tech/UC37software &')
             elif x >=400 and x<= 515 and y >= 40 and y <= 100 and not spekret == 1:
-                os.system('lxterminal -e python3 '+file_location+'/UC37software/Python/UC37edit.py &')
+                os.system('~/UC37software/Bash/UC37terminal python3 '+file_location+'/UC37software/Python/UC37edit.py &')
                 try:
                     import new_words as aword
                 except ModuleNotFoundError:
@@ -1164,12 +1164,12 @@ while True:
             elif x >= 600 and x<=680 and y<=30:
                 os.system('chromium-browser https://github.com/Mrpi314tech/UC37skills &')
             elif x<=45 and y>=200 and y<=230:
-                os.system('lxterminal -e htop &')
+                os.system('~/UC37software/Bash/UC37terminal htop &')
             elif x>=400 and y>=250 and y<=280 and x<=535:
-                os.system('lxterminal -e ~/UC37software/Bash/schedule.sh &')
+                os.system('~/UC37software/Bash/UC37terminal ~/UC37software/Bash/schedule.sh &')
             elif x>=770 and y>=370:
                 print('Updating UC37software...')
-                os.system('lxterminal -e ~/UC37_update.sh')
+                os.system('~/UC37software/Bash/UC37terminal ~/UC37_update.sh')
                 prints('exiting...')
                 exit()
             elif x >=265 and x<= 340 and y >= 340 or spekret==1 and spekretno ==0 or event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN and spekretno ==0:
