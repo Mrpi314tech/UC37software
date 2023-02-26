@@ -82,6 +82,8 @@ font = pygame.font.Font('freesansbold.ttf', 32)
 header = font.render('UC37software', True, white)
 textRect = header.get_rect()
 textRect.center = (180, 20)
+backg = pygame.image.load(backgn).convert()
+backg= pygame.transform.scale(backg, (800, 400))
 display_surface.fill(blue)
 display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("Edit", True, blue, white), (400, 40))
 display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Github", True, blue, white), (700, 0))
@@ -915,9 +917,7 @@ def refresh():
         display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, blue), (585, 150))
         display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render(tofdy, True, blue), (590, 200))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("Info", True, blue, white), (590, 40))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(ip_address, True, white), (0, 40))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render('RAM: '+RAM[2].replace(' ', '')+' of '+RAM[1].replace(' ', ''), True, white), (0, 80))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("CPU: "+cpu_usage+"%", True, white), (0, 120))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Stats", True, blue, white), (0, 80))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(TM_var, True, blue, white), (0, 200))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Schedule", True, blue, white), (400, 250))
     display_surface.blit(header, textRect)
@@ -961,6 +961,7 @@ resthre=0
 spekretno=0
 brkbt=False
 gameypos=330
+refresh()
 # No longer defining things
 while True:
     # Tell when/what key is pressed
@@ -997,38 +998,14 @@ while True:
         backgn=file_location+"/UC37software/images/backgroundm.jpg"
     else:
         backgn=file_location+"/UC37software/images/background.jpg"
-    # Set up GUI
-    display_surface = pygame.display.set_mode((X, Y))
-    backg = pygame.image.load(backgn).convert()
-    backg= pygame.transform.scale(backg, (800, 400))
-    display_surface.blit(backg, (0, 0))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 60).render("Edit", True, blue, white), (400, 40))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Github", True, blue, white), (700, 0))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Skills", True, blue, white), (610, 0))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("History", True, blue, white), (400, 150))
-    if backgn == file_location+"/UC37software/images/background.jpg":
-        display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, white), (585, 150))
-        display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render(tofdy, True, white), (590, 200))
-    else:
-        display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, blue), (585, 150))
-        display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render(tofdy, True, blue), (590, 200))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("Info", True, blue, white), (590, 40))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Stats", True, blue, white), (0, 80))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(TM_var, True, blue, white), (0, 200))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Schedule", True, blue, white), (400, 250))
-    display_surface.blit(header, textRect)
-    dowb = pygame.image.load(file_location+"/UC37software/images/downloadbutton.png").convert()
-    dowb= pygame.transform.scale(dowb, (30, 30))
-    display_surface.blit(dowb, (770, 370))
-    imp = pygame.image.load(file_location+"/UC37software/images/UC37.png").convert()
-    img= pygame.transform.scale(imp, (75, 75))
-    display_surface.blit(img, (265, gameypos))
     # Set up Task Manager button
     x, y =pygame.mouse.get_pos()
     if x<=45 and y>=200 and y<=230:
         TM_var="Task Manager"
+        refresh()
     else:
         TM_var="TM"
+        refresh()
     # Easter egg
     if gameypos <= 329 and not (event.type == pygame.KEYDOWN and event.key == pygame.K_UP):
         gameypos+=20
