@@ -961,28 +961,8 @@ resthre=0
 spekretno=0
 brkbt=False
 gameypos=330
-ramref=0
-RAM=os.popen('free -h').read()
-RAM=RAM.split('\n')
-RAM=RAM[1].split('      ')
 # No longer defining things
 while True:
-    # Get system information
-    ramref+=1
-    if ramref == 10:
-        RAM=os.popen('free -h').read()
-        RAM=RAM.split('\n')
-        RAM=RAM[1].split('      ')
-        ramref=0
-    I1, I2, I3=psutil.getloadavg()
-    cpu_round=str((I3/os.cpu_count())*100).split('.')[0]
-    try:
-        if int(cpu_round[1]) >= 0.5:
-            cpu_usage=str(int(cpu_round)+1)
-        else:
-            cpu_usage=cpu_round
-    except IndexError:
-        cpu_usage=cpu_round
     # Tell when/what key is pressed
     keyi=pygame.key.get_pressed()
     # Display time and greeting
@@ -1033,9 +1013,7 @@ while True:
         display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render(currentTime, True, blue), (585, 150))
         display_surface.blit(pygame.font.Font('freesansbold.ttf', 20).render(tofdy, True, blue), (590, 200))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 50).render("Info", True, blue, white), (590, 40))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(ip_address, True, white), (0, 40))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render('RAM: '+RAM[2].replace(' ', '')+' of '+RAM[1].replace(' ', ''), True, white), (0, 80))
-    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("CPU: "+cpu_usage+"%", True, white), (0, 120))
+    display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Stats", True, blue, white), (0, 80))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(TM_var, True, blue, white), (0, 200))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render("Schedule", True, blue, white), (400, 250))
     display_surface.blit(header, textRect)
@@ -1167,9 +1145,11 @@ while True:
                 os.system('~/UC37software/Bash/UC37terminal htop &')
             elif x>=400 and y>=250 and y<=280 and x<=535:
                 os.system('~/UC37software/Bash/UC37terminal ~/UC37software/Bash/schedule.sh &')
+            elif x<75 and y>=80 and y<=110:
+                os.system('python3 ~/UC37software/Python/stats.py &')
             elif x>=770 and y>=370:
                 print('Updating UC37software...')
-                os.system('~/UC37software/Bash/UC37terminal ~/UC37_update.sh')
+                os.system('~/UC37software/Bash/UC37terminal ~/UC37_update.sh &')
                 prints('exiting...')
                 exit()
             elif x >=265 and x<= 340 and y >= 340 or spekret==1 and spekretno ==0 or event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN and spekretno ==0:
