@@ -19,6 +19,7 @@ mv ~/info.py ~/UC37software/Welcome
 mv ~/new_com.py ~/UC37software/Python
 mv ~/UC37_update.sh ~/delete_this_file-UC37
 mkdir -p ~/.local/share/applications
+sudo apt-get install xterm
 echo "[Desktop Entry]
 Name=UC37
 Comment=UC37 the AI
