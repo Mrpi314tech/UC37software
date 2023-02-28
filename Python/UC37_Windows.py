@@ -74,7 +74,7 @@ green = (0, 255, 0)
 blue = (0, 0, 128)
 X = 800
 Y = 400
-window_icon=pygame.image.load(file_location+'/UC37software/images/UC37.png')
+window_icon=pygame.image.load(file_location+'/UC37software/images/icon.png')
 display_surface = pygame.display.set_mode((X, Y))
 pygame.display.set_caption('UC37software')
 pygame.display.set_icon(window_icon)
@@ -902,7 +902,6 @@ def bible():
         screen('that verse does not exist')
 # Define refresh function
 def refresh():
-    display_surface = pygame.display.set_mode((X, Y))
     backg = pygame.image.load(backgn).convert()
     backg= pygame.transform.scale(backg, (800, 400))
     display_surface.blit(backg, (0, 0))
