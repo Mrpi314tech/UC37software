@@ -39,7 +39,6 @@ while True:
             cpu_usage=cpu_round
     except IndexError:
         cpu_usage=cpu_round
-    display_surface = pygame.display.set_mode((X, Y))
     display_surface.fill(blue)
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(ip_address, True, white), (0, 0))
     display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render('RAM: '+RAM[2].replace(' ', '')+' of '+RAM[1].replace(' ', ''), True, white), (0, 40))
