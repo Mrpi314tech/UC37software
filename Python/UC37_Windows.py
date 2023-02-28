@@ -74,7 +74,7 @@ green = (0, 255, 0)
 blue = (0, 0, 128)
 X = 800
 Y = 400
-window_icon=pygame.image.load(file_location+'/UC37software/images/icon.png')
+window_icon=pygame.image.load(file_location+'/UC37software/images/UC37.png')
 display_surface = pygame.display.set_mode((X, Y))
 pygame.display.set_caption('UC37software')
 pygame.display.set_icon(window_icon)
