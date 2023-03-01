@@ -24,10 +24,9 @@ sudo apt install espeak
 sudo apt-get install portaudio19-dev
 sudo apt-get install xterm
 sudo pip install pyaudio
-pip install pygame
+pip install pygame --upgrade
 pip install psutil
 pip install smbus
-sudo pip3 uninstall pygame
 sudo apt install lxterminal
 pip install pyttsx3
 sudo apt install fswebcam
@@ -58,7 +57,6 @@ while true; do
 		Type=Application
 		Categories=System;
 		StartupNotify=true" > ~/.local/share/applications/UC37.desktop
-		echo "Notice: the pip3 version of pygame has been uninstalled as UC37 cannot run if it is installed. To reinstall, run the command sudo pip3 install pygame"
 		echo "done"
 		echo "UC37 is installed!"
 		echo "The UC37 app can be found in Menu>System Tools>UC37"
