@@ -24,6 +24,8 @@ sudo apt install espeak
 sudo apt-get install portaudio19-dev
 sudo apt-get install xterm
 sudo pip install pyaudio
+pip install pillow
+sudo apt-get install alsa-utils
 pip install pygame
 pip install psutil
 pip install smbus
