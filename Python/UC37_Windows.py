@@ -1114,7 +1114,7 @@ while True:
             elif x >=590 and x<= 685 and y >= 40 and y <= 90 and not spekret == 1:
                 os.system("xdg-open "+file_location+"/UC37software/images/HowTo.jpg &")
             elif x >=400 and x<= 570 and y >= 150 and y <= 200 and not spekret == 1:
-                os.system('xdg-open '+file_location+'/UC37software/Python/skills/history.py && sleep 180"')
+                os.system('xdg-open "'+file_location+'/UC37software/Python/skills/history.py"')
             elif x >= 600 and x<=680 and y<=30:
                 os.system('xdg-open https://github.com/Mrpi314tech/UC37skills &')
             elif x<=45 and y>=200 and y<=230:
