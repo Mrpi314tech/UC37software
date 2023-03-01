@@ -24,7 +24,7 @@ sudo apt install espeak
 sudo apt-get install portaudio19-dev
 sudo apt-get install xterm
 sudo pip install pyaudio
-pip install pygame --upgrade
+pip install pygame
 pip install psutil
 pip install smbus
 sudo apt install lxterminal
