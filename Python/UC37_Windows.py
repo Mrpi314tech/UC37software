@@ -424,7 +424,7 @@ def question(qstn):
                 saidgtxt=r.recognize_google(audio)
         except:
             pass
-        os.system('chromium-browser https://www.google.com/search?q='+saidgtxt+' &')
+        os.system('xdg-open https://www.google.com/search?q='+saidgtxt+' &')
         moodometer=[1,2,3,4,5]
     elif 'I will' in qstn or 'definately' in qstn:
         screen('that is good')
@@ -1098,7 +1098,7 @@ while True:
             if brkbt==True:
                 brkbt=False
             elif x >=700 and y <= 35 and not spekret == 1:
-                os.system('chromium-browser https://github.com/Mrpi314tech/UC37software &')
+                os.system('xdg-open https://github.com/Mrpi314tech/UC37software &')
             elif x >=400 and x<= 515 and y >= 40 and y <= 100 and not spekret == 1:
                 os.system('~/UC37software/Bash/UC37terminal python3 '+file_location+'/UC37software/Python/UC37edit.py &')
                 try:
@@ -1112,11 +1112,11 @@ while True:
                 nwcoml=acom.word
                 nrunl=acom.com
             elif x >=590 and x<= 685 and y >= 40 and y <= 90 and not spekret == 1:
-                os.system("gpicview "+file_location+"/UC37software/images/HowTo.jpg &")
+                os.system("xdg-open "+file_location+"/UC37software/images/HowTo.jpg &")
             elif x >=400 and x<= 570 and y >= 150 and y <= 200 and not spekret == 1:
-                os.system('geany '+file_location+'/UC37software/Python/skills/history.py &')
+                os.system('xdg-open '+file_location+'/UC37software/Python/skills/history.py && sleep 180"')
             elif x >= 600 and x<=680 and y<=30:
-                os.system('chromium-browser https://github.com/Mrpi314tech/UC37skills &')
+                os.system('xdg-open https://github.com/Mrpi314tech/UC37skills &')
             elif x<=45 and y>=200 and y<=230:
                 os.system('~/UC37software/Bash/UC37terminal htop &')
             elif x>=400 and y>=250 and y<=280 and x<=535:
