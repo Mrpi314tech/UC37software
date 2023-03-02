@@ -6,7 +6,7 @@ UC37 was just updated so it can run on many more operating systems including chr
 <br>
 Welcome to UC37 software!
 UC37 is an artificial intelligence program/task manager that acts like a human. He can help out by doing
-things like turn on smart plugs and play music. He also keeps track of your system statistics, and end unwanted processes just with voice.
+things like turn on smart plugs and play music. He also keeps track of your system statistics, and end unwanted processes just with voice. Installing the app is just 2 MB, but all of the packages is about 800 MB. (The raspberry pi has many of these packages pre-installed.)
 <br>
 <br>
 <a href='https://mrpi314.com/UC37software/Python/UC37_Windows.py'><button>Download .py file</button></a>
