@@ -29,7 +29,6 @@ sudo apt-get install alsa-utils
 pip install pygame
 pip install psutil
 pip install smbus
-sudo apt install lxterminal
 pip install pyttsx3
 sudo apt install fswebcam
 sudo apt-get install htop
