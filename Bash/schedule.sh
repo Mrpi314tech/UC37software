@@ -19,7 +19,7 @@ while True:
     elif 'website' in action:
         run=input('what is the url? ')
         print('opening website: '+run+' at '+add[0]+':'+add[1]+". Close this window to cancel.")
-        if http in run:
+        if 'http' in run:
             run='xdg-open '+run
         else:
             run='xdg-open http://'+run
