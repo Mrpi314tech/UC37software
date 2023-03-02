@@ -413,6 +413,7 @@ def question(qstn):
                 r.adjust_for_ambient_noise(source)
                 audio=r.listen(source)
                 saidgtxt=r.recognize_google(audio)
+                saidgtxt=saidgtxt.replace(' ', '+')
         except:
             pass
         os.system('xdg-open https://www.google.com/search?q='+saidgtxt+' &')
