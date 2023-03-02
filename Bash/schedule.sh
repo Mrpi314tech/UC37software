@@ -12,14 +12,17 @@ while True:
         print('enter the hours and the minutes seperated by a colon, like 12:30')
 while True:
     action=input('whould you like to open a website, or run a command? ')
-    if 'com' in action:
+    if 'command' in action:
         run=input('what command? ')
         print('running command: '+run+' at '+add[0]+':'+add[1]+". Close this window to cancel.")
         break
-    elif 'web' in action:
+    elif 'website' in action:
         run=input('what is the url? ')
         print('opening website: '+run+' at '+add[0]+':'+add[1]+". Close this window to cancel.")
-        run='xdg-open '+run
+        if http in run:
+            run='xdg-open '+run
+        else:
+            run='xdg-open http://'+run
         break
     else:
         print('please say "command" or "website"')
