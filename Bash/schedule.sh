@@ -19,7 +19,7 @@ while True:
     elif 'web' in action:
         run=input('what is the url? ')
         print('opening website: '+run+' at '+add[0]+':'+add[1]+". Close this window to cancel.")
-        run='chromium-browser '+run
+        run='xdg-open '+run
         break
     else:
         print('please say "command" or "website"')
