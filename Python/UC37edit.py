@@ -8,7 +8,8 @@ ndefl=aword.defi
 nwcoml=acom.word
 nrunl=acom.com
 file_location=os.path.expanduser('~')
-qstn=input(" are you adding a command, music, words, or would you like to remove words? ")
+qstn=input(" are you adding a command, music, words, website, or would you like to remove words? ")
+qstn=qstn.lower()
 if 'com' in qstn or 'Com' in qstn:
     kwordc=input("what is the keyword? (what do you want to say to run the command?)").lower()
     outputc=input("what command do you want to run?")
@@ -32,6 +33,19 @@ elif 'mus' in qstn or 'Mus' in qstn:
     outc='vlc '+outputc+' &'
     nwcoml.append(kwordc)
     nrunl.append(outc)
+    file1 = open(file_location+"/UC37software/Python/new_com.py", "w")
+    file1.write("word="+str(nwcoml)+"\ncom="+str(nrunl))
+    file1.close()
+elif 'web' in qstn:
+    wordc=input("what is the keyword? (what do you want to say to open the website?)").lower()
+    outputc=input("what is the url?")
+    outc='os.system("'+outputc+'")'
+    nwcoml.append(kwordc.lower())
+    if 'http' in outputc:
+        outputc='xdg-open '+outputc
+    else:
+        outputc='xdg-open http://'+outputc
+    nrunl.append(outputc)
     file1 = open(file_location+"/UC37software/Python/new_com.py", "w")
     file1.write("word="+str(nwcoml)+"\ncom="+str(nrunl))
     file1.close()
