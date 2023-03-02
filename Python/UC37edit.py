@@ -70,7 +70,7 @@ elif 'rem' in qstn:
             while True:
                 try:
                     if nwcoml[seelist]==removew:
-                        nwordl.remove(nwcoml[seelist])
+                        nwcoml.remove(nwcoml[seelist])
                         nrunl.remove(nrunl[seelist])
                         file1 = open(file_location+"/UC37software/Python/new_com.py", "w")
                         file1.write("word="+str(nwcoml)+"\ncom="+str(nrunl))
