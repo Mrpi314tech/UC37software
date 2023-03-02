@@ -37,7 +37,7 @@ elif 'mus' in qstn or 'Mus' in qstn:
     file1.write("word="+str(nwcoml)+"\ncom="+str(nrunl))
     file1.close()
 elif 'web' in qstn:
-    wordc=input("what is the keyword? (what do you want to say to open the website?)").lower()
+    kwordc=input("what is the keyword? (what do you want to say to open the website?)").lower()
     outputc=input("what is the url?")
     outc='os.system("'+outputc+'")'
     nwcoml.append(kwordc.lower())
