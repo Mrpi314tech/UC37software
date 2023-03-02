@@ -396,15 +396,6 @@ def question(qstn):
     elif "you're" in qstn or "you are" in qstn:
         screen("No I'm not")
         moodometer=[1,2,3]
-    elif 'fan' in qstn:
-        screen('Im blowing')
-        moodometer=[1,2,3,4,5]
-    elif 'alexa' in qstn or 'Alexa' in qstn:
-        screen("I think she\nsounds weird")
-        moodometer=[1,2,3,4,5,5,5,5]
-    elif 'hot' in qstn or 'burning' in qstn:
-        screen('Im blowing')
-        moodometer=[1,2,3,4,4,5,5,5,5,5,]
     elif 'fart' in qstn:
         stinky()
         moodometer=[1,2,3,4,4,5,5]
@@ -529,7 +520,7 @@ def question(qstn):
         os.system('vlc '+username+'/UC37software/sounds/Lion.mp3')
         moodometer=[1,2,3,4]
     elif 'calculator' in qstn:
-        os.system("galculator")
+        os.system("xdg-open https://www.google.com/search?q=calculator")
         moodometer=[1,2,3,4,5]
     elif 'buy' in qstn:
         print('Things to buy:\nan extra large monitor for me\namicro HDMI cable\na new keyboard\nscreen polisher\na 5g wireless network\na better mouse')
@@ -544,12 +535,6 @@ def question(qstn):
     elif 'dance' in qstn:
         dance()
         moodometer=[1,2,3,4,4,4,4,4,4,4,4,4,5]
-    elif 'shop' in qstn:
-        print('Things to buy:\nan extra large monitor for me\na micro HDMI cable\na new keyboard\nscreen polisher\na 5g wireless network\na better mouse')
-        screen('look in shell\nfor result')
-        moodometer=[1,2,3,4,4,4,5]
-    elif 'bye' in qstn:
-        moodometer=[3,3,3,3,3,3,3,3,3,3,3,5]
     elif qstn == 'nice':
         screen('Thank you')
         moodometer=[1,2,3,4]
@@ -568,16 +553,9 @@ def question(qstn):
     elif 'foot' in qstn:
         screen('you mean the smelly things on the ends of human legs?')
         moodometer=[1,2,3,4,4,4]
-    elif 'command line' in qstn:
-        os.system("lxterminal")
-        moodometer=[1,2,3,4,4,4,4]
     elif 'time' in qstn:
         ntime()
         moodometer=[1,2,3,4,5]
-    elif 'party' in qstn:
-        party()
-        screen('that was fun')
-        moodometer=[1,2,3,4,4,4,4]
     elif 'cold' in qstn:
         screen('thats not good')
         moodometer=[1,2,3,4,4]
@@ -1020,6 +998,7 @@ while True:
             time.sleep(0.05)
             gameypos-=50
             refresh()
+            
         # Set up input box
         elif event.type == pygame.KEYDOWN:
             if event.type == pygame.KEYDOWN:
