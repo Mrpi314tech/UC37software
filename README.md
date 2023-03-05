@@ -1,5 +1,10 @@
 <body style="background-color:lightblue;">
-<img src="https://raw.githubusercontent.com/Mrpi314tech/UC37software/main/images/ad.JPG" alt="AD" width=600>
+<h1>Meet the bunnAIes</h1>
+<h2>UC37software's mascots</h2>
+<div style="display: flex;">
+  <img src="https://raw.githubusercontent.com/Mrpi314tech/UC37software/main/images/ad.JPG" alt="AD" width=600>
+  <img src="https://raw.githubusercontent.com/Mrpi314tech/UC37software/main/images/ad2.JPG" alt="AD" width=200>
+</div>
 <h1>UC37software</h1>
 <a href='http://uc37.mrpi314.com'>Website</a>
 <br>
