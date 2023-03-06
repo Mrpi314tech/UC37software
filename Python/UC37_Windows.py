@@ -235,7 +235,7 @@ def question(qstn):
                 try:
                     if nwcoml[aantt] in qstn.lower():
                         prints("command... ")
-                        os.system(nrunl[aantt])
+                        os.system(nrunl[aantt]+ "&")
                         return
                         break
                     else:
@@ -944,6 +944,7 @@ refresh()
 while True:
     # Tell when/what key is pressed
     keyi=pygame.key.get_pressed()
+    keypressed=False
     # Display time and greeting
     hur=int(dt.now().strftime("%H"))
     minits=int(dt.now().strftime("%M"))
@@ -999,7 +1000,8 @@ while True:
             time.sleep(0.05)
             gameypos-=50
             refresh()
-            
+            spekretno=0
+            keypressed=True
         # Set up input box
         elif event.type == pygame.KEYDOWN:
             if event.type == pygame.KEYDOWN:
@@ -1007,11 +1009,15 @@ while True:
                     user_text = user_text[:-1]
                     if user_text == '':
                         brk =1
+                    keypressed=True
                 elif event.key == pygame.K_RETURN:
                     spekret=1
                     spekretno=0
+                    keypressed=True
+                    brk=1
                 else:
                     user_text += event.unicode
+                    keypressed=True
                 refresh()
                 display_surface.blit(pygame.font.Font('freesansbold.ttf', 30).render(user_text+'              ', True, white), (50, 300))
                 pygame.display.update()
@@ -1071,12 +1077,13 @@ while True:
                 if brk == 1:
                     break
         # Set up buttons
-        if event.type == pygame.QUIT:
+        elif event.type == pygame.QUIT:
             sys.exit()
-        if event.type == pygame.MOUSEBUTTONDOWN or spekret ==1 or event.type == pygame.KEYDOWN:
+        elif keypressed == False and (event.type == pygame.MOUSEBUTTONDOWN or spekret ==1 or event.type == pygame.KEYDOWN):                
             x, y = pygame.mouse.get_pos()
-            if brkbt==True:
+            if brkbt==True or event.type == pygame.KEYDOWN or keypressed==True:
                 brkbt=False
+                break
             elif x >=700 and y <= 35 and not spekret == 1:
                 os.system('xdg-open https://github.com/Mrpi314tech/UC37software &')
             elif x >=400 and x<= 515 and y >= 40 and y <= 100 and not spekret == 1:
@@ -1108,7 +1115,7 @@ while True:
                 os.system('~/UC37software/Bash/UC37terminal ~/UC37_update.sh &')
                 prints('exiting...')
                 exit()
-            elif x >=265 and x<= 340 and y >= 340 or spekret==1 and spekretno ==0 or event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN and spekretno ==0:
+            if x >=265 and x<= 340 and y >= 340 or spekret==1 and spekretno ==0 or event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN and spekretno ==0:
                 # Press button/enter to speak
                 # Reset variables
                 spekret=0
