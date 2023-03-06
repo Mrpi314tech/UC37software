@@ -1,6 +1,10 @@
 <body style="background-color:lightblue;">
-<h1>Chromebook Release!</h1>
-UC37 was just updated so it can run on many more operating systems including chrome os!
+<h1>Meet the bunnAIes</h1>
+<h2>UC37software's mascots</h2>
+<div style="display: flex;">
+  <a href="http://uc37.mrpi314.com" target="_blank"><img src="https://raw.githubusercontent.com/Mrpi314tech/UC37software/main/images/ad.JPG" alt="AD" width=600></a>
+  <a href="http://uc37.mrpi314.com" target="_blank"><img src="https://raw.githubusercontent.com/Mrpi314tech/UC37software/main/images/ad2.JPG" alt="AD2" width=200></a>
+</div>
 <h1>UC37software</h1>
 <a href='http://uc37.mrpi314.com'>Website</a>
 <br>
