@@ -175,7 +175,7 @@ print('Picture stored at UC37software/images')
 os.system("fswebcam -r 1280x720 --no-banner "+username+"/UC37software/images/secure.jpg")
 # Fart
 def stinky():
-    os.system('vlc '+username+'/UC37software/sounds/fart.mp3')
+    os.system('xdg-open '+username+'/UC37software/sounds/fart.mp3')
 # Find weather
 def news():
     global weather
@@ -235,7 +235,7 @@ def question(qstn):
                 try:
                     if nwcoml[aantt] in qstn.lower():
                         prints("command... ")
-                        os.system(nrunl[aantt])
+                        os.system(nrunl[aantt]+ "&")
                         return
                         break
                     else:
@@ -515,10 +515,10 @@ def question(qstn):
         sleep()
         moodometer=[1,2,3,4,5]
     elif 'bomb' in qstn:
-        os.system('vlc '+username+'/UC37software/sounds/explosions.mp3')
+        os.system('xdg-open '+username+'/UC37software/sounds/explosions.mp3')
         moodometer=[1,2,3,4,5]
     elif 'roar' in qstn:
-        os.system('vlc '+username+'/UC37software/sounds/Lion.mp3')
+        os.system('xdg-open '+username+'/UC37software/sounds/Lion.mp3')
         moodometer=[1,2,3,4]
     elif 'calculator' in qstn:
         os.system("xdg-open https://www.google.com/search?q=calculator")
