@@ -1002,6 +1002,12 @@ while True:
             refresh()
             spekretno=0
             keypressed=True
+        elif event.type == pygame.KEYDOWN and event.key == pygame.K_DOWN:
+            break
+        elif event.type == pygame.KEYDOWN and event.key == pygame.K_LEFT:
+            break
+        elif event.type == pygame.KEYDOWN and event.key == pygame.K_RIGHT:
+            break
         # Set up input box
         elif event.type == pygame.KEYDOWN:
             if event.type == pygame.KEYDOWN:
