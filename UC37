@@ -1,2 +1,2 @@
-#!/bin/bash
-python3 ~/UC37software/Python/UC37_Windows.py
+#!/bin/python3
+import Python.UC37_Windows as UC37
