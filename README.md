@@ -44,7 +44,7 @@ Press the picture of him to talk
 <h3>To uninstall</h3>
 <pre><code>~/UC37software/UC37_remove.sh</code></pre>
  <h2>Skills</h2>
-Welcom to skills, the place where you can download abilities to expand UC37's helpfulness. Currently, there are 2 skills, a timer and a program that allowws you to control your kasa tp-link devices. Here is the link to skills:
+Welcome to skills, the place where you can download abilities to expand UC37's helpfulness. Currently, there are 2 skills, a timer and a program that allowws you to control your kasa tp-link devices. Here is the link to skills:
 https://github.com/Mrpi314tech/UC37skills
 <h3>UC37 can:</h3>
 Talk to you
