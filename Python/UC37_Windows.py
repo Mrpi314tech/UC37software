@@ -415,7 +415,7 @@ def question(qstn):
                 saidgtxt=r.recognize_google(audio)
                 saidgtxt=saidgtxt.replace(' ', '+')
         except:
-            pass
+            saidgtxt=" "
         os.system('xdg-open https://www.google.com/search?q='+saidgtxt+' &')
         moodometer=[1,2,3,4,5]
     elif 'I will' in qstn or 'definately' in qstn:
@@ -609,7 +609,19 @@ def question(qstn):
         screen('yep')
         moodometer=[1,2,3,4,5]
     elif 'what' in qstn and not 'whatever' in qstn or 'how' in qstn or'when' in qstn or 'who' in qstn or 'why' in qstn:
-        screen('how should I know?')
+        screen('Would you like me to search that?')
+        try:
+            with sr.Microphone() as source:
+                print('Speak...')
+                r.adjust_for_ambient_noise(source)
+                audio=r.listen(source)
+                saidgtxt=r.recognize_google(audio)
+                saidgtxt=saidgtxt.replace(' ', '+')
+        except:
+            saidgtxt="No"
+        if 'yes' in saidgtxt or 'yeah' in saidgtxt or 'sure' in saidgtxt:
+            qstn=qstn.replace(' ', '+')
+            os.system('xdg-open https://www.google.com/search?q='+qstn+' &')
         moodometer=[1,2,3,4,5]
     elif qstn == 'no' or 'no ' in qstn:
         screen('ok')
@@ -652,7 +664,6 @@ def question(qstn):
         pass
     moodometer.insert(0, mood)
     moodometer.insert(0, mood)
-    moodometer.insert(0, 2)
     moodc=random.choice(moodometer)
     if moodc == 4 or moodc == 1:
         mood = 1
@@ -1074,6 +1085,8 @@ while True:
                                 os.system("~/UC37software/Bash/UC37terminal "+user_text+" &")
                                 user_text=''
                             refresh()
+                        elif event.key == pygame.K_RALT or event.key == pygame.K_LALT or event.key == pygame.K_RCTRL or event.key == pygame.K_LCTRL or event.key == pygame.K_TAB or event.key == pygame.K_ESCAPE:
+                            pass
                         else:
                             user_text += event.unicode
                         # Clear input
