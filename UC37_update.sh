@@ -14,6 +14,8 @@ mv ~/UC37software/Python/skills/install_skills.py ~/skills
 rm -r ~/UC37software/Python/skills
 mv ~/skills ~/UC37software/Python
 mv ~/new_words.py ~/UC37software/Python
+sudo pip install keyboard
+sudo apt-get install wmctrl
 mv ~/info.py ~/UC37software/Welcome
 mv ~/new_com.py ~/UC37software/Python
 mv ~/UC37_update.sh ~/delete_this_file-UC37
