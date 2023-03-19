@@ -1,10 +1,11 @@
 <body style="background-color:lightblue;">
-<h1>Meet the bunnAIes</h1>
-<h2>UC37software's mascots</h2>
-<div style="display: flex;">
-  <a href="http://uc37.mrpi314.com" target="_blank"><img src="https://raw.githubusercontent.com/Mrpi314tech/UC37software/main/images/ad.JPG" alt="AD" width=600></a>
-  <a href="http://uc37.mrpi314.com" target="_blank"><img src="https://raw.githubusercontent.com/Mrpi314tech/UC37software/main/images/ad2.JPG" alt="AD2" width=200></a>
-</div>
+<h1>New Hotkey!</h1>
+Pressing F10 will automatically bring the UC37 window into view, and double tapping it will make him take input.
+<h2>More required packages:</h2>
+Because of recent updates, some new packages will be needed. They can be installed with this command:
+<pre><code>sudo apt-get install xterm
+sudo pip install keyboard
+sudo apt-get install wmctrl</code></pre>
 <h1>UC37software</h1>
 <a href='http://uc37.mrpi314.com'>Website</a>
 <br>
