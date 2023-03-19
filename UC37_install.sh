@@ -30,6 +30,8 @@ pip install pygame
 pip install psutil
 pip install smbus
 pip install pyttsx3
+pip install keyboard
+sudo apt-get install wmctrl
 sudo apt install fswebcam
 sudo apt-get install htop
 echo 'type "y" if it asks you a question: '
