@@ -1139,6 +1139,9 @@ while True:
                 # Reset variables
                 spekret=0
                 spekretno=0
+                # Play sound
+                pygame.mixer.music.load(file_location+"/UC37software/sounds/answer.mp3")
+                pygame.mixer.music.play()
                 # Listen
                 with sr.Microphone() as source:
                     r.adjust_for_ambient_noise(source)
