@@ -1,2 +1,3 @@
-#!/bin/python3
-import Python.UC37_Windows as UC37
+#!/bin/bash
+sudo python3 ~/UC37software/Python/keypressed.py &
+python3 ~/UC37software/UC37.py

@@ -1027,7 +1027,7 @@ while True:
                     if user_text == '':
                         brk =1
                     keypressed=True
-                elif event.key == pygame.K_RETURN:
+                elif event.key == pygame.K_RETURN or event.key == pygame.K_F10:
                     spekret=1
                     spekretno=0
                     keypressed=True
