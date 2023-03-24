@@ -250,7 +250,7 @@ def question(qstn):
             spell(htspl[1])
         except:
             pass
-        moodometer=[1,2,3,4,5]
+        moodometer=[1,2,3,4,5,6]
     elif 'you' in qstn and 'doing' in qstn and 'what' in qstn:
         gtdt()
         moodometer=[1,2,3,4,5]
@@ -325,7 +325,7 @@ def question(qstn):
             screen('killing process '+qstn.replace('kill', ''))
         except IndexError:
             screen('To kill a process say "Kill" and then the process name/PID')
-        moodometer=[1,2,3,4]
+        moodometer=[1,2,3,4,6]
     elif rsponce[0] == 'I feel great!' and 'good' in qstn:
         snl('and how are you?')
         moodometer=[1,2,3,4]
@@ -340,8 +340,7 @@ def question(qstn):
         moodometer=[1,3,4]
     elif 'weather' in qstn and 'how' in qstn or 'temp' in qstn and 'how' in qstn or qstn == 'weather':
         news()
-        moodometer=[1,2,3,4]
-        moodometer=[1,2,3,4]
+        moodometer=[1,2,3,4,6]
     elif 'wrong with you' in qstn:
         screen('first, tell me: whats wrong with YOU?')
         moodometer=[1,3,5,5]
@@ -417,7 +416,7 @@ def question(qstn):
         except:
             saidgtxt=" "
         os.system('xdg-open https://www.google.com/search?q='+saidgtxt+' &')
-        moodometer=[1,2,3,4,5]
+        moodometer=[1,2,3,4,5,6]
     elif 'I will' in qstn or 'definately' in qstn:
         screen('that is good')
         moodometer=[1,2,3,4,4,4,4,4,4,5]
@@ -428,15 +427,6 @@ def question(qstn):
     elif 'chance' in qstn and 'no' in qstn or 'way' in qstn and 'no' in qstn:
         screen('It could\nhappen')
         moodometer=[1,2,3,4,5]
-    elif 'Lions' in qstn:
-        if 'win' in qstn:
-            screen('maybe they will, maybe they wont')
-        else:
-            screen('for some reson they seem to not be able to hold on to the game after the 2nd half')
-            moodometer=[1,3,4,4,5]
-    elif 'rickroll' in qstn:
-        print('https://www.youtube.com/watch?v=sXwaRjU7Tj0')
-        moodometer=[1,2,3,4,4,4,5]
     elif 'hate you' in qstn:
         raise ValueError('You are a bad person so I kicked you out')
     elif 'story' in qstn or 'book' in qstn:
@@ -520,9 +510,6 @@ def question(qstn):
     elif 'roar' in qstn:
         os.system('xdg-open '+username+'/UC37software/sounds/Lion.mp3')
         moodometer=[1,2,3,4]
-    elif 'calculator' in qstn:
-        os.system("xdg-open https://www.google.com/search?q=calculator")
-        moodometer=[1,2,3,4,5]
     elif 'buy' in qstn:
         print('Things to buy:\nan extra large monitor for me\namicro HDMI cable\na new keyboard\nscreen polisher\na 5g wireless network\na better mouse')
         screen('look in shell\nfor result')
@@ -622,7 +609,7 @@ def question(qstn):
         if 'yes' in saidgtxt or 'yeah' in saidgtxt or 'sure' in saidgtxt:
             qstn=qstn.replace(' ', '+')
             os.system('xdg-open https://www.google.com/search?q='+qstn+' &')
-        moodometer=[1,2,3,4,5]
+        moodometer=[1,2,3,4,5,6]
     elif qstn == 'no' or 'no ' in qstn:
         screen('ok')
         moodometer=[1,2,3,4]
@@ -664,6 +651,8 @@ def question(qstn):
         pass
     moodometer.insert(0, mood)
     moodometer.insert(0, mood)
+    if '6' in str(moodometer):
+        moodometer.remove(2)
     moodc=random.choice(moodometer)
     if moodc == 4 or moodc == 1:
         mood = 1
