@@ -609,7 +609,7 @@ def question(qstn):
         if 'yes' in saidgtxt or 'yeah' in saidgtxt or 'sure' in saidgtxt:
             qstn=qstn.replace(' ', '+')
             os.system('xdg-open https://www.google.com/search?q='+qstn+' &')
-        moodometer=[1,2,3,4,5,6]
+        moodometer=[1,2,3,4,6]
     elif qstn == 'no' or 'no ' in qstn:
         screen('ok')
         moodometer=[1,2,3,4]
@@ -643,7 +643,7 @@ def question(qstn):
         moodometer=[1,2,3,4]
     # Determine mood
     global mood
-    if moodometer == [1,2,3,4,5]:
+    if moodometer == [1,2,3,4,5] or moodometer==[1,2,3,4,5,6]:
         moodometer.remove(5)
     try:
         moodometer.remove(4)
