@@ -309,10 +309,12 @@ def question(qstn):
     elif 'you' in qstn and 'said' in qstn:
         screen("no I didn't")
         moodometer=[1,2,3,4]
-    elif 'kill' in qstn or 'till' in qstn:
+    elif 'kill' in qstn or 'till' in qstn or 'close' in qstn:
         if 'till' in qstn:
             screen('assuming you ment "Kill"...')
             qstn=qstn.replace('till', 'kill')
+        elif 'close' in qstn:
+            qstn=qstn.replace('close', 'kill ')
         if '/' in qstn:
             oqstno=qstn.replace('kill', 'kill ')
         else:
