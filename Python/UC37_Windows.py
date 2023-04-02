@@ -177,7 +177,7 @@ os.system("fswebcam -r 1280x720 --no-banner "+username+"/UC37software/images/sec
 def stinky():
     os.system('xdg-open '+username+'/UC37software/sounds/fart.mp3')
 # Find weather
-def news():
+def weather():
     global weather
     global temp
     global sky
@@ -341,7 +341,7 @@ def question(qstn):
         screen('Really?')
         moodometer=[1,3,4]
     elif 'weather' in qstn and 'how' in qstn or 'temp' in qstn and 'how' in qstn or qstn == 'weather':
-        news()
+        weather()
         moodometer=[1,2,3,4,6]
     elif 'wrong with you' in qstn:
         screen('first, tell me: whats wrong with YOU?')
@@ -404,14 +404,11 @@ def question(qstn):
         os.system("fswebcam -r 1280x720 --no-banner "+username+"/Pictures/AI.jpg")
         screen('look in shell\nfor result')
         moodometer=[1,2,3,4,5]
-    elif 'fly' in qstn or 'float' in qstn:
-        drone()
-        moodometer=[1,2,3,4,4,4]
     elif 'Google search' in qstn or 'google search' in qstn:
-        print('search...')
         try:
             with sr.Microphone() as source:
                 r.adjust_for_ambient_noise(source)
+                print('search...')
                 audio=r.listen(source)
                 print('')
                 saidgtxt=r.recognize_google(audio)
@@ -475,9 +472,6 @@ def question(qstn):
     elif 'have' in qstn and 'but' in qstn:
         screen('yes')
         moodometer=[1,2,3,4,4,5]
-    elif 'missle' in qstn:
-        missle()
-        moodometer=[1,2,3,4,5]
     elif 'rock' in qstn and 'paper' in qstn:
         rockpaper()
         moodometer=[1,2,3,4,4,5]
@@ -504,9 +498,6 @@ def question(qstn):
     elif 'welcome' in qstn:
         screen('thanks')
         moodometer=[1,2,3,4,4,4]
-    elif 'sleep' in qstn or 'stop talking' in qstn or 'shut up' in qstn:
-        sleep()
-        moodometer=[1,2,3,4,5]
     elif 'bomb' in qstn:
         os.system('xdg-open '+username+'/UC37software/sounds/explosions.mp3')
         moodometer=[1,2,3,4,5]
@@ -517,15 +508,6 @@ def question(qstn):
         print('Things to buy:\nan extra large monitor for me\namicro HDMI cable\na new keyboard\nscreen polisher\na 5g wireless network\na better mouse')
         screen('look in shell\nfor result')
         moodometer=[1,2,3,4,4,4,5]
-    elif 'dance forever' in qstn:
-        while True:
-            dance()
-            if y_value < 400:
-                break
-        moodometer=[1,2,3,4,4,4,5]
-    elif 'dance' in qstn:
-        dance()
-        moodometer=[1,2,3,4,4,4,4,4,4,4,4,4,5]
     elif qstn == 'nice':
         screen('Thank you')
         moodometer=[1,2,3,4]
@@ -575,20 +557,12 @@ def question(qstn):
     elif 'it is' in qstn:
         screen('yep')
         moodometer=[1,2]
-    elif 'disconnect' in qstn:
-        print('disconnecing wifi')
-        wifi()
-        moodometer=[1,2,3,4,5]
     elif "correct" in qstn:
         screen("I know")
         moodometer=[1,2,3,4]
     elif 'what' in qstn and 'your' in qstn:
         screen("I'm not sure I have one")
         moodometer=[1,2,3,4]
-    elif 'connect' in qstn:
-        print('connecting to Y-PHI')
-        cwifi()
-        moodometer=[1,2,3,4,4,4,5]
     elif 'want' in qstn:
         screen('you want it,\nbut do you need it?')
         moodometer=[1,2,3,4,5,5]
@@ -602,8 +576,8 @@ def question(qstn):
         screen('Would you like me to search that?')
         try:
             with sr.Microphone() as source:
-                print('Speak...')
                 r.adjust_for_ambient_noise(source)
+                print('Speak...')
                 audio=r.listen(source)
                 print('')
                 saidgtxt=r.recognize_google(audio)
@@ -712,8 +686,8 @@ def mquestion(qstn):
 # Define variables for storing the history
 psaid=[]
 wign=[]
-ndef=" "
-nword="wusgfyfhhsugf "
+ndef=""
+nword=""
 rsponce=['']
 crsponce=['']
 AIg = 0
@@ -799,24 +773,6 @@ def joke():
         screen("why can't you trust an atom?")
         time.sleep(2)
         screen("they make up everything")
-# Useless functions
-def missle():
-    screen('pew pew')
-def drone():
-    screen("I'm flying")
-def beep():
-    screen('A')
-def cwifi():
-    cmdl("rfkill unblock wifi")
-def wifi():
-    screen('Voice recognition does not work without wifi, but you can still use the text')
-    cmdl('rfkill block wifi')
-def sleep():
-    screen('I am asleep')
-    time.sleep(1)
-    screen('I am awake')
-def clear_shell():
-    pass
 # Set up functions to print to GUI
 def screen(text):
     if not 'look in shell\nfor result' in text:
@@ -832,9 +788,6 @@ def snl(snlt):
     global jsaid
     crsponce.insert(0, snlt)
     refresh()
-# Print number in GUI
-def number(a,b,c,d):
-    screen(int(a),+int(b),+int(c),+int(d))
 # Function for spelling
 def spell(spl):
     screen('%s is spelled:'%spl)
@@ -862,13 +815,6 @@ def ntime():
         second="0"+str(minute)
     print(str(hour)+":"+str(minute)+":"+str(second))
     speak(str(hour)+":"+str(minute))
-# Dance
-def dance():
-    print('https://scratch.mit.edu/projects/577558298/fullscreen/')
-    for i in range(0,3):
-        for i in range(0,8):
-            screen('     Dance!')
-            time.sleep(0.5)
 # Find any bible verse from an API
 def bible():
     screen('what verse?')
@@ -931,7 +877,6 @@ def print(bpg):
 # Define variables that will be used for different things
 TM_var="TM"
 spekret=0
-clear_shell()
 st=0
 greet='hello, %s' % your_name
 speak(greet)
@@ -1139,7 +1084,7 @@ while True:
                 with sr.Microphone() as source:
                     r.adjust_for_ambient_noise(source)
                     if st == 0:
-                        clear_shell()
+                        
                         st=1
                         past=['z','z','z','z']
                     print('Speak...')
