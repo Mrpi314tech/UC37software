@@ -413,6 +413,7 @@ def question(qstn):
             with sr.Microphone() as source:
                 r.adjust_for_ambient_noise(source)
                 audio=r.listen(source)
+                print('')
                 saidgtxt=r.recognize_google(audio)
                 saidgtxt=saidgtxt.replace(' ', '+')
         except:
@@ -604,6 +605,7 @@ def question(qstn):
                 print('Speak...')
                 r.adjust_for_ambient_noise(source)
                 audio=r.listen(source)
+                print('')
                 saidgtxt=r.recognize_google(audio)
                 saidgtxt=saidgtxt.replace(' ', '+')
         except:
