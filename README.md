@@ -1,6 +1,5 @@
 <body style="background-color:lightblue;">
-<h1>New Hotkey!</h1>
-Pressing F10 will automatically bring the UC37 window into view, and double tapping it will make him take input.
+<h1>UC37software v1.0.2</h1>
 <h2>More required packages:</h2>
 Because of recent updates, some new packages will be needed. They can be installed with this command:
 <pre><code>sudo apt-get install xterm
