@@ -309,6 +309,22 @@ def question(qstn):
     elif 'you' in qstn and 'said' in qstn:
         screen("no I didn't")
         moodometer=[1,2,3,4]
+    elif 'run' in qstn or 'open' in qstn:
+        if 'open' in qstn:
+            qstn=qstn.replace('open ', 'run ')
+        if '/' in qstn:
+            oqstno=qstn.replace('run', 'run ')
+        else:
+            oqstno=qstn
+        try:
+            screen('running command '+qstn.replace('run', ''))
+            os.system((oqstno.split('run ')[1]).replace(' ', '')+' &')
+            os.system((oqstno.split('run ')[1]).replace(' ', '-')+' &')
+            os.system((oqstno.split('run ')[1]).replace(' ', '/')+' &')
+            os.system((oqstno.split('run ')[1])+' &')
+        except IndexError:
+            screen('To run a command, say "run" and then the command')
+        moodometer=[1,2,3,4,6]   
     elif 'kill' in qstn or 'till' in qstn or 'close' in qstn:
         if 'till' in qstn:
             screen('assuming you ment "Kill"...')
@@ -442,6 +458,9 @@ def question(qstn):
         else:
             screen('ok')
             moodometer=[1,2,3,4]
+    elif 'never mind' in qstn or 'nevermind' in qstn:
+        screen('ok')
+        moodometer=[1,2,3,4]
     elif 'born' in qstn or 'old' in qstn:
         screen('I was born\n in 2021')
         moodometer=[1,2,3,4,5]
