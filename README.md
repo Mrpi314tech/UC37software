@@ -1,5 +1,6 @@
 <body style="background-color:lightblue;">
 <h1>UC37software v1.0.2</h1>
+"Control your computer, with your voice."
 <h2>More required packages:</h2>
 Because of recent updates, some new packages will be needed. They can be installed with this command:
 <pre><code>sudo apt-get install xterm
@@ -10,7 +11,7 @@ sudo apt-get install wmctrl</code></pre>
 <br>
 Welcome to UC37 software!
 UC37 is an artificial intelligence program/task manager that acts like a human. He can help out by doing
-things like turn on smart plugs and play music. He also keeps track of your system statistics, and can end unwanted processes just with voice. Installing the app is just 2 MB, but all of the packages is about 800 MB. (The raspberry pi has many of these packages pre-installed.) You can also press the edit button to open websites, run commands, and talk just with your voice!
+things like turn on smart plugs and play music. He also keeps track of your system statistics, and can end unwanted processes just with voice. He can also run commands just with your voice. Installing the app is just 2 MB, but all of the packages is about 800 MB. (The raspberry pi has many of these packages pre-installed.) You can also press the edit button to open websites, run commands, and talk just with your voice!
 <br>
 <br>
 <a href='https://github.com/Mrpi314tech/UC37software/releases/download/v1.0.2/Install.sh'><button>Download Now!</button></a>
