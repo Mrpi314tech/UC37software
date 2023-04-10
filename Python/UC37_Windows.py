@@ -330,7 +330,7 @@ def question(qstn):
             screen('assuming you ment "Kill"...')
             qstn=qstn.replace('till', 'kill')
         elif 'close' in qstn:
-            qstn=qstn.replace('close', 'kill ')
+            qstn=qstn.replace('close', 'kill')
         if '/' in qstn:
             oqstno=qstn.replace('kill', 'kill ')
         else:
