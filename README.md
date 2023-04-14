@@ -17,13 +17,7 @@ things like turn on smart plugs and play music. He also keeps track of your syst
 <a href='https://github.com/Mrpi314tech/UC37software/releases/download/v1.0.3/Install.sh'><button>Download Now!</button></a>
 <br>
 <h3>Parts you need:</h3>
-Computer
-<br>
-microphone
-<br>
-speaker
-<br>
-monitor
+Computer with a Linux based operating system and a microphone
 <br>
 <h3>Step 1:</h3>
 Make a weather account at <a href='http://weatherapi.com'>weatherapi.com</a>  still working on making a new api that is free.
