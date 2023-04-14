@@ -20,13 +20,10 @@ things like turn on smart plugs and play music. He also keeps track of your syst
 Computer with a Linux based operating system and a microphone
 <br>
 <h3>Step 1:</h3>
-Make a weather account at <a href='http://weatherapi.com'>weatherapi.com</a>  still working on making a new api that is free.
-<br>
-<h3>Step 2:</h3>
 First run this command in the command prompt. Make sure you have pip and git installed, and the file is installled in the home directory.
 <br>
 <pre><code>cd ~ && git clone https://github.com/Mrpi314tech/UC37software && chmod +x ~/UC37software/UC37_install.sh && ~/UC37software/UC37_install.sh</code></pre>
-<h3>Step 3:</h3>
+<h3>Step 2:</h3>
 <br>
 Go to the main menu and open the path called "Other" then click the application called UC37. UC37 will wake up!
 <br>
