@@ -20,6 +20,7 @@ things like turn on smart plugs and play music. He also keeps track of your syst
 Computer with a Linux based operating system and a microphone
 <br>
 <h3>Step 1:</h3>
+<h4>You can just press the button above to install it. Make execute the script to install UC37software.</h4>
 First run this command in the command prompt. Make sure you have pip and git installed, and the file is installled in the home directory.
 <br>
 <pre><code>cd ~ && git clone https://github.com/Mrpi314tech/UC37software && chmod +x ~/UC37software/UC37_install.sh && ~/UC37software/UC37_install.sh</code></pre>
