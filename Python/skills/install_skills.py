@@ -31,7 +31,7 @@ elif 'timer' in qstn or 'Timer' in qstn:
     file.write('\nringer="'+ringer+'"')
     file.close()
     nwcoml.append('timer')
-    nrunl.append("lxterminal -e python3 "+file_location+"/UC37software/Python/skills/timer.py &")
+    nrunl.append("~/UC37software/Bash/UC37terminal python3 "+file_location+"/UC37software/Python/skills/timer.py")
     file1 = open(file_location+"/UC37software/Python/new_com.py", "w")
     file1.write("word="+str(nwcoml)+"\ncom="+str(nrunl))
     file1.close()
