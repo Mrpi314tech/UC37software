@@ -1,5 +1,5 @@
 print("Made by Mrpi314tech programming")
-print('Initiate UC37 mode, please wait')
+print('Starting up UC37software... may take a moment')
 # Import modules
 import time
 import os
@@ -394,24 +394,6 @@ def question(qstn):
     elif 'look bad' in qstn or 'look terrible' in qstn:
         screen('Thats not nice')
         moodometer=[5,5,5,5,5,5,5,5,5]
-    elif 'cake' in qstn or 'cookie' in qstn or 'ice cream' in qstn or 'sugar' in qstn or 'pie' in qstn and "eat" in qstn:
-        screen('absolutely not its bad for you')
-        moodometer=[1,2,3,4,4]
-    elif 'Detroit' in qstn:
-        screen('best teams')
-        moodometer=[1,2,2,2,2,2,2,2]
-    elif 'my name' in qstn:
-        screen("My name is UC37")
-        moodometer=[1,2,3,4,5]
-    elif 'ice cream' in qstn and 'eat' in qstn:
-        screen('absolutely not')
-        moodometer=[1,2,3,4,4,5]
-    elif 'candy' in qstn and 'eat' in qstn:
-        screen('absolutely not')
-        moodometer=[1,2,3,4,4,5]
-    elif 'cookie' in qstn and 'eat' in qstn:
-        screen('absolutely not')
-        moodometer=[1,2,3,4,4,5]
     elif "you're" in qstn or "you are" in qstn:
         screen("No I'm not")
         moodometer=[1,2,3]
@@ -525,10 +507,6 @@ def question(qstn):
     elif 'roar' in qstn:
         os.system('xdg-open '+username+'/UC37software/sounds/Lion.mp3')
         moodometer=[1,2,3,4]
-    elif 'buy' in qstn:
-        print('Things to buy:\nan extra large monitor for me\namicro HDMI cable\na new keyboard\nscreen polisher\na 5g wireless network\na better mouse')
-        screen('look in shell\nfor result')
-        moodometer=[1,2,3,4,4,4,5]
     elif qstn == 'nice':
         screen('Thank you')
         moodometer=[1,2,3,4]
@@ -553,12 +531,6 @@ def question(qstn):
     elif 'cold' in qstn:
         screen('thats not good')
         moodometer=[1,2,3,4,4]
-    elif 'lions' in qstn and 'stink' in qstn or 'suck' in qstn or 'bad' in qstn:
-        screen("Well I'm a Lions fan")
-        screen("and if you have a problem")
-        screen("with that, you might as well")
-        screen("delete me.")
-        moodometer=[1,2,3,4]
     elif 'red' in qstn or 'green' in qstn or 'blue' in qstn or 'yellow' in qstn or 'orange' in qstn or 'purple' in qstn or 'pink' in qstn:
         screen('My favorite color is Amaranth')
         moodometer=[1,2,3,4]
