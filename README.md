@@ -44,7 +44,7 @@ https://github.com/Mrpi314tech/UC37skills
 <h3>UC37 can:</h3>
 Talk to you
 <br>
-Tell you the weather-doesn't work properly right now, unless you pay. I am going to fix this soon so don't pay.
+This dose not work at the moment but it will soon: It will tell the weather!
 <br>
 spelling
 <br>
