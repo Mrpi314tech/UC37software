@@ -7,11 +7,6 @@ Because of recent updates, some new packages will be needed. They can be install
 sudo pip install keyboard
 sudo apt-get install wmctrl</code></pre>
 <h1>UC37software</h1>
- 
-
-https://github.com/Mrpi314tech/UC37software/assets/130410073/3d46bf9f-896a-4a36-a385-5af0140b03d3
-
-
 <a href='http://uc37.mrpi314.com'>Website</a>
 <br>
 Welcome to UC37 software!
