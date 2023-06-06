@@ -46,10 +46,10 @@ Talk to you
 <br>
 This dose not work at the moment but it will soon: It will tell the weather!
 <br>
-spelling
+Spelling
 <br>
-calculator
+Calculator
 <br>
-new editor function! add your own commands, words, and downloaded music!
+New editor function! add your own commands, words, and downloaded music!
 <br>
 +lots more!
