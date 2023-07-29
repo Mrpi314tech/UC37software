@@ -882,6 +882,7 @@ spekretno=0
 brkbt=False
 gameypos=330
 refresh()
+f10k=False
 # No longer defining things
 while True:
     # Tell when/what key is pressed
@@ -958,6 +959,9 @@ while True:
                     if user_text == '':
                         brk =1
                     keypressed=True
+                elif event.key == pygame.K_F10:
+                    f10k=True
+                    brk=1
                 elif event.key == pygame.K_RETURN or event.key == pygame.K_F10:
                     spekret=1
                     spekretno=0
@@ -1030,7 +1034,7 @@ while True:
         elif event.type == pygame.QUIT:
             os.system('sudo killall -9 python3')
             sys.exit()
-        elif keypressed == False and (event.type == pygame.MOUSEBUTTONDOWN or spekret ==1 or event.type == pygame.KEYDOWN):                
+        elif f10k==True or keypressed == False and (event.type == pygame.MOUSEBUTTONDOWN or spekret ==1 or event.type == pygame.KEYDOWN):                
             x, y = pygame.mouse.get_pos()
             if brkbt==True or event.type == pygame.KEYDOWN or keypressed==True:
                 brkbt=False
@@ -1067,7 +1071,7 @@ while True:
                 prints('exiting...')
                 os.system('sudo killall -9 python3')
                 exit()
-            if x >=265 and x<= 340 and y >= 340 or spekret==1 and spekretno ==0 or event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN and spekretno ==0:
+            if f10k == True or x >=265 and x<= 340 and y >= 340 or spekret==1 and spekretno ==0 or event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN and spekretno ==0:
                 # Press button/enter to speak
                 # Reset variables
                 spekret=0
@@ -1112,6 +1116,7 @@ while True:
                 history.write('jsaid='+str(jsaid)+"\n"+'rsponce='+str(rsponce)+"\n"+'crsponce='+str(crsponce))
                 history.close()
                 ml=most_frequent(data)
+                f10k=False
     # Reset varaible that senses the enter key
     spekretno=0
     # Update GUI
