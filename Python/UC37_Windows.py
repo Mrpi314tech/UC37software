@@ -410,7 +410,7 @@ def question(qstn):
                 print('')
                 saidgtxt=r.recognize_google(audio)
                 saidgtxt=saidgtxt.replace(' ', '+')
-                saidgtxt=saidgtxt.rplace("'", "")
+                saidgtxt=saidgtxt.rplace("'", "+")
         except:
             saidgtxt=" "
         os.system('xdg-open https://www.google.com/search?q='+saidgtxt+' &')
