@@ -410,7 +410,7 @@ def question(qstn):
                 print('')
                 saidgtxt=r.recognize_google(audio)
                 saidgtxt=saidgtxt.replace(' ', '+')
-                saidgtxt=saidgtxt.rplace("'", "+")
+                saidgtxt=saidgtxt.replace("'", '+')
         except:
             saidgtxt=" "
         os.system('xdg-open https://www.google.com/search?q='+saidgtxt+' &')
@@ -574,6 +574,7 @@ def question(qstn):
             saidgtxt="No"
         if 'yes' in saidgtxt or 'yeah' in saidgtxt or 'sure' in saidgtxt:
             qstn=qstn.replace(' ', '+')
+            qstn=qstn.replace("'", '+')
             os.system('xdg-open https://www.google.com/search?q='+qstn+' &')
         moodometer=[1,2,3,4,6]
     elif qstn == 'no' or 'no ' in qstn:
