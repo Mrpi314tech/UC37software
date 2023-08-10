@@ -358,9 +358,6 @@ def question(qstn):
     elif 'yes' in qstn and data[0] == 2:
         screen('Really?')
         moodometer=[1,3,4]
-    elif 'weather' in qstn and 'how' in qstn or 'temp' in qstn and 'how' in qstn or qstn == 'weather':
-        weather()
-        moodometer=[1,2,3,4,6]
     elif 'wrong with you' in qstn:
         screen('first, tell me: whats wrong with YOU?')
         moodometer=[1,3,5,5]
