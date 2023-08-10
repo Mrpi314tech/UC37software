@@ -495,9 +495,6 @@ def question(qstn):
         print(':)')
         speak('smiles')
         moodometer=[1,2,3,4,4,4,4,4,4,4,4]
-    elif 'eat' in qstn or 'hungry' in qstn:
-        screen('You should eat an apple')
-        moodometer=[1,2,3]
     elif 'welcome' in qstn:
         screen('thanks')
         moodometer=[1,2,3,4,4,4]
