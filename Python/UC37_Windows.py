@@ -326,7 +326,18 @@ def question(qstn):
             os.system((oqstno.split('run ')[1])+' &')
         except IndexError:
             screen('To run a command, say "run" and then the command')
-        moodometer=[1,2,3,4,6]   
+        moodometer=[1,2,3,4,6]
+    elif 'voice' in qstn and 'type' in qstn:
+        r=sr.Recognizer()
+        try:
+            with sr.Microphone() as source:
+                screen('what do you want to type?')
+                r.adjust_for_ambient_noise(source)
+                audio=r.listen(source)
+                saidtxt=r.recognize_google(audio)
+                pr.write(saidtxt)
+        except:
+            pass
     elif 'kill' in qstn or 'till' in qstn or 'close' in qstn:
         if 'till' in qstn:
             screen('assuming you ment "Kill"...')
