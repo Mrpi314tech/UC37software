@@ -1,4 +1,8 @@
 <body style="background-color:lightblue;">
+<h1>Jimbot</h1>
+ Programs evolve. Like most programs, UC37software has evolved too. UC37software is spread out over many repositories, such as UC37-hotword, and UC37-skills. I am happy to announce that these programs have been combined to create a new, improved, and better version of UC37software. It is called Jimbot. I have renamed it because, let's face it, UC37 is not easy to say and has no meaning. From this point on, UC37 will remain open, but edits will no longer be made. Jimbot will continue to grow, and it is strongly encouraged that you use it over this program. I have high hopes for this program, and hope you will like it.
+ <br>
+ <a href='https://github.com/Mrpi314tech/Jimbot'>Jimbot's github repository</a>
 <h1>UC37software v1.0.4</h1>
 "Control your computer, with your voice."
 <h2>More required packages:</h2>
